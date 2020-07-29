@@ -15,4 +15,9 @@ class Perintah_penyelidikan extends Model
     {
         return $this->belongsTo(Surat_terima::class);
     }
+
+    public function permintaan_keterangan()
+    {
+        return $this->hasOne(Permintaan_keterangan::class);
+    }
 }
