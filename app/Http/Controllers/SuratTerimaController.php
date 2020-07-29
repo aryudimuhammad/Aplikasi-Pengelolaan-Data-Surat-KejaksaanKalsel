@@ -12,7 +12,7 @@ class SuratTerimaController extends Controller
     {
         $data = Surat_terima::latest()->get();
 
-        return view('admin.pengelolaan.terima.index', compact('data'));
+        return view('admin.pengelolaan.surat.index', compact('data'));
     }
 
     public function create(Request $request)
