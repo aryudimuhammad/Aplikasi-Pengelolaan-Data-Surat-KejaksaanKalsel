@@ -27,6 +27,24 @@ Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
     //route Dashboard
     Route::get('/admin', 'HomeController@index')->name('dashboard');
 
+    //route Jabatan
+    Route::get('/master/jabatan', 'JabatanController@index')->name('jabatanIndex');
+    Route::post('/master/jabatan', 'JabatanController@create')->name('jabatanCreate');
+    Route::put('/master/jabatan', 'JabatanController@edit')->name('jabatanEdit');
+    Route::delete('/master/jabatan/{id}', 'JabatanController@delete')->name('jabatanDelete');
+
+    //route Pangkat
+    Route::get('/master/pangkat', 'PangkatController@index')->name('pangkatIndex');
+    Route::post('/master/pangkat', 'PangkatController@create')->name('pangkatCreate');
+    Route::put('/master/pangkat', 'PangkatController@edit')->name('pangkatEdit');
+    Route::delete('/master/pangkat/{id}', 'PangkatController@delete')->name('pangkatDelete');
+
+    //route Pegawai
+    Route::get('/master/pegawai', 'PegawaiController@index')->name('pegawaiIndex');
+    Route::post('/master/pegawai', 'PegawaiController@create')->name('pegawaiCreate');
+    Route::put('/master/pegawai', 'PegawaiController@edit')->name('pegawaiEdit');
+    Route::delete('/master/pegawai/{id}', 'PegawaiController@delete')->name('pegawaiDelete');
+
     //route Setting Admin
     Route::get('/admin/setting', 'UserController@settingindex')->name('settingIndex');
     Route::post('/admin/setting', 'UserController@settingedit')->name('settingEdit');

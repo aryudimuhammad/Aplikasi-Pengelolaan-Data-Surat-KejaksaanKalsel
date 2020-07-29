@@ -10,13 +10,13 @@
         <div class="left-custom-menu-adp-wrap">
             <ul class="nav navbar-nav left-sidebar-menu-pro">
                 <li class="nav-item">
-                    <a href="{{route('dashboard')}}" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link"><i class="fa big-icon fa-tachometer"></i> <span class="mini-dn">Dashboard</span></a>
+                    <a href="{{route('dashboard')}}"><i class="fa big-icon fa-tachometer"></i> <span class="mini-dn">Dashboard</span></a>
                 </li>
                 <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-server"></i> <span class="mini-dn">Data Master</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                     <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                        <a href="#" class="dropdown-item">Data</a>
-                        <a href="#" class="dropdown-item">Data</a>
-                        <a href="#" class="dropdown-item">Data</a>
+                        <a href="{{route('jabatanIndex')}}" class="dropdown-item">Data Jabatan</a>
+                        <a href="{{route('pangkatIndex')}}" class="dropdown-item">Data Pangkat</a>
+                        <a href="{{route('pegawaiIndex')}}" class="dropdown-item">Data Pegawai</a>
                     </div>
                 </li>
                 <li class="nav-item"><a href="{{route('settingIndex')}}" role="button" aria-expanded="false" class="nav-link"><i class="fa big-icon fa-cogs"></i> <span class="mini-dn">Setting</span> </a>

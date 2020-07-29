@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('title') Data Master @endsection
+@section('title') Dashboard @endsection
 
 @section('head') @endsection
 
