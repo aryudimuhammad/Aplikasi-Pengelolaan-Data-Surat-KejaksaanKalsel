@@ -19,6 +19,12 @@
                         <a href="{{route('pegawaiIndex')}}" class="dropdown-item">Data Pegawai</a>
                     </div>
                 </li>
+                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-server"></i> <span class="mini-dn">Pengelolaan</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                    <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                        <a href="{{route('terimaIndex')}}" class="dropdown-item">Surat Terima</a>
+                        <a href="{{route('penyelidikanIndex')}}" class="dropdown-item">Perintah Penyilidikan</a>
+                    </div>
+                </li>
                 <li class="nav-item"><a href="{{route('settingIndex')}}" role="button" aria-expanded="false" class="nav-link"><i class="fa big-icon fa-cogs"></i> <span class="mini-dn">Setting</span> </a>
                 </li>
                 <li class="nav-item"><a href="{{route('userIndex')}}" role="button" aria-expanded="false" class="nav-link"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Admin</span> </a>

@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tgl_lahir">Tanggal Lahir</label>
-                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control">
+                        <input type="date" name="tgl_lahir" id="tgl_lahir" value="{{old('tgl_lahir')}}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="jk">Jenis Kelamin</label>

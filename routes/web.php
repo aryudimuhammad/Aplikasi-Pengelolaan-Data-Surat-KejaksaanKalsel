@@ -45,6 +45,18 @@ Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
     Route::put('/master/pegawai', 'PegawaiController@edit')->name('pegawaiEdit');
     Route::delete('/master/pegawai/{id}', 'PegawaiController@delete')->name('pegawaiDelete');
 
+    //route Surat Terima
+    Route::get('/Surat/Terima', 'SuratTerimaController@index')->name('terimaIndex');
+    Route::post('/Surat/Terima', 'SuratTerimaController@create')->name('terimaCreate');
+    Route::put('/Surat/Terima', 'SuratTerimaController@edit')->name('terimaEdit');
+    Route::delete('/Surat/Terima/{id}', 'SuratTerimaController@delete')->name('terimaDelete');
+
+    //route Perintah Penyelidikan
+    Route::get('/perintah/penyelidikan', 'PerintahpenyelidikanController@index')->name('penyelidikanIndex');
+    Route::post('/perintah/penyelidikan', 'PerintahpenyelidikanController@create')->name('penyelidikanCreate');
+    Route::put('/perintah/penyelidikan', 'PerintahpenyelidikanController@edit')->name('penyelidikanEdit');
+    Route::delete('/perintah/penyelidikan/{id}', 'PerintahpenyelidikanController@delete')->name('penyelidikanDelete');
+
     //route Setting Admin
     Route::get('/admin/setting', 'UserController@settingindex')->name('settingIndex');
     Route::post('/admin/setting', 'UserController@settingedit')->name('settingEdit');

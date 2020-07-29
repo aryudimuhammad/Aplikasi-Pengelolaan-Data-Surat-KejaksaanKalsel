@@ -10,4 +10,9 @@ class Surat_terima extends Model
 {
     use Notifiable;
     use Uuid;
+
+    public function Perintah_penyelidikan()
+    {
+        return $this->hasOne(Perintah_penyelidikan::class);
+    }
 }

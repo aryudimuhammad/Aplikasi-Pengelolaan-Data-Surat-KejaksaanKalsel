@@ -10,4 +10,9 @@ class Perintah_penyelidikan extends Model
 {
     use Notifiable;
     use Uuid;
+
+    public function Surat_terima()
+    {
+        return $this->belongsTo(Surat_terima::class);
+    }
 }

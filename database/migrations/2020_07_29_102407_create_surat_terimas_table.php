@@ -18,11 +18,11 @@ class CreateSuratTerimasTable extends Migration
             $table->string('uuid')->length(36);
             $table->string('nama_pelapor');
             $table->string('tempat_lahir');
-            $table->string('agama');
+            $table->enum('agama', ['1', '2', '3', '4', '5', '6']);
             $table->string('kewarganegaraan');
             $table->string('pekerjaan');
             $table->string('alamat');
-            $table->string('kontak');
+            $table->integer('kontak');
             $table->string('uraian');
             $table->timestamps();
         });
