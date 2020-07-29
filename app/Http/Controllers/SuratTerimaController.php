@@ -19,7 +19,7 @@ class SuratTerimaController extends Controller
     {
         $messages = [
             'required' => ':attribute Harus Diisi.',
-            'integer' => ':Nomor Telepon/Kontak Harus Berupa Angka.',
+            'integer' => 'Nomor Telepon/Kontak Harus Berupa Angka.',
         ];
         $validator = Validator::make($request->all(), [
             'nama_pelapor' => 'required',
@@ -54,7 +54,7 @@ class SuratTerimaController extends Controller
     {
         $messages = [
             'required' => ':attribute Harus Diisi.',
-            'integer' => ':Nomor Telepon/Kontak Harus Berupa Angka.',
+            'integer' => 'Nomor Telepon/Kontak Harus Berupa Angka.',
         ];
         $validator = Validator::make($request->all(), [
             'nama_pelapor' => 'required',

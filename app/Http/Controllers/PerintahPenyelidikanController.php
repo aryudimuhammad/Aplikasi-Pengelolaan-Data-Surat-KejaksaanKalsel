@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Pegawai;
 use App\Perintah_penyelidikan;
 use App\Surat_terima;
 use Illuminate\Http\Request;
@@ -13,8 +14,9 @@ class PerintahPenyelidikanController extends Controller
     {
         $data = Perintah_penyelidikan::latest()->get();
         $terima = Surat_terima::get();
+        $pegawai = Pegawai::get();
 
-        return view('admin.pengelolaan.penyelidikan.index', compact('data', 'terima'));
+        return view('admin.pengelolaan.penyelidikan.index', compact('data', 'terima', 'pegawai'));
     }
 
     public function create(Request $request)
@@ -37,6 +39,7 @@ class PerintahPenyelidikanController extends Controller
 
         $data = new Perintah_penyelidikan;
         $data->surat_terima_id = $request->surat_terima_id;
+        $data->pegawai_id = $request->pegawai_id;
         $data->no_penyelidikan = $request->no_penyelidikan;
         $data->pertimbangan = $request->pertimbangan;
         $data->dasar = $request->dasar;
@@ -67,6 +70,7 @@ class PerintahPenyelidikanController extends Controller
 
         $data = Perintah_penyelidikan::find($request->id);
         $data->surat_terima_id = $request->surat_terima_id;
+        $data->pegawai_id = $request->pegawai_id;
         $data->no_penyelidikan = $request->no_penyelidikan;
         $data->pertimbangan = $request->pertimbangan;
         $data->dasar = $request->dasar;

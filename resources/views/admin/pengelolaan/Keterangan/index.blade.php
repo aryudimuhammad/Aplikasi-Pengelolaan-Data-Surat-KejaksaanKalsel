@@ -54,13 +54,12 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="nama_pelapor">Nama Pelapor</th>
-                                        <th data-field="no_penyelidikan">Nomor Penyelidikan</th>
-                                        <th data-field="pertimbangan">Pertimbangan</th>
-                                        <th data-field="dasar">Dasar</th>
-                                        <th data-field="untuk">Untuk</th>
-                                        <th data-field="dikerluarkan_di">Dierluarkan Di</th>
-                                        <th data-field="created_at">Tanggal Dibuat</th>
+                                        <th data-field="nama_pelapor">No.Penyelidikan</th>
+                                        <th data-field="nopol">No.Pol</th>
+                                        <th data-field="perihal">Perihal</th>
+                                        <th data-field="kepada">Kepada</th>
+                                        <th data-field="dikota">Dikota</th>
+                                        <th data-field="detail">Detail Keterangan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -68,17 +67,17 @@
                                     @foreach($data as $d)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$d->surat_terima->nama_pelapor}}</td>
-                                        <td>{{$d->no_penyelidikan}}</td>
-                                        <td>{{$d->pertimbangan}}</td>
-                                        <td>{{$d->dasar}}</td>
-                                        <td>{{$d->untuk}}</td>
-                                        <td>{{$d->dikeluarkan_di}}</td>
-                                        <td>{{Carbon\carbon::parse($d->created_at)->format('d F Y')}}</td>
+                                        <td>{{$d->perintah_penyelidikan->no_penyelidikan}}</td>
+                                        <td>{{$d->no_pol}}</td>
+                                        <td>{{$d->perihal}}</td>
+                                        <td>{{$d->kepada}}</td>
+                                        <td>{{$d->di_kota}}</td>
                                         <td>
-                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" data-id="{{$d->id}}" data-nama_pelapor="{{$d->surat_terima->nama_pelapor}}" data-no_penyelidikan="{{$d->no_penyelidikan}}" data-pertimbangan="{{$d->pertimbangan}}" data-dasar="{{$d->dasar}}" data-untuk="{{$d->untuk}}" data-dikeluarkan_id="{{$d->dikeluarkan_di}}" data-created_at="{{$d->created_at}}" data-toggle="modal" data-target="#modaledit"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
-                                            <a style=" border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i> Delete</a>
                                             <a style=" border-radius: 5px;" class="btn btn-info btn-xs"><i class="fa fa-search" style="color: white;"></i> Detail</a>
+                                        </td>
+                                        <td>
+                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" data-id="{{$d->id}}" data-no_penyelidikan="{{$d->perintah_penyelidikan->no_penyelidikan}}" data-no_pol="{{$d->no_pol}}" data-perihal="{{$d->perihal}}" data-lampiran="{{$d->lampiran}}" data-kepada="{{$d->kepada}}" data-di_kota="{{$d->di_kota}}" data-uraian="{{$d->uraian}}" data-toggle="modal" data-target="#modaledit"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
+                                            <a style=" border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i> Delete</a>
                                         </td>
                                         </td>
                                     </tr>
@@ -93,8 +92,8 @@
     </div>
 </div>
 
-@include('admin.pengelolaan.penyelidikan.create')
-@include('admin.pengelolaan.penyelidikan.edit')
+@include('admin.pengelolaan.keterangan.create')
+@include('admin.pengelolaan.keterangan.edit')
 @endsection
 
 @section('script')
@@ -111,11 +110,23 @@
     $('#modaledit').on('show.bs.modal', function(event) {
         let button = $(event.relatedTarget)
         let id = button.data('id')
-        let jabatan = button.data('jabatan')
+        let no_penyelidikan = button.data('no_penyelidikan')
+        let no_pol = button.data('no_pol')
+        let perihal = button.data('perihal')
+        let lampiran = button.data('lampiran')
+        let kepada = button.data('kepada')
+        let di_kota = button.data('di_kota')
+        let uraian = button.data('uraian')
         let modal = $(this)
 
         modal.find('.modal-body #id').val(id)
-        modal.find('.modal-body #jabatan').val(jabatan);
+        modal.find('.modal-body #no_penyelidikan').val(no_penyelidikan);
+        modal.find('.modal-body #no_pol').val(no_pol);
+        modal.find('.modal-body #perihal').val(perihal);
+        modal.find('.modal-body #lampiran').val(lampiran);
+        modal.find('.modal-body #kepada').val(kepada);
+        modal.find('.modal-body #di_kota').val(di_kota);
+        modal.find('.modal-body #uraian').val(uraian);
     })
 </script>
 

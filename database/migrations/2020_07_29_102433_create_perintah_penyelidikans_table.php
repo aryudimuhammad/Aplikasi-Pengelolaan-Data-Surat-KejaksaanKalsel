@@ -17,6 +17,7 @@ class CreatePerintahPenyelidikansTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('surat_terima_id');
+            $table->unsignedBigInteger('pegawai_id');
             $table->integer('no_penyelidikan');
             $table->string('pertimbangan');
             $table->string('dasar');

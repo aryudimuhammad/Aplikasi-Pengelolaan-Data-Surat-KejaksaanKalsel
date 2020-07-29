@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Ubah Data Jabatan</h3>
+                <h3 class="modal-title">Ubah Data Perintah Penyelidikan</h3>
                 <div class="modal-close-area modal-close-df">
                     <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
                 </div>
@@ -17,6 +17,14 @@
                         <select name="surat_terima_id" id="surat_terima_id" class="form-control">
                             @foreach($terima as $d)
                             <option value="{{$d->id}}" @if (old('surat_terima_id')==$d->id) {{ 'selected' }} @endif>{{$d->nama_pelapor}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pegawai_id">Diperintahkan Kepada</label>
+                        <select name="pegawai_id" id="pegawai_id" class="form-control">
+                            @foreach($pegawai as $d)
+                            <option value="{{$d->id}}" @if (old('pegawai_id')==$d->id) {{ 'selected' }} @endif>{{$d->nama}}</option>
                             @endforeach
                         </select>
                     </div>

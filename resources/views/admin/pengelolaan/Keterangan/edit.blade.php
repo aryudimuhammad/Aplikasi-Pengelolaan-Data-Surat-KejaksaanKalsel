@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Ubah Data Jabatan</h3>
+                <h3 class="modal-title">Ubah Data Permintaan Keterangan</h3>
                 <div class="modal-close-area modal-close-df">
                     <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
                 </div>
@@ -13,32 +13,28 @@
                 <div class="modal-body">
                     <input type="hidden" name="id" id="id">
                     <div class="form-group">
-                        <label for="surat_terima_id">Nama Pelapor</label>
-                        <select name="surat_terima_id" id="surat_terima_id" class="form-control">
-                            @foreach($terima as $d)
-                            <option value="{{$d->id}}" @if (old('surat_terima_id')==$d->id) {{ 'selected' }} @endif>{{$d->nama_pelapor}}</option>
-                            @endforeach
-                        </select>
+                        <label for="no_pol">No.Pol</label>
+                        <input type="text" name="no_pol" id="no_pol" class="form-control" placeholder="Masukkan No Penyelidikan" value="{{old('no_pol')}}">
                     </div>
                     <div class="form-group">
-                        <label for="no_penyelidikan">No Penyelidikan</label>
-                        <input type="number" name="no_penyelidikan" id="no_penyelidikan" class="form-control" placeholder="Masukkan No Penyelidikan" value="{{old('no_penyelidikan')}}">
+                        <label for="lampiran">Lampiran</label>
+                        <input type="text" name="lampiran" id="lampiran" class="form-control" placeholder="Masukkan Pertimbangan" value="{{old('lampiran')}}">
                     </div>
                     <div class="form-group">
-                        <label for="pertimbangan">Pertimbangan</label>
-                        <input type="text" name="pertimbangan" id="pertimbangan" class="form-control" placeholder="Masukkan Pertimbangan" value="{{old('pertimbangan')}}">
+                        <label for="perihal">Perihal</label>
+                        <input type="text" name="perihal" id="perihal" class="form-control" placeholder="Dasar..." value="{{old('perihal')}}">
                     </div>
                     <div class="form-group">
-                        <label for="dasar">Dasar</label>
-                        <input type="text" name="dasar" id="dasar" class="form-control" placeholder="Dasar..." value="{{old('dasar')}}">
+                        <label for="kepada">Kepada</label>
+                        <input type="text" name="kepada" id="kepada" class="form-control" placeholder="Kepada..." value="{{old('kepada')}}">
                     </div>
                     <div class="form-group">
-                        <label for="untuk">Untuk</label>
-                        <input type="text" name="untuk" id="untuk" class="form-control" placeholder="Untuk..." value="{{old('untuk')}}">
+                        <label for="di_kota">Di Kota</label>
+                        <textarea name="di_kota" id="di_kota" class="form-control" placeholder="Di Kota">{{old('di_kota')}}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="dikeluarkan_di">Dikeluarkan di</label>
-                        <textarea name="dikeluarkan_di" id="dikeluarkan_di" class="form-control" placeholder="Dikeluarkan di">{{old('dikeluarkan_di')}}</textarea>
+                        <label for="uraian">Uraian</label>
+                        <textarea name="uraian" id="uraian" class="form-control" placeholder="Uraian">{{old('uraian')}}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

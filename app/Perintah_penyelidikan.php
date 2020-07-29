@@ -20,4 +20,9 @@ class Perintah_penyelidikan extends Model
     {
         return $this->hasOne(Permintaan_keterangan::class);
     }
+
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class);
+    }
 }
