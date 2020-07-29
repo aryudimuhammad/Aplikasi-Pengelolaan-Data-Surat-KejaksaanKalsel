@@ -71,14 +71,14 @@
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$d->nama_pelapor}}</td>
                                         <td>{{$d->tempat_lahir}}</td>
-                                        <td> @if($data->agama == 1) Islam @elseif($data->agama == 2) Kristen Protestan @elseif($data->agama == 3) Katolik @elseif($data->agama == 4) Hindu @elseif($data->agama == 5) Buddha @elseif($data->agama == 5) Kong Hu Cu @endif</td>
+                                        <td> @if($d->agama == 1) Islam @elseif($d->agama == 2) Kristen Protestan @elseif($d->agama == 3) Katolik @elseif($d->agama == 4) Hindu @elseif($d->agama == 5) Buddha @elseif($d->agama == 5) Kong Hu Cu @endif</td>
                                         <td>{{$d->kewarganegaraan}}</td>
                                         <td>{{$d->pekerjaan}}</td>
                                         <td>{{$d->alamat}}</td>
                                         <td>{{$d->kontak}}</td>
                                         <td>{{$d->uraian}}</td>
                                         <td>
-                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" data-id="{{$d->id}}" data-nama_pelapor="{{$d->nama_pelapor}}" data-tempat_lahir="{{$d->tempat_lahir}}" data-agama="{{$d->agama}}" data-kewargenagaraan="{{$d->kewarganegaraan}}" data-pekerjaan="{{$d->pekerjaan}}" data-alamat="{{$d->alamat}}" data-kontak="{{$d->kontak}}" data-uraian="{{$d->uraian}}" data-toggle="modal" data-target="#modaledit"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
+                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" data-id="{{$d->id}}" data-nama_pelapor="{{$d->nama_pelapor}}" data-tempat_lahir="{{$d->tempat_lahir}}" data-agama="{{$d->agama}}" data-kewarganegaraan="{{$d->kewarganegaraan}}" data-pekerjaan="{{$d->pekerjaan}}" data-alamat="{{$d->alamat}}" data-kontak="{{$d->kontak}}" data-uraian="{{$d->uraian}}" data-toggle="modal" data-target="#modaledit"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
                                             <a style=" border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i> Delete</a>
                                         </td>
                                         </td>
