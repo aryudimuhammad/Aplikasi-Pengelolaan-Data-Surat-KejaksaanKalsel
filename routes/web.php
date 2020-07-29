@@ -52,10 +52,40 @@ Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
     Route::delete('/Surat/Terima/{id}', 'SuratTerimaController@delete')->name('terimaDelete');
 
     //route Perintah Penyelidikan
-    Route::get('/perintah/penyelidikan', 'PerintahpenyelidikanController@index')->name('penyelidikanIndex');
-    Route::post('/perintah/penyelidikan', 'PerintahpenyelidikanController@create')->name('penyelidikanCreate');
-    Route::put('/perintah/penyelidikan', 'PerintahpenyelidikanController@edit')->name('penyelidikanEdit');
-    Route::delete('/perintah/penyelidikan/{id}', 'PerintahpenyelidikanController@delete')->name('penyelidikanDelete');
+    Route::get('/perintah/penyelidikan', 'PerintahPenyelidikanController@index')->name('penyelidikanIndex');
+    Route::post('/perintah/penyelidikan', 'PerintahPenyelidikanController@create')->name('penyelidikanCreate');
+    Route::put('/perintah/penyelidikan', 'PerintahPenyelidikanController@edit')->name('penyelidikanEdit');
+    Route::delete('/perintah/penyelidikan/{id}', 'PerintahPenyelidikanController@delete')->name('penyelidikanDelete');
+
+    //route Permintaan Keterangan
+    Route::get('/permintaan/keterangan', 'PermintaanKeteranganController@index')->name('keteranganIndex');
+    Route::post('/permintaan/keterangan', 'PermintaanKeteranganController@create')->name('keteranganCreate');
+    Route::put('/permintaan/keterangan', 'PermintaanKeteranganController@edit')->name('keteranganEdit');
+    Route::delete('/permintaan/keterangan/{id}', 'PermintaanKeteranganController@delete')->name('keteranganDelete');
+
+    //route Hasil Penyelidikan
+    Route::get('/hasil/penyelidikan', 'HasilPenyelidikanController@index')->name('hasilpenyelidikanIndex');
+    Route::post('/hasil/penyelidikan', 'HasilPenyelidikanController@create')->name('hasilpenyelidikanCreate');
+    Route::put('/hasil/penyelidikan', 'HasilPenyelidikanController@edit')->name('hasilpenyelidikanEdit');
+    Route::delete('/hasil/penyelidikan/{id}', 'HasilPenyelidikanController@delete')->name('hasilpenyelidikanDelete');
+
+    //route Panggilan Tersangka
+    Route::get('/panggilan/tersangka', 'PanggilanTersangkaController@index')->name('panggilanIndex');
+    Route::post('/panggilan/tersangka', 'PanggilanTersangkaController@create')->name('panggilanCreate');
+    Route::put('/panggilan/tersangka', 'PanggilanTersangkaController@edit')->name('panggilanEdit');
+    Route::delete('/panggilan/tersangka/{id}', 'PanggilanTersangkaController@delete')->name('hasilpanggilanDelete');
+
+    //route Hasil Penyidikan
+    Route::get('/hasil/penyidikan', 'HasilPenyidikan@index')->name('hasilpenyidikanIndex');
+    Route::post('/hasil/penyidikan', 'HasilPenyidikan@create')->name('hasilpenyidikanCreate');
+    Route::put('/hasil/penyidikan', 'HasilPenyidikan@edit')->name('hasilpenyidikanEdit');
+    Route::delete('/hasil/penyidikan/{id}', 'HasilPenyidikan@delete')->name('hasilpenyidikanDelete');
+
+    //route Putusan Pengadilan
+    Route::get('/putusan/pengadilan', 'HasilPenyidikan@index')->name('putusanIndex');
+    Route::post('/putusan/pengadilan', 'HasilPenyidikan@create')->name('putusanCreate');
+    Route::put('/putusan/pengadilan', 'HasilPenyidikan@edit')->name('putusanEdit');
+    Route::delete('/putusan/pengadilan/{id}', 'HasilPenyidikan@delete')->name('putusanDelete');
 
     //route Setting Admin
     Route::get('/admin/setting', 'UserController@settingindex')->name('settingIndex');

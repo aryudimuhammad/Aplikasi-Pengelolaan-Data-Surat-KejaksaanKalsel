@@ -20,7 +20,7 @@ class CreatePanggilanTersangkasTable extends Migration
             $table->string('nama');
             $table->string('kota');
             $table->date('tgl_dipanggil');
-            $table->timestamps('jam');
+            $table->time('jam');
             $table->string('tempat');
             $table->string('menghadap');
             $table->string('keterangan');
