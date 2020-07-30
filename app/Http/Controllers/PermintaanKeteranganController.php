@@ -21,8 +21,10 @@ class PermintaanKeteranganController extends Controller
     {
         $messages = [
             'required' => ':attribute Harus Diisi.',
+            'unique' => 'Nomor Penyelidikan Sudah ada.'
         ];
         $validator = Validator::make($request->all(), [
+            'perintah_penyelidikan_id' => 'required|unique:permintaan_keterangans',
             'no_pol' => 'required',
             'lampiran' => 'required',
             'perihal' => 'required',
@@ -48,7 +50,15 @@ class PermintaanKeteranganController extends Controller
         return back()->with('success', 'Data Behasil Disimpan.');
     }
 
-    public function edit(Request $request)
+    public function edit($id)
+    {
+        $data = Permintaan_keterangan::where('uuid', $id)->first();
+        $penyelidikan = Perintah_penyelidikan::latest()->get();
+
+        return view('admin.pengelolaan.keterangan.edit', compact('data', 'penyelidikan'));
+    }
+
+    public function update(Request $request, $id)
     {
         $messages = [
             'required' => 'Data Harus Diisi.',
@@ -66,7 +76,7 @@ class PermintaanKeteranganController extends Controller
             return back()->with('warning', $validator->errors()->all()[0])->withInput();
         }
 
-        $data = Permintaan_keterangan::find($request->id);
+        $data = Permintaan_keterangan::where('uuid', $id)->first();
         $data->perintah_penyelidikan_id = $request->perintah_penyelidikan_id;
         $data->no_pol = $request->no_pol;
         $data->lampiran = $request->lampiran;

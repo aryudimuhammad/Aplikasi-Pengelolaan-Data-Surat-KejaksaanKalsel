@@ -24,11 +24,11 @@
                     </div>
                     <div class="form-group">
                         <label for="lampiran">Lampiran</label>
-                        <input type="text" name="lampiran" id="lampiran" class="form-control" placeholder="Masukkan Pertimbangan" value="{{old('lampiran')}}">
+                        <input type="text" name="lampiran" id="lampiran" class="form-control" placeholder="Masukkan Lampiran" value="{{old('lampiran')}}">
                     </div>
                     <div class="form-group">
                         <label for="perihal">Perihal</label>
-                        <input type="text" name="perihal" id="perihal" class="form-control" placeholder="Dasar..." value="{{old('perihal')}}">
+                        <input type="text" name="perihal" id="perihal" class="form-control" placeholder="Masukkan Perihal" value="{{old('perihal')}}">
                     </div>
                     <div class="form-group">
                         <label for="kepada">Kepada</label>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label for="uraian">Uraian</label>
-                        <textarea name="uraian" id="uraian" class="form-control" placeholder="Uraian">{{old('uraian')}}</textarea>
+                        <textarea name="uraian" id="summernote1" class="form-control" placeholder="Uraian">{{old('uraian')}}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

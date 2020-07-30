@@ -20,8 +20,8 @@ class CreatePerintahPenyelidikansTable extends Migration
             $table->unsignedBigInteger('pegawai_id');
             $table->integer('no_penyelidikan');
             $table->string('pertimbangan');
-            $table->string('dasar');
-            $table->string('untuk');
+            $table->text('dasar');
+            $table->text('untuk');
             $table->string('dikeluarkan_di');
             $table->timestamps();
         });

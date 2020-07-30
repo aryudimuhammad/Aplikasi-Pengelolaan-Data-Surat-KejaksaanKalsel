@@ -1,7 +1,9 @@
 @extends('layouts.admin.app')
 
 @section('title') Pengelolaan Permintaan Keterangan @endsection
-
+@section('head')
+<link rel="stylesheet" href="{{url('template/css/summernote.css')}}">
+@endsection
 @section('content')
 <!-- Breadcome start-->
 <div class="breadcome-area mg-b-30 small-dn">
@@ -58,8 +60,6 @@
                                         <th data-field="nopol">No.Pol</th>
                                         <th data-field="perihal">Perihal</th>
                                         <th data-field="kepada">Kepada</th>
-                                        <th data-field="dikota">Dikota</th>
-                                        <th data-field="detail">Detail Keterangan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -71,12 +71,9 @@
                                         <td>{{$d->no_pol}}</td>
                                         <td>{{$d->perihal}}</td>
                                         <td>{{$d->kepada}}</td>
-                                        <td>{{$d->di_kota}}</td>
                                         <td>
-                                            <a style=" border-radius: 5px;" class="btn btn-info btn-xs"><i class="fa fa-search" style="color: white;"></i> Detail</a>
-                                        </td>
-                                        <td>
-                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" data-id="{{$d->id}}" data-no_penyelidikan="{{$d->perintah_penyelidikan->no_penyelidikan}}" data-no_pol="{{$d->no_pol}}" data-perihal="{{$d->perihal}}" data-lampiran="{{$d->lampiran}}" data-kepada="{{$d->kepada}}" data-di_kota="{{$d->di_kota}}" data-uraian="{{$d->uraian}}" data-toggle="modal" data-target="#modaledit"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
+                                            <a style=" border-radius: 5px;" class="btn btn-info btn-xs" href="{{route('keteranganShow',['id' => $d->uuid])}}"><i class="fa fa-search" style="color: white;"></i> Detail</a>
+                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" href="{{route('keteranganEdit',['id' => $d->uuid])}}"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
                                             <a style=" border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i> Delete</a>
                                         </td>
                                         </td>
@@ -91,9 +88,7 @@
         </div>
     </div>
 </div>
-
 @include('admin.pengelolaan.keterangan.create')
-@include('admin.pengelolaan.keterangan.edit')
 @endsection
 
 @section('script')
@@ -105,30 +100,8 @@
 <script src="{{url('template/js/data-table/bootstrap-table-resizable.js')}}"></script>
 <script src="{{url('template/js/data-table/colResizable-1.5.source.js')}}"></script>
 <script src="{{url('template/js/data-table/bootstrap-table-export.js')}}"></script>
-
-<script>
-    $('#modaledit').on('show.bs.modal', function(event) {
-        let button = $(event.relatedTarget)
-        let id = button.data('id')
-        let no_penyelidikan = button.data('no_penyelidikan')
-        let no_pol = button.data('no_pol')
-        let perihal = button.data('perihal')
-        let lampiran = button.data('lampiran')
-        let kepada = button.data('kepada')
-        let di_kota = button.data('di_kota')
-        let uraian = button.data('uraian')
-        let modal = $(this)
-
-        modal.find('.modal-body #id').val(id)
-        modal.find('.modal-body #no_penyelidikan').val(no_penyelidikan);
-        modal.find('.modal-body #no_pol').val(no_pol);
-        modal.find('.modal-body #perihal').val(perihal);
-        modal.find('.modal-body #lampiran').val(lampiran);
-        modal.find('.modal-body #kepada').val(kepada);
-        modal.find('.modal-body #di_kota').val(di_kota);
-        modal.find('.modal-body #uraian').val(uraian);
-    })
-</script>
+<script src="{{url('template/js/summernote.min.js')}}"></script>
+<script src="{{url('template/js/summernote-active.js')}}"></script>
 
 <script>
     $(document).on('click', '.delete', function(e) {
@@ -145,7 +118,7 @@
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "{{url('/master/jabatan')}}" + '/' + id,
+                    url: "{{url('/permintaan/keterangan/delete')}}" + '/' + id,
                     type: "POST",
                     data: {
                         '_method': 'DELETE',

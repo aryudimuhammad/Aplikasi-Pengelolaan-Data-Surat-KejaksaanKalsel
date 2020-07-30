@@ -1,7 +1,9 @@
 @extends('layouts.admin.app')
 
 @section('title') Pengelolaan Perintah Penyelidikan @endsection
-
+@section('head')
+<link rel="stylesheet" href="{{url('template/css/summernote.css')}}">
+@endsection
 @section('content')
 <!-- Breadcome start-->
 <div class="breadcome-area mg-b-30 small-dn">
@@ -58,7 +60,6 @@
                                         <th data-field="no_penyelidikan">Nomor Penyelidikan</th>
                                         <th data-field="pegawai_id">Kepada</th>
                                         <th data-field="created_at">Tanggal Dibuat</th>
-                                        <th>Detail Penyelidikan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -71,10 +72,8 @@
                                         <td>{{$d->pegawai->nama}}</td>
                                         <td>{{Carbon\carbon::parse($d->created_at)->format('d F Y')}}</td>
                                         <td>
-                                            <a style=" border-radius: 5px;" class="btn btn-info btn-xs"><i class="fa fa-search" style="color: white;"></i> Detail</a>
-                                        </td>
-                                        <td>
-                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" data-id="{{$d->id}}" data-surat_terima_id="{{$d->surat_terima->nama_pelapor}}" data-no_penyelidikan="{{$d->no_penyelidikan}}" data-toggle="modal" data-target="#modaledit"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
+                                            <a style=" border-radius: 5px;" class="btn btn-info btn-xs" href="{{route('penyelidikanShow',['id' => $d->uuid])}}"><i class="fa fa-search" style="color: white;"></i> Lihat</a>
+                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" href="{{route('penyelidikanEdit',['id' => $d->uuid])}}"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
                                             <a style=" border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i> Delete</a>
                                         </td>
                                         </td>
@@ -91,7 +90,6 @@
 </div>
 
 @include('admin.pengelolaan.penyelidikan.create')
-@include('admin.pengelolaan.penyelidikan.edit')
 @endsection
 
 @section('script')
@@ -103,6 +101,8 @@
 <script src="{{url('template/js/data-table/bootstrap-table-resizable.js')}}"></script>
 <script src="{{url('template/js/data-table/colResizable-1.5.source.js')}}"></script>
 <script src="{{url('template/js/data-table/bootstrap-table-export.js')}}"></script>
+<script src="{{url('template/js/summernote.min.js')}}"></script>
+<script src="{{url('template/js/summernote-active.js')}}"></script>
 
 <script>
     $('#modaledit').on('show.bs.modal', function(event) {
@@ -133,7 +133,7 @@
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "{{url('/master/jabatan')}}" + '/' + id,
+                    url: "{{url('/perintah/penyelidikan/delete')}}" + '/' + id,
                     type: "POST",
                     data: {
                         '_method': 'DELETE',

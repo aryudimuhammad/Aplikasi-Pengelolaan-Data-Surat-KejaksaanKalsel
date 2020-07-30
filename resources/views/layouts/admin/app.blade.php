@@ -34,6 +34,7 @@
     <!-- normalize CSS
     ============================================ -->
     <link rel="stylesheet" href="{{url('template/css/normalize.css')}}">
+    @yield('head')
     <!-- modals CSS
 		============================================ -->
     <link rel="stylesheet" href="{{url('template/css/modals.css')}}">
@@ -41,11 +42,6 @@
         ============================================ -->
     <link rel="stylesheet" href="{{url('template/css/data-table/bootstrap-table.css')}}">
     <link rel="stylesheet" href="{{url('template/css/data-table/bootstrap-editable.css')}}">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{url('template/css/normalize.css')}}">
-    <!-- charts CSS
-		============================================ -->
     <link rel="stylesheet" href="{{url('template/css/c3.min.css')}}">
     <!-- style CSS
 		============================================ -->
@@ -57,7 +53,6 @@
 		============================================ -->
     <script src="{{url('template/js/vendor/modernizr-2.8.3.min.js')}}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    @yield('head')
 </head>
 
 <body class="materialdesign">
@@ -157,9 +152,9 @@
     <script src="{{url('template/js/counterup/waypoints.min.js')}}"></script>
     <!-- peity JS
 		============================================ -->
+    @yield('script')
     <script src="{{url('vendor/sweetalert/sweetalert.all.js')}}"></script>
     <script src="{{url('template/js/main.js')}}"></script>
-    @yield('script')
 
 
 </body>

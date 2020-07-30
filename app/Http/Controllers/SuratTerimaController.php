@@ -50,7 +50,14 @@ class SuratTerimaController extends Controller
         return back()->with('success', 'Data Behasil Disimpan.');
     }
 
-    public function edit(Request $request)
+    public function edit($id)
+    {
+        $data = Surat_terima::where('uuid', $id)->first();
+
+        return view('admin.pengelolaan.surat.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
     {
         $messages = [
             'required' => ':attribute Harus Diisi.',
@@ -71,7 +78,7 @@ class SuratTerimaController extends Controller
             return back()->with('warning', $validator->errors()->all()[0])->withInput();
         }
 
-        $data = Surat_terima::find($request->id);
+        $data = Surat_terima::where('uuid', $id)->first();
         $data->nama_pelapor = $request->nama_pelapor;
         $data->tempat_lahir = $request->tempat_lahir;
         $data->agama = $request->agama;

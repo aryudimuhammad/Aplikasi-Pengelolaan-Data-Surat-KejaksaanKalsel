@@ -36,11 +36,11 @@
                     </div>
                     <div class="form-group">
                         <label for="dasar">Dasar</label>
-                        <input type="text" name="dasar" id="dasar" class="form-control" placeholder="Dasar..." value="{{old('dasar')}}">
+                        <textarea name="dasar" id="summernote1" class="form-control">{{old('dasar')}}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="untuk">Untuk</label>
-                        <input type="text" name="untuk" id="untuk" class="form-control" placeholder="Untuk..." value="{{old('untuk')}}">
+                        <textarea name="untuk" id="summernote2" class="form-control">{{old('untuk')}}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="dikeluarkan_di">Dikeluarkan di</label>

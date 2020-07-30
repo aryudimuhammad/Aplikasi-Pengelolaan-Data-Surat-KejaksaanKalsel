@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <label for="uraian">Uraian</label>
-                        <textarea name="uraian" id="uraian" class="form-control" placeholder="Masukkan Uraian">{{old('uraian')}}</textarea>
+                        <textarea name="uraian" id="summernote1" class="form-control" placeholder="Masukkan Uraian">{{old('uraian')}}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

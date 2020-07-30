@@ -21,9 +21,9 @@ class CreateSuratTerimasTable extends Migration
             $table->enum('agama', ['1', '2', '3', '4', '5', '6']);
             $table->string('kewarganegaraan');
             $table->string('pekerjaan');
-            $table->string('alamat');
+            $table->text('alamat');
             $table->integer('kontak');
-            $table->string('uraian');
+            $table->text('uraian');
             $table->timestamps();
         });
     }

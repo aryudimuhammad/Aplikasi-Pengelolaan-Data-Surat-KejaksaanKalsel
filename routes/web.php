@@ -48,20 +48,25 @@ Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
     //route Surat Terima
     Route::get('/Surat/Terima', 'SuratTerimaController@index')->name('terimaIndex');
     Route::post('/Surat/Terima', 'SuratTerimaController@create')->name('terimaCreate');
-    Route::put('/Surat/Terima', 'SuratTerimaController@edit')->name('terimaEdit');
-    Route::delete('/Surat/Terima/{id}', 'SuratTerimaController@delete')->name('terimaDelete');
+    Route::delete('/Surat/Delete/{id}', 'SuratTerimaController@delete')->name('terimaDelete');
+    Route::get('/Surat/Terima/{id}', 'SuratTerimaController@edit')->name('terimaEdit');
+    Route::post('/Surat/Terima/{id}', 'SuratTerimaController@update')->name('terimaUpdate');
 
     //route Perintah Penyelidikan
     Route::get('/perintah/penyelidikan', 'PerintahPenyelidikanController@index')->name('penyelidikanIndex');
     Route::post('/perintah/penyelidikan', 'PerintahPenyelidikanController@create')->name('penyelidikanCreate');
-    Route::put('/perintah/penyelidikan', 'PerintahPenyelidikanController@edit')->name('penyelidikanEdit');
-    Route::delete('/perintah/penyelidikan/{id}', 'PerintahPenyelidikanController@delete')->name('penyelidikanDelete');
+    Route::get('/perintah/penyelidikan/show/{id}', 'PerintahPenyelidikanController@show')->name('penyelidikanShow');
+    Route::get('/perintah/penyelidikan/{id}', 'PerintahPenyelidikanController@edit')->name('penyelidikanEdit');
+    Route::post('/perintah/penyelidikan/{id}', 'PerintahPenyelidikanController@update')->name('penyelidikanUpdate');
+    Route::delete('/perintah/penyelidikan/delete/{id}', 'PerintahPenyelidikanController@delete')->name('penyelidikanDelete');
 
     //route Permintaan Keterangan
     Route::get('/permintaan/keterangan', 'PermintaanKeteranganController@index')->name('keteranganIndex');
     Route::post('/permintaan/keterangan', 'PermintaanKeteranganController@create')->name('keteranganCreate');
-    Route::put('/permintaan/keterangan', 'PermintaanKeteranganController@edit')->name('keteranganEdit');
-    Route::delete('/permintaan/keterangan/{id}', 'PermintaanKeteranganController@delete')->name('keteranganDelete');
+    Route::get('/permintaan/keterangan/show/{id}', 'PermintaanKeteranganController@show')->name('keteranganShow');
+    Route::get('/permintaan/keterangan/{id}', 'PermintaanKeteranganController@edit')->name('keteranganEdit');
+    Route::post('/permintaan/keterangan/{id}', 'PermintaanKeteranganController@update')->name('keteranganUpdate');
+    Route::delete('/permintaan/keterangan/delete/{id}', 'PermintaanKeteranganController@delete')->name('keteranganDelete');
 
     //route Hasil Penyelidikan
     Route::get('/hasil/penyelidikan', 'HasilPenyelidikanController@index')->name('hasilpenyelidikanIndex');

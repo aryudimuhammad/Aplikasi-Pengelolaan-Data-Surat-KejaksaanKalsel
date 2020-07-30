@@ -50,14 +50,22 @@ class PerintahPenyelidikanController extends Controller
         return back()->with('success', 'Data Behasil Disimpan.');
     }
 
-    public function edit(Request $request)
+    public function edit($id)
+    {
+        $data = Perintah_penyelidikan::where('uuid', $id)->first();
+        $terima = Surat_terima::get();
+        $pegawai = Pegawai::get();
+
+        return view('admin.pengelolaan.penyelidikan.edit', compact('data', 'terima', 'pegawai'));
+    }
+
+    public function update(Request $request, $id)
     {
         $messages = [
             'required' => ':attribute Harus Diisi.',
-            'unique' => 'Nomor Penyelidikan Sudah ada.'
         ];
         $validator = Validator::make($request->all(), [
-            'no_penyelidikan' => 'required|unique:perintah_penyelidikans',
+            'no_penyelidikan' => 'required',
             'pertimbangan' => 'required',
             'dasar' => 'required',
             'untuk' => 'required',
@@ -68,7 +76,7 @@ class PerintahPenyelidikanController extends Controller
             return back()->with('warning', $validator->errors()->all()[0])->withInput();
         }
 
-        $data = Perintah_penyelidikan::find($request->id);
+        $data = Perintah_penyelidikan::where('uuid', $id)->first();
         $data->surat_terima_id = $request->surat_terima_id;
         $data->pegawai_id = $request->pegawai_id;
         $data->no_penyelidikan = $request->no_penyelidikan;
