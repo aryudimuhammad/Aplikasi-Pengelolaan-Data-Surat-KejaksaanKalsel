@@ -17,12 +17,12 @@ class CreateHasilPenyidikansTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('panggilan_tersangka_id');
-            $table->integer('nomor_surat');
+            $table->string('nomor_surat');
             $table->string('klasifikasi');
             $table->string('perihal');
             $table->string('kepada');
             $table->string('dikeluarkan_di');
-            $table->string('uraian');
+            $table->text('uraian');
             $table->timestamps();
         });
     }

@@ -27,6 +27,7 @@
                         <a href="{{route('hasilpenyelidikanIndex')}}" class="dropdown-item">Hasil Penyelidikan</a>
                         <a href="{{route('perintahpenyidikanIndex')}}" class="dropdown-item">Perintah Penyidikan</a>
                         <a href="{{route('panggilanIndex')}}" class="dropdown-item">Panggilan Tersangka</a>
+                        <a href="{{route('hasilpenyidikanIndex')}}" class="dropdown-item">Hasil Penyidikan</a>
                     </div>
                 </li>
                 <li class="nav-item"><a href="{{route('settingIndex')}}" role="button" aria-expanded="false" class="nav-link"><i class="fa big-icon fa-cogs"></i> <span class="mini-dn">Setting</span> </a>

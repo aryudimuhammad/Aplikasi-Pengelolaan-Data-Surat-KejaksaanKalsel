@@ -93,16 +93,20 @@ Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
     Route::delete('/panggilan/tersangka/delete/{id}', 'PanggilanTersangkaController@delete')->name('hasilpanggilanDelete');
 
     //route Hasil Penyidikan
-    Route::get('/hasil/penyidikan', 'HasilPenyidikan@index')->name('hasilpenyidikanIndex');
-    Route::post('/hasil/penyidikan', 'HasilPenyidikan@create')->name('hasilpenyidikanCreate');
-    Route::put('/hasil/penyidikan', 'HasilPenyidikan@edit')->name('hasilpenyidikanEdit');
-    Route::delete('/hasil/penyidikan/{id}', 'HasilPenyidikan@delete')->name('hasilpenyidikanDelete');
+    Route::get('/hasil/penyidikan', 'HasilPenyidikanController@index')->name('hasilpenyidikanIndex');
+    Route::post('/hasil/penyidikan', 'HasilPenyidikanController@create')->name('hasilpenyidikanCreate');
+    Route::get('/hasil/penyidikan/show/{id}', 'HasilPenyidikanController@show')->name('hasilpenyidikanShow');
+    Route::get('/hasil/penyidikan/{id}', 'HasilPenyidikanController@edit')->name('hasilpenyidikanEdit');
+    Route::post('/hasil/penyidikan/{id}', 'HasilPenyidikanController@update')->name('hasilpenyidikanUpdate');
+    Route::delete('/hasil/penyidikan/delete/{id}', 'HasilPenyidikanController@delete')->name('hasilpenyidikanDelete');
 
     //route Putusan Pengadilan
-    Route::get('/putusan/pengadilan', 'HasilPenyidikan@index')->name('putusanIndex');
-    Route::post('/putusan/pengadilan', 'HasilPenyidikan@create')->name('putusanCreate');
-    Route::put('/putusan/pengadilan', 'HasilPenyidikan@edit')->name('putusanEdit');
-    Route::delete('/putusan/pengadilan/{id}', 'HasilPenyidikan@delete')->name('putusanDelete');
+    Route::get('/putusan/pengadilan', 'PutusanPengadilanController@index')->name('putusanIndex');
+    Route::post('/putusan/pengadilan', 'PutusanPengadilanController@create')->name('putusanCreate');
+    Route::get('/putusan/pengadilan/show/{id]', 'PutusanPengadilanController@show')->name('putusanShow');
+    Route::get('/putusan/pengadilan/{id]', 'PutusanPengadilanController@edit')->name('putusanEdit');
+    Route::post('/putusan/pengadilan/{id}', 'PutusanPengadilanController@update')->name('putusanUpdate');
+    Route::delete('/putusan/pengadilan/{id}', 'PutusanPengadilanController@delete')->name('putusanDelete');
 
     //route Setting Admin
     Route::get('/admin/setting', 'UserController@settingindex')->name('settingIndex');

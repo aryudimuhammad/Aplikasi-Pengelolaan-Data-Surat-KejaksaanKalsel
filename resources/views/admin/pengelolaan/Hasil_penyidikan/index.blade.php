@@ -1,7 +1,9 @@
 @extends('layouts.admin.app')
 
-@section('title') Pengelolaan Perintah Penyelidikan @endsection
-
+@section('title') Pengelolaan Hasil Penyidikan @endsection
+@section('head')
+<link rel="stylesheet" href="{{url('template/css/summernote.css')}}">
+@endsection
 @section('content')
 <!-- Breadcome start-->
 <div class="breadcome-area mg-b-30 small-dn">
@@ -12,14 +14,14 @@
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="breadcome-heading">
-                                <h1>Perintah Penyelidikan</h1>
+                                <h1>Hasil Penyidikan</h1>
                             </div>
                         </div>
                         <div class="col-lg-7">
                             <ul class="breadcome-menu">
                                 <li><a href="{{route('dashboard')}}">Home</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><span class="bread-blod">Perintah Penyelidikan</span>
+                                <li><span class="bread-blod">Hasil Penyidikan</span>
                                 </li>
                             </ul>
                         </div>
@@ -38,7 +40,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Perintah Penyelidikan</h1>
+                            <h1>Hasil Penyidikan</h1>
                             <div class="sparkline13-outline-icon">
                                 <button type="button" class="btn btn-primary color-white" data-toggle="modal" data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
                                 </button>
@@ -54,12 +56,11 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="no_pol">No.Pol</th>
-                                        <th data-field="pertimbangan">Pertimbangan</th>
-                                        <th data-field="dasar">Dasar</th>
-                                        <th data-field="untuk">Untuk</th>
-                                        <th data-field="dikerluarkan_di">Dierluarkan Di</th>
-                                        <th data-field="created_at">Tanggal Dibuat</th>
+                                        <th data-field="panggilan_tersangka_id">Nama Tersangka</th>
+                                        <th data-field="nomor_surat">Nomor Surat</th>
+                                        <th data-field="klasifikasi">Klasifikasi</th>
+                                        <th data-field="perihal">Perihal</th>
+                                        <th data-field="kepada">Kepada</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -67,16 +68,15 @@
                                     @foreach($data as $d)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$d->hasil_penyelidikan->no_pol}}</td>
-                                        <td>{{$d->pertimbangan}}</td>
-                                        <td>{{$d->dasar}}</td>
-                                        <td>{{$d->untuk}}</td>
-                                        <td>{{$d->dikeluarkan_di}}</td>
-                                        <td>{{Carbon\carbon::parse($d->created_at)->format('d F Y')}}</td>
+                                        <td>{{$d->panggilan_tersangka->nama}}</td>
+                                        <td>{{$d->nomor_surat}}</td>
+                                        <td>{{$d->klasifikasi}}</td>
+                                        <td>{{$d->perihal}}</td>
+                                        <td>{{$d->kepada}}</td>
                                         <td>
-                                            <a style=" border-radius: 5px;" class="btn btn-info btn-xs" href="{{route('hasilpenyidikanShow',['id' => $d->uuid])}}"><i class="fa fa-search" style="color: white;"></i> Lihat</a>
+                                            <a style="border-radius: 5px;" class="btn btn-info btn-xs" href="{{route('hasilpenyidikanShow',['id' => $d->uuid])}}"><i class="fa fa-search" style="color: white;"></i> Lihat</a>
                                             <a style="border-radius: 5px;" class="btn btn-warning btn-xs" href="{{route('hasilpenyidikanEdit',['id' => $d->uuid])}}"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
-                                            <a style=" border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i> Delete</a>
+                                            <a style="border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i> Delete</a>
                                         </td>
                                         </td>
                                     </tr>
@@ -91,7 +91,7 @@
     </div>
 </div>
 
-@include('admin.pengelolaan.penyelidikan.create')
+@include('admin.pengelolaan.hasil_penyidikan.create')
 @endsection
 
 @section('script')
@@ -103,6 +103,8 @@
 <script src="{{url('template/js/data-table/bootstrap-table-resizable.js')}}"></script>
 <script src="{{url('template/js/data-table/colResizable-1.5.source.js')}}"></script>
 <script src="{{url('template/js/data-table/bootstrap-table-export.js')}}"></script>
+<script src="{{url('template/js/summernote.min.js')}}"></script>
+<script src="{{url('template/js/summernote-active.js')}}"></script>
 
 <script>
     $(document).on('click', '.delete', function(e) {
@@ -119,7 +121,7 @@
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "{{url('/master/jabatan')}}" + '/' + id,
+                    url: "{{url('/hasil/penyidikan/delete')}}" + '/' + id,
                     type: "POST",
                     data: {
                         '_method': 'DELETE',
