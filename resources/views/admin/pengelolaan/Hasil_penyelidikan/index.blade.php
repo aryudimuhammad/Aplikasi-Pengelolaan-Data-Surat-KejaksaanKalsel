@@ -56,7 +56,7 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="permintaan_keterangan_id">Perihal</th>
+                                        <th data-field="permintaan_keterangan_id">Perihal Keterangan</th>
                                         <th data-field="no_pol">No.Pol</th>
                                         <th data-field="isi_surat">Isi Surat</th>
                                         <th>Action</th>

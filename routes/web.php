@@ -76,6 +76,14 @@ Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
     Route::post('/hasil/penyelidikan/{id}', 'HasilPenyelidikanController@update')->name('hasilpenyelidikanUpdate');
     Route::delete('/hasil/penyelidikan/delete/{id}', 'HasilPenyelidikanController@delete')->name('hasilpenyelidikanDelete');
 
+    //route Perintah Penyidikan
+    Route::get('/perintah/penyidikan', 'PerintahPenyidikanController@index')->name('perintahpenyidikanIndex');
+    Route::post('/perintah/penyidikan', 'PerintahPenyidikanController@create')->name('perintahpenyidikanCreate');
+    Route::get('/perintah/penyidikan/show/{id}', 'PerintahPenyidikanController@show')->name('perintahpenyidikanShow');
+    Route::get('/perintah/penyidikan/{id}', 'PerintahPenyidikanController@edit')->name('perintahpenyidikanEdit');
+    Route::post('/perintah/penyidikan/{id}', 'PerintahPenyidikanController@update')->name('perintahpenyidikanUpdate');
+    Route::delete('/perintah/penyidikan/delete/{id}', 'PerintahPenyidikanController@delete')->name('perintahpenyidikanDelete');
+
     //route Panggilan Tersangka
     Route::get('/panggilan/tersangka', 'PanggilanTersangkaController@index')->name('panggilanIndex');
     Route::post('/panggilan/tersangka', 'PanggilanTersangkaController@create')->name('panggilanCreate');

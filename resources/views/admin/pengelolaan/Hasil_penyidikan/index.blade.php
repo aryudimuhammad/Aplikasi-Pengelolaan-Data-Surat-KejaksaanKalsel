@@ -54,8 +54,7 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="nama_pelapor">Nama Pelapor</th>
-                                        <th data-field="no_penyelidikan">Nomor Penyelidikan</th>
+                                        <th data-field="no_pol">No.Pol</th>
                                         <th data-field="pertimbangan">Pertimbangan</th>
                                         <th data-field="dasar">Dasar</th>
                                         <th data-field="untuk">Untuk</th>
@@ -68,17 +67,16 @@
                                     @foreach($data as $d)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$d->surat_terima->nama_pelapor}}</td>
-                                        <td>{{$d->no_penyelidikan}}</td>
+                                        <td>{{$d->hasil_penyelidikan->no_pol}}</td>
                                         <td>{{$d->pertimbangan}}</td>
                                         <td>{{$d->dasar}}</td>
                                         <td>{{$d->untuk}}</td>
                                         <td>{{$d->dikeluarkan_di}}</td>
                                         <td>{{Carbon\carbon::parse($d->created_at)->format('d F Y')}}</td>
                                         <td>
-                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" data-id="{{$d->id}}" data-nama_pelapor="{{$d->surat_terima->nama_pelapor}}" data-no_penyelidikan="{{$d->no_penyelidikan}}" data-pertimbangan="{{$d->pertimbangan}}" data-dasar="{{$d->dasar}}" data-untuk="{{$d->untuk}}" data-dikeluarkan_id="{{$d->dikeluarkan_di}}" data-created_at="{{$d->created_at}}" data-toggle="modal" data-target="#modaledit"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
+                                            <a style=" border-radius: 5px;" class="btn btn-info btn-xs" href="{{route('hasilpenyidikanShow',['id' => $d->uuid])}}"><i class="fa fa-search" style="color: white;"></i> Lihat</a>
+                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" href="{{route('hasilpenyidikanEdit',['id' => $d->uuid])}}"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
                                             <a style=" border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i> Delete</a>
-                                            <a style=" border-radius: 5px;" class="btn btn-info btn-xs"><i class="fa fa-search" style="color: white;"></i> Detail</a>
                                         </td>
                                         </td>
                                     </tr>
@@ -94,7 +92,6 @@
 </div>
 
 @include('admin.pengelolaan.penyelidikan.create')
-@include('admin.pengelolaan.penyelidikan.edit')
 @endsection
 
 @section('script')
@@ -106,18 +103,6 @@
 <script src="{{url('template/js/data-table/bootstrap-table-resizable.js')}}"></script>
 <script src="{{url('template/js/data-table/colResizable-1.5.source.js')}}"></script>
 <script src="{{url('template/js/data-table/bootstrap-table-export.js')}}"></script>
-
-<script>
-    $('#modaledit').on('show.bs.modal', function(event) {
-        let button = $(event.relatedTarget)
-        let id = button.data('id')
-        let jabatan = button.data('jabatan')
-        let modal = $(this)
-
-        modal.find('.modal-body #id').val(id)
-        modal.find('.modal-body #jabatan').val(jabatan);
-    })
-</script>
 
 <script>
     $(document).on('click', '.delete', function(e) {
