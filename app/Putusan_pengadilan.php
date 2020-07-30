@@ -15,4 +15,9 @@ class Putusan_pengadilan extends Model
     {
         return $this->belongsTo(Hasil_penyidikan::class);
     }
+
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class);
+    }
 }

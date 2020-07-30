@@ -104,9 +104,9 @@ Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
     Route::get('/putusan/pengadilan', 'PutusanPengadilanController@index')->name('putusanIndex');
     Route::post('/putusan/pengadilan', 'PutusanPengadilanController@create')->name('putusanCreate');
     Route::get('/putusan/pengadilan/show/{id]', 'PutusanPengadilanController@show')->name('putusanShow');
-    Route::get('/putusan/pengadilan/{id]', 'PutusanPengadilanController@edit')->name('putusanEdit');
+    Route::get('/putusan/pengadilan/{id}', 'PutusanPengadilanController@edit')->name('putusanEdit');
     Route::post('/putusan/pengadilan/{id}', 'PutusanPengadilanController@update')->name('putusanUpdate');
-    Route::delete('/putusan/pengadilan/{id}', 'PutusanPengadilanController@delete')->name('putusanDelete');
+    Route::delete('/putusan/pengadilan/delete/{id}', 'PutusanPengadilanController@delete')->name('putusanDelete');
 
     //route Setting Admin
     Route::get('/admin/setting', 'UserController@settingindex')->name('settingIndex');

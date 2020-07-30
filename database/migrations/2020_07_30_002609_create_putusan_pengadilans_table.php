@@ -17,10 +17,10 @@ class CreatePutusanPengadilansTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('hasil_penyidikan_id');
-            $table->integer('nomor');
-            $table->string('dasar');
-            $table->string('pertimbangan');
-            $table->string('untuk');
+            $table->varchar('nomor');
+            $table->text('dasar');
+            $table->text('pertimbangan');
+            $table->text('untuk');
             $table->string('dikeluarkan_di');
             $table->timestamps();
         });
