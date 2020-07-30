@@ -15,17 +15,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
+Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     //route Dashboard
-    Route::get('/admin', 'HomeController@index')->name('dashboard');
+    Route::get('/', 'HomeController@index')->name('dashboard');
 
     //route Jabatan
     Route::get('/master/jabatan', 'JabatanController@index')->name('jabatanIndex');

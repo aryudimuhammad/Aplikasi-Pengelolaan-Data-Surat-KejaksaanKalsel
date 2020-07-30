@@ -85,15 +85,15 @@
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="login-button-pro">
-                                        <a href="{{ route('register') }}" class="login-button login-button-rg">Register</a>
-                                        <button type="submit" class="login-button login-button-lg">Log in</button>
+                                        <!-- <a href="{{ route('register') }}" class="login-button login-button-rg">Register</a> -->
+                                        <button type="submit" class="login-button login-button-lg" style="width: 93%;">Log in</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
-                <div class="col-lg-4"></div>
+                <div class=" col-lg-4"></div>
             </div>
         </div>
     </div>
