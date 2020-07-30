@@ -88,7 +88,6 @@
         </div>
     </div>
 </div>
-
 @include('admin.pengelolaan.penyelidikan.create')
 @endsection
 
@@ -103,20 +102,6 @@
 <script src="{{url('template/js/data-table/bootstrap-table-export.js')}}"></script>
 <script src="{{url('template/js/summernote.min.js')}}"></script>
 <script src="{{url('template/js/summernote-active.js')}}"></script>
-
-<script>
-    $('#modaledit').on('show.bs.modal', function(event) {
-        let button = $(event.relatedTarget)
-        let id = button.data('id')
-        let surat_terima_id = button.data('surat_terima_id')
-        let no_penyelidikan = button.data('no_penyelidikan')
-        let modal = $(this)
-
-        modal.find('.modal-body #id').val(id)
-        modal.find('.modal-body #surat_terima_id').val(surat_terima_id);
-        modal.find('.modal-body #no_penyelidikan').val(no_penyelidikan);
-    })
-</script>
 
 <script>
     $(document).on('click', '.delete', function(e) {

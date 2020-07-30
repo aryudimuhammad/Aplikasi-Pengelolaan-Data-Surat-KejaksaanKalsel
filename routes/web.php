@@ -71,8 +71,10 @@ Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
     //route Hasil Penyelidikan
     Route::get('/hasil/penyelidikan', 'HasilPenyelidikanController@index')->name('hasilpenyelidikanIndex');
     Route::post('/hasil/penyelidikan', 'HasilPenyelidikanController@create')->name('hasilpenyelidikanCreate');
-    Route::put('/hasil/penyelidikan', 'HasilPenyelidikanController@edit')->name('hasilpenyelidikanEdit');
-    Route::delete('/hasil/penyelidikan/{id}', 'HasilPenyelidikanController@delete')->name('hasilpenyelidikanDelete');
+    Route::get('/hasil/penyelidikan/show/{id}', 'HasilPenyelidikanController@show')->name('hasilpenyelidikanShow');
+    Route::get('/hasil/penyelidikan/{id}', 'HasilPenyelidikanController@edit')->name('hasilpenyelidikanEdit');
+    Route::post('/hasil/penyelidikan/{id}', 'HasilPenyelidikanController@update')->name('hasilpenyelidikanUpdate');
+    Route::delete('/hasil/penyelidikan/delete/{id}', 'HasilPenyelidikanController@delete')->name('hasilpenyelidikanDelete');
 
     //route Panggilan Tersangka
     Route::get('/panggilan/tersangka', 'PanggilanTersangkaController@index')->name('panggilanIndex');

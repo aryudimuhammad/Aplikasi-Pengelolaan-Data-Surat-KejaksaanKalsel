@@ -24,6 +24,7 @@
                         <a href="{{route('terimaIndex')}}" class="dropdown-item">Surat Terima</a>
                         <a href="{{route('penyelidikanIndex')}}" class="dropdown-item">Perintah Penyilidikan</a>
                         <a href="{{route('keteranganIndex')}}" class="dropdown-item">Permintaan Keterangan</a>
+                        <a href="{{route('hasilpenyelidikanIndex')}}" class="dropdown-item">Hasil Penyelidikan</a>
                     </div>
                 </li>
                 <li class="nav-item"><a href="{{route('settingIndex')}}" role="button" aria-expanded="false" class="nav-link"><i class="fa big-icon fa-cogs"></i> <span class="mini-dn">Setting</span> </a>

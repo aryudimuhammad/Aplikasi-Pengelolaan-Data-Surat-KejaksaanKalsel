@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Tambah Data Jabatan</h3>
+                <h3 class="modal-title">Tambah Data Hasil Penyelidikan</h3>
                 <div class="modal-close-area modal-close-df">
                     <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
                 </div>
@@ -11,32 +11,20 @@
                 <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label for="surat_terima_id">Nama Pelapor</label>
-                        <select name="surat_terima_id" id="surat_terima_id" class="form-control">
-                            @foreach($terima as $d)
-                            <option value="{{$d->id}}" @if (old('surat_terima_id')==$d->id) {{ 'selected' }} @endif>{{$d->nama_pelapor}}</option>
+                        <label for="permintaan_keterangan_id">Perihal</label>
+                        <select name="permintaan_keterangan_id" id="permintaan_keterangan_id" class="form-control">
+                            @foreach($keterangan as $d)
+                            <option value="{{$d->id}}" @if (old('permintaan_keterangan_id')==$d->id) {{ 'selected' }} @endif>{{$d->perihal}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="no_penyelidikan">No Penyelidikan</label>
-                        <input type="number" name="no_penyelidikan" id="no_penyelidikan" class="form-control" placeholder="Masukkan No Penyelidikan" value="{{old('no_penyelidikan')}}">
+                        <label for="no_pol">No.Pol</label>
+                        <input type="text" name="no_pol" id="no_pol" class="form-control" placeholder="Masukkan No.Pol" value="{{old('no_pol')}}">
                     </div>
                     <div class="form-group">
-                        <label for="pertimbangan">Pertimbangan</label>
-                        <input type="text" name="pertimbangan" id="pertimbangan" class="form-control" placeholder="Masukkan Pertimbangan" value="{{old('pertimbangan')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="dasar">Dasar</label>
-                        <input type="text" name="dasar" id="dasar" class="form-control" placeholder="Dasar..." value="{{old('dasar')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="untuk">Untuk</label>
-                        <input type="text" name="untuk" id="untuk" class="form-control" placeholder="Untuk..." value="{{old('untuk')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="dikeluarkan_di">Dikeluarkan di</label>
-                        <textarea name="dikeluarkan_di" id="dikeluarkan_di" class="form-control" placeholder="Dikeluarkan di">{{old('dikeluarkan_di')}}</textarea>
+                        <label for="isi_surat">Isi Surat</label>
+                        <textarea name="isi_surat" id="summernote1" class="form-control">{{old('isi_surat')}}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
