@@ -61,6 +61,14 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label for="pegawai_id">Kepada</label>
+                                        <select name="pegawai_id" id="pegawai_id" class="form-control">
+                                            @foreach($pegawai as $d)
+                                            <option value="{{$d->id}}" @if ($data->pegawai_id == $d->id) {{ 'selected' }} @endif>{{$d->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="nomor">Nomor</label>
                                         <input type="text" name="nomor" id="nomor" class="form-control" placeholder="Masukkan Nomor" value="{{$data->nomor}}">
                                     </div>

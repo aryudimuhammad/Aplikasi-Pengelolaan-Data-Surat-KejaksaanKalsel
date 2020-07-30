@@ -57,6 +57,7 @@
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="hasil_penyidikan_id">Nomor Surat Hasil Penyidikan</th>
+                                        <th data-field="kepada">Kepada</th>
                                         <th data-field="nomor">Nomor</th>
                                         <th data-field="dikeluarkan_di">Dikeluarkan di</th>
                                         <th>Action</th>
@@ -67,6 +68,7 @@
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$d->hasil_penyidikan->nomor_surat}}</td>
+                                        <td>{{$d->pegawai->nama}}</td>
                                         <td>{{$d->nomor}}</td>
                                         <td>{{$d->dikeluarkan_di}}</td>
                                         <td>

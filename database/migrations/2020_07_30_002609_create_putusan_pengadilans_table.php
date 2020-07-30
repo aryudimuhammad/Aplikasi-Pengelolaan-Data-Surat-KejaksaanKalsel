@@ -17,6 +17,7 @@ class CreatePutusanPengadilansTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('hasil_penyidikan_id');
+            $table->unsignedBigInteger('pegawai_id');
             $table->varchar('nomor');
             $table->text('dasar');
             $table->text('pertimbangan');
