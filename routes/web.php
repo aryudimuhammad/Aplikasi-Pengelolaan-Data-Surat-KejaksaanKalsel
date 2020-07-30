@@ -87,8 +87,10 @@ Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
     //route Panggilan Tersangka
     Route::get('/panggilan/tersangka', 'PanggilanTersangkaController@index')->name('panggilanIndex');
     Route::post('/panggilan/tersangka', 'PanggilanTersangkaController@create')->name('panggilanCreate');
-    Route::put('/panggilan/tersangka', 'PanggilanTersangkaController@edit')->name('panggilanEdit');
-    Route::delete('/panggilan/tersangka/{id}', 'PanggilanTersangkaController@delete')->name('hasilpanggilanDelete');
+    Route::get('/panggilan/tersangka/show/{id}', 'PanggilanTersangkaController@show')->name('panggilanShow');
+    Route::get('/panggilan/tersangka/{id}', 'PanggilanTersangkaController@edit')->name('panggilanEdit');
+    Route::post('/panggilan/tersangka/{id}', 'PanggilanTersangkaController@update')->name('panggilanUpdate');
+    Route::delete('/panggilan/tersangka/delete/{id}', 'PanggilanTersangkaController@delete')->name('hasilpanggilanDelete');
 
     //route Hasil Penyidikan
     Route::get('/hasil/penyidikan', 'HasilPenyidikan@index')->name('hasilpenyidikanIndex');
