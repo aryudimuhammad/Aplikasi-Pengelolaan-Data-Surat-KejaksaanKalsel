@@ -1203,17 +1203,6 @@ ul.breadcome-menu li a:hover {
     background: #fff;
 }
 
-.sparkline-content a {
-    color: #fff;
-    background: linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
-    padding: 10px 20px;
-    display: inline-block;
-}
-
-.sparkline-content a:hover {
-    color: #fff;
-    background: linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
-}
 
 .table.table-adminpro {
     margin-bottom: 0px;

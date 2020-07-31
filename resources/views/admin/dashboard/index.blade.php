@@ -48,7 +48,7 @@
                                                 <div class="main-income-head">
                                                     <h2 style="color: black;"> Data Pegawai</h2>
                                                     <div class="main-income-phara">
-                                                        <button href="{{route('pegawaiIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-primary btn-sm">Pegawai</button>
+                                                        <a href="{{route('pegawaiIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-primary btn-sm">Pegawai</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -80,7 +80,7 @@
                                                 <div class="main-income-head">
                                                     <h2 style="color: black;"> Surat Terima</h2>
                                                     <div class="main-income-phara">
-                                                        <button href="{{route('panggilanIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-info btn-sm">Surat Terima</button>
+                                                        <a href="{{route('terimaIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-info btn-sm">Surat Terima</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,7 +112,7 @@
                                                 <div class="main-income-head">
                                                     <h2 style="color: black;"> Penyelidikan</h2>
                                                     <div class="main-income-phara">
-                                                        <button href="{{route('penyelidikanIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-danger btn-sm"> Penyelidikan</button>
+                                                        <a href="{{route('penyelidikanIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-danger btn-sm"> Penyelidikan</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,7 +144,7 @@
                                                 <div class="main-income-head">
                                                     <h2 style="color: black;"> Hasil Penyelidikan</h2>
                                                     <div class="main-income-phara">
-                                                        <button href="{{route('hasilpenyelidikanIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-success btn-sm">Hasil</button>
+                                                        <a href="{{route('hasilpenyelidikanIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-success btn-sm">Hasil</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -178,7 +178,7 @@
                                                 <div class="main-income-head">
                                                     <h2 style="color: black;"> Penyidikan</h2>
                                                     <div class="main-income-phara">
-                                                        <button href="{{route('perintahpenyidikanIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-danger btn-sm">Penyidikan</button>
+                                                        <a href="{{route('perintahpenyidikanIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-danger btn-sm">Penyidikan</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -210,7 +210,7 @@
                                                 <div class="main-income-head">
                                                     <h2 style="color: black;"> Panggilan </h2>
                                                     <div class="main-income-phara">
-                                                        <button href="{{route('panggilanIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-primary btn-sm">Panggilan</button>
+                                                        <a href="{{route('panggilanIndex')}}" style="float: right; margin-top: -28px;" class="btn btn-primary btn-sm">Panggilan</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -242,7 +242,7 @@
                                                 <div class="main-income-head">
                                                     <h2 style="color: black;"> Hasil Penyidikan</h2>
                                                     <div class="main-income-phara">
-                                                        <button href="" style="float: right; margin-top: -28px;" class="btn btn-success btn-sm">Hasil</button>
+                                                        <a href="" style="float: right; margin-top: -28px;" class="btn btn-success btn-sm">Hasil</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -274,7 +274,7 @@
                                                 <div class="main-income-head">
                                                     <h2 style="color: black;"> Keputusan</h2>
                                                     <div class="main-income-phara">
-                                                        <button href="" style="float: right; margin-top: -28px;" class="btn btn-info btn-sm">Keputusan</button>
+                                                        <a href="" style="float: right; margin-top: -28px;" class="btn btn-info btn-sm">Keputusan</a>
                                                     </div>
                                                 </div>
                                             </div>
