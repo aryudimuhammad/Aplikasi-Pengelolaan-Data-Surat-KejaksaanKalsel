@@ -24,6 +24,7 @@ class CreateHasilPenyidikansTable extends Migration
             $table->string('dikeluarkan_di');
             $table->text('uraian');
             $table->timestamps();
+            $table->foreign('panggilan_tersangka_id')->references('id')->on('panggilan_tersangkas')->onDelete('cascade');
         });
     }
 

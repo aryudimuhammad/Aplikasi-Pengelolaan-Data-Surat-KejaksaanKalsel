@@ -24,6 +24,7 @@ class CreatePermintaanKeterangansTable extends Migration
             $table->string('di_kota');
             $table->string('uraian');
             $table->timestamps();
+            $table->foreign('perintah_penyelidikan_id')->references('id')->on('perintah_penyelidikans')->onDelete('cascade');
         });
     }
 

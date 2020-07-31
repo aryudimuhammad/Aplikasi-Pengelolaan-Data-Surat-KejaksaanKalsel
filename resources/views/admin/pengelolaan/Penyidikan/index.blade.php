@@ -54,6 +54,7 @@
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="hasil_penyelidikan_id">No.Pol Hasil Penyelidikan</th>
+                                        <th data-field="kepada">Kepada</th>
                                         <th data-field="dikeluar_di">Dikeluar di</th>
                                         <th data-field="created_at">Tanggal Dibuat</th>
                                         <th>Action</th>
@@ -64,6 +65,7 @@
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$d->hasil_penyelidikan->no_pol}}</td>
+                                        <td>{{$d->pegawai->nama}}</td>
                                         <td>{{$d->dikeluarkan_di}}</td>
                                         <td>{{Carbon\carbon::parse($d->created_at)->format('d F Y')}}</td>
                                         <td>

@@ -20,6 +20,7 @@ class CreateHasilPenyelidikansTable extends Migration
             $table->string('no_pol');
             $table->string('isi_surat');
             $table->timestamps();
+            $table->foreign('permintaan_keterangan_id')->references('id')->on('permintaan_keterangans')->onDelete('cascade');
         });
     }
 

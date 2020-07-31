@@ -17,11 +17,14 @@ class CreatePerintahPenyidikansTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('hasil_penyelidikan_id');
+            $table->unsignedBigInteger('pegawai_id');
             $table->string('pertimbangan');
             $table->string('dasar');
             $table->string('untuk');
             $table->string('dikeluarkan_di');
             $table->timestamps();
+            $table->foreign('hasil_penyelidikan_id')->references('id')->on('hasil_penyelidikans')->onDelete('cascade');
+            $table->foreign('pegawai_id')->references('id')->on('pegawais');
         });
     }
 

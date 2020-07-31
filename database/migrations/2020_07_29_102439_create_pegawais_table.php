@@ -26,6 +26,8 @@ class CreatePegawaisTable extends Migration
             $table->enum('jk',  ['1', '2']);
             $table->string('alamat');
             $table->timestamps();
+            $table->foreign('jabatan_id')->references('id')->on('jabatans');
+            $table->foreign('pangkat_id')->references('id')->on('pangkats');
         });
     }
 

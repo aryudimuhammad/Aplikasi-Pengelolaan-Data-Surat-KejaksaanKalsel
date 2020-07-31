@@ -25,6 +25,7 @@ class CreatePanggilanTersangkasTable extends Migration
             $table->string('menghadap');
             $table->string('keterangan');
             $table->timestamps();
+            $table->foreign('perintah_penyidikan_id')->references('id')->on('perintah_penyidikans')->onDelete('cascade');
         });
     }
 

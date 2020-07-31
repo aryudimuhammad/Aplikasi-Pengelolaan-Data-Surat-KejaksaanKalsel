@@ -18,12 +18,14 @@ class CreatePutusanPengadilansTable extends Migration
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('hasil_penyidikan_id');
             $table->unsignedBigInteger('pegawai_id');
-            $table->varchar('nomor');
+            $table->string('nomor');
             $table->text('dasar');
             $table->text('pertimbangan');
             $table->text('untuk');
             $table->string('dikeluarkan_di');
             $table->timestamps();
+            $table->foreign('hasil_penyidikan_id')->references('id')->on('hasil_penyidikans')->onDelete('cascade');
+            $table->foreign('pegawai_id')->references('id')->on('pegawais');
         });
     }
 

@@ -61,6 +61,14 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label for="pegawai_id">Kepada</label>
+                                        <select name="pegawai_id" id="pegawai_id" class="form-control">
+                                            @foreach($pegawai as $d)
+                                            <option value="{{$d->id}}" @if ($data->pegawai_id == $d->id) {{ 'selected' }} @endif>{{$d->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="pertimbangan">Pertimbangan</label>
                                         <textarea name="pertimbangan" id="summernote1" class="form-control">{{$data->pertimbangan}}</textarea>
                                     </div>

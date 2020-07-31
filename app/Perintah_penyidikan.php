@@ -20,4 +20,9 @@ class Perintah_penyidikan extends Model
     {
         return $this->hasOne(Panggilan_tersangka::class);
     }
+
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class);
+    }
 }

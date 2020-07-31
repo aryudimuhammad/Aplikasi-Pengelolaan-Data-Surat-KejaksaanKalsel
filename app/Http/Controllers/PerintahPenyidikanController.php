@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hasil_penyelidikan;
+use App\Pegawai;
 use App\Perintah_penyidikan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -13,8 +14,9 @@ class PerintahPenyidikanController extends Controller
     {
         $data = Perintah_penyidikan::latest()->get();
         $hasil = Hasil_penyelidikan::get();
+        $pegawai = Pegawai::get();
 
-        return view('admin.pengelolaan.penyidikan.index', compact('data', 'hasil'));
+        return view('admin.pengelolaan.penyidikan.index', compact('data', 'hasil', 'pegawai'));
     }
 
     public function create(Request $request)
@@ -25,6 +27,7 @@ class PerintahPenyidikanController extends Controller
         ];
         $validator = Validator::make($request->all(), [
             'hasil_penyelidikan_id' => 'required|unique:perintah_penyidikans',
+            'pegawai_id' => 'required',
             'pertimbangan' => 'required',
             'dasar' => 'required',
             'untuk' => 'required',
@@ -37,6 +40,7 @@ class PerintahPenyidikanController extends Controller
 
         $data = new Perintah_penyidikan;
         $data->hasil_penyelidikan_id = $request->hasil_penyelidikan_id;
+        $data->pegawai_id = $request->pegawai_id;
         $data->pertimbangan = $request->pertimbangan;
         $data->dasar = $request->dasar;
         $data->untuk = $request->untuk;
@@ -50,8 +54,9 @@ class PerintahPenyidikanController extends Controller
     {
         $data = Perintah_penyidikan::where('uuid', $id)->first();
         $hasil = Hasil_penyelidikan::get();
+        $pegawai = Pegawai::get();
 
-        return view('admin.pengelolaan.penyidikan.edit', compact('data', 'hasil'));
+        return view('admin.pengelolaan.penyidikan.edit', compact('data', 'hasil', 'pegawai'));
     }
 
     public function update(Request $request, $id)
@@ -61,6 +66,7 @@ class PerintahPenyidikanController extends Controller
         ];
         $validator = Validator::make($request->all(), [
             'hasil_penyelidikan_id' => 'required',
+            'pegawai_id' => 'required',
             'pertimbangan' => 'required',
             'dasar' => 'required',
             'untuk' => 'required',
@@ -73,6 +79,7 @@ class PerintahPenyidikanController extends Controller
 
         $data = Perintah_penyidikan::where('uuid', $id)->first();
         $data->hasil_penyelidikan_id = $request->hasil_penyelidikan_id;
+        $data->pegawai_id = $request->pegawai_id;
         $data->pertimbangan = $request->pertimbangan;
         $data->dasar = $request->dasar;
         $data->untuk = $request->untuk;
