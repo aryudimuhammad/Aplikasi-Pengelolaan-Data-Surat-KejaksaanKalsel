@@ -121,40 +121,12 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                         <div class="project-details-st">
-                                            <span><strong>Status :</strong></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                        <div class="btn-group project-list-ad">
-                                            <button class="btn btn-white btn-xs">Active</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details-mg">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <div class="project-details-st">
                                             <span><strong>Email :</strong></span>
                                         </div>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                         <div class="project-details-dt">
                                             <span>{{ Auth::user()->email }}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details-mg">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <div class="project-details-st">
-                                            <span><strong>Role :</strong></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                        <div class="project-details-dt">
-                                            <a href="#">@if(Auth::user()->role == 1) Admin @elseif (Auth::user()->role == 2 ) - @endif</a>
                                         </div>
                                     </div>
                                 </div>
@@ -185,34 +157,6 @@
                                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                         <div class="project-details-dt">
                                             <span>1{{ Auth::user()->telp }}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details-mg">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <div class="project-details-st">
-                                            <span><strong>Email :</strong></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                        <div class="project-details-dt">
-                                            <span>Admin@SRTtheme.com</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details-mg">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <div class="project-details-st">
-                                            <span><strong>Phone :</strong></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                        <div class="project-details-dt">
-                                            <span>01962067309</span>
                                         </div>
                                     </div>
                                 </div>

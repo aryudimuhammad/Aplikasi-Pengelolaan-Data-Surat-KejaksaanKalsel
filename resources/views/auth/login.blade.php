@@ -16,7 +16,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="logo">
-                                        <a><img src="{{url('template/img/logo/log.png')}}" alt="" />
+                                        <a><img src="{{url('images/logo.png')}}" style="width: 30%;" alt="" />
                                         </a>
                                     </div>
                                 </div>
@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="login-title">
-                                        <h1>Login Form</h1>
+                                        <h1>Form Login</h1>
                                     </div>
                                 </div>
                             </div>

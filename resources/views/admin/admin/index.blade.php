@@ -98,7 +98,6 @@
                                         <th data-field="email">Email</th>
                                         <th data-field="phone">Phone</th>
                                         <th data-field="alamat">Alamat</th>
-                                        <th data-field="role" data-editable="false">Role</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -110,7 +109,6 @@
                                         <td>{{$d->email}}</td>
                                         <td>@if(!isset($d->telp)) - @else {{$d->telp}} @endif</td>
                                         <td>@if(!isset($d->alamat)) - @else {{$d->alamat}} @endif</td>
-                                        <td>@if($d->role == 1)Admin @endif</td>
                                         <td>
                                             @if(Auth::user()->id != $d->id)
                                             <a style="border-radius: 5px;" class="btn btn-warning btn-xs" data-id="{{$d->id}}" data-name="{{$d->name}}" data-email="{{$d->email}}" data-telp="{{$d->telp}}" data-alamat="{{$d->alamat}}" data-gambar="{{$d->gambar}}" data-toggle="modal" data-target="#modaledit"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
