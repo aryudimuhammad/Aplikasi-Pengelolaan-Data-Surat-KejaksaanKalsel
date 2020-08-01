@@ -18,6 +18,7 @@ class CreatePerintahPenyidikansTable extends Migration
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('hasil_penyelidikan_id');
             $table->unsignedBigInteger('pegawai_id');
+            $table->string('no_penyidikan');
             $table->string('pertimbangan');
             $table->string('dasar');
             $table->string('untuk');

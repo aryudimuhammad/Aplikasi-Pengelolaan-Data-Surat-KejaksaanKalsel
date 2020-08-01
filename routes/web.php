@@ -114,4 +114,14 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::post('/admin/user', 'UserController@create')->name('userCreate');
     Route::put('/admin/user', 'UserController@edit')->name('userEdit');
     Route::delete('/admin/user/delete/{id}', 'UserController@destroy')->name('userDelete');
+
+    //route laporan
+    Route::get('/admin/report/suratterima', 'ReportController@suratterima')->name('suratterima');
+    Route::get('/admin/report/perintahpenyelidikan', 'ReportController@perintahpenyelidikan')->name('perintahpenyelidikan');
+    Route::get('/admin/report/permintaanketerangan', 'ReportController@permintaanketerangan')->name('permintaanketerangan');
+    Route::get('/admin/report/hasilpenyelidikan', 'ReportController@hasilpenyelidikan')->name('hasilpenyelidikan');
+    Route::get('/admin/report/perintahpenyidikan', 'ReportController@perintahpenyidikan')->name('perintahpenyidikan');
+    Route::get('/admin/report/panggilantersangka', 'ReportController@panggilantersangka')->name('panggilantersangka');
+    Route::get('/admin/report/hasilpenyidikan', 'ReportController@hasilpenyidikan')->name('hasilpenyidikan');
+    Route::get('/admin/report/putusanpengadilan', 'ReportController@putusanpengadilan')->name('putusanpengadilan');
 });

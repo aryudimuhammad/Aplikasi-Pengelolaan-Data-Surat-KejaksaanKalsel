@@ -41,8 +41,12 @@
                         <div class="main-sparkline13-hd">
                             <h1>Surat Terima</h1>
                             <div class="sparkline13-outline-icon">
-                                <button type="button" class="btn btn-primary color-white" data-toggle="modal" data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
+                                <button type="button" class="btn btn-primary color-white" data-toggle="modal"
+                                    data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
                                 </button>
+                                <a type="button" target="_blank" href="{{ route('suratterima') }}"
+                                    class="btn btn-primary color-white"><span class="fa fa-print"> Cetak</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -51,12 +55,18 @@
                             <div id="toolbar">
 
                             </div>
-                            <table id="table" class="table border-table nowrap" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="false" data-toolbar="#toolbar">
+                            <table id="table" class="table border-table nowrap" data-toggle="table"
+                                data-pagination="true" data-search="true" data-show-columns="true"
+                                data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true"
+                                data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="false"
+                                data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="nama_pelapor">Nama Pelapor</th>
-                                        <th data-field="tempat_lahir">Tempat Lahir</th>
+                                        <th data-field="nama_pelapor">Nama Penerima</th>
+                                        <th data-field="tempat_lahir">Tempat, Tanggal Lahir</th>
                                         <th data-field="agama">Agama</th>
                                         <th data-field="kewarganegaraan">Kewarganegaraan</th>
                                         <th data-field="pekerjaan">Pekerjaan</th>
@@ -71,16 +81,24 @@
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$d->nama_pelapor}}</td>
-                                        <td>{{$d->tempat_lahir}}</td>
-                                        <td> @if($d->agama == 1) Islam @elseif($d->agama == 2) Kristen Protestan @elseif($d->agama == 3) Katolik @elseif($d->agama == 4) Hindu @elseif($d->agama == 5) Buddha @elseif($d->agama == 5) Kong Hu Cu @endif</td>
+                                        <td>{{$d->tempat_lahir}},
+                                            {{Carbon\Carbon::parse($d->tgl_lahir)->translatedFormat('d F Y')}}</td>
+                                        <td> @if($d->agama == 1) Islam @elseif($d->agama == 2) Kristen Protestan
+                                            @elseif($d->agama == 3) Katolik @elseif($d->agama == 4) Hindu
+                                            @elseif($d->agama == 5) Buddha @elseif($d->agama == 5) Kong Hu Cu @endif
+                                        </td>
                                         <td>{{$d->kewarganegaraan}}</td>
                                         <td>{{$d->pekerjaan}}</td>
                                         <td>{{$d->alamat}}</td>
                                         <td>{{$d->kontak}}</td>
                                         <td>{!!$d->uraian!!}</td>
                                         <td>
-                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" href="{{route('terimaEdit',['id' => $d->uuid])}}"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
-                                            <a style="border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i> Delete</a>
+                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
+                                                href="{{route('terimaEdit',['id' => $d->uuid])}}"><i
+                                                    class="fa fa-pencil" style="color: white;"></i> Edit</a>
+                                            <a style="border-radius: 5px;" class="delete btn btn-danger btn-xs"
+                                                data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i>
+                                                Delete</a>
                                         </td>
                                         </td>
                                     </tr>

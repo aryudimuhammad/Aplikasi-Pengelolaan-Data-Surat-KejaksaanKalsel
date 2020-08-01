@@ -17,6 +17,7 @@ class CreatePanggilanTersangkasTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('perintah_penyidikan_id');
+            $table->string('no_panggilan');
             $table->string('nama');
             $table->string('kota');
             $table->date('tgl_dipanggil');

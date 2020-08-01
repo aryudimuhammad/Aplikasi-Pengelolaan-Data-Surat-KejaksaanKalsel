@@ -14,7 +14,8 @@
                         <label for="surat_terima_id">Nama Pelapor</label>
                         <select name="surat_terima_id" id="surat_terima_id" class="form-control">
                             @foreach($terima as $d)
-                            <option value="{{$d->id}}" @if (old('surat_terima_id')==$d->id) {{ 'selected' }} @endif>{{$d->nama_pelapor}}</option>
+                            <option value="{{$d->id}}" @if (old('surat_terima_id')==$d->id) {{ 'selected' }}
+                                @endif>{{$d->nama_pelapor}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -22,17 +23,20 @@
                         <label for="pegawai_id">Diperintahkan Kepada</label>
                         <select name="pegawai_id" id="pegawai_id" class="form-control">
                             @foreach($pegawai as $d)
-                            <option value="{{$d->id}}" @if (old('pegawai_id')==$d->id) {{ 'selected' }} @endif>{{$d->nama}}</option>
+                            <option value="{{$d->id}}" @if (old('pegawai_id')==$d->id) {{ 'selected' }}
+                                @endif>{{$d->nama}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="no_penyelidikan">No Penyelidikan</label>
-                        <input type="number" name="no_penyelidikan" id="no_penyelidikan" class="form-control" placeholder="Masukkan No Penyelidikan" value="{{old('no_penyelidikan')}}">
+                        <input type="text" name="no_penyelidikan" id="no_penyelidikan" class="form-control"
+                            placeholder="Masukkan No Penyelidikan" value="{{old('no_penyelidikan')}}">
                     </div>
                     <div class="form-group">
                         <label for="pertimbangan">Pertimbangan</label>
-                        <input type="text" name="pertimbangan" id="pertimbangan" class="form-control" placeholder="Masukkan Pertimbangan" value="{{old('pertimbangan')}}">
+                        <input type="text" name="pertimbangan" id="pertimbangan" class="form-control"
+                            placeholder="Masukkan Pertimbangan" value="{{old('pertimbangan')}}">
                     </div>
                     <div class="form-group">
                         <label for="dasar">Dasar</label>
@@ -44,7 +48,8 @@
                     </div>
                     <div class="form-group">
                         <label for="dikeluarkan_di">Dikeluarkan di</label>
-                        <textarea name="dikeluarkan_di" id="dikeluarkan_di" class="form-control" placeholder="Dikeluarkan di">{{old('dikeluarkan_di')}}</textarea>
+                        <textarea name="dikeluarkan_di" id="dikeluarkan_di" class="form-control"
+                            placeholder="Dikeluarkan di">{{old('dikeluarkan_di')}}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -20,7 +20,8 @@
                             <ul class="breadcome-menu">
                                 <li><a href="{{route('dashboard')}}">Home</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><a href="{{route('keteranganIndex')}}">Permintaan Keterangan</a> <span class="bread-slash">/</span>
+                                <li><a href="{{route('keteranganIndex')}}">Permintaan Keterangan</a> <span
+                                        class="bread-slash">/</span>
                                 </li>
                                 <li><span class="bread-blod">Ubah Permintaan Keterangan</span>
                                 </li>
@@ -43,7 +44,8 @@
                         <div class=" main-sparkline13-hd">
                             <h1>Ubah Permintaan Keterangan</h1>
                             <div class="sparkline13-outline-icon" style="margin-top: -6px;">
-                                <a href="{{route('keteranganIndex')}}" class="btn btn-danger color-white"><span class="fa fa-arrow-left"> Kembali</span></a>
+                                <a href="{{route('keteranganIndex')}}" class="btn btn-danger color-white"><span
+                                        class="fa fa-arrow-left"> Kembali</span></a>
                             </div>
                         </div>
                     </div>
@@ -54,35 +56,38 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="perintah_penyelidikan_id">No.Penyelidikan</label>
-                                        <select name="perintah_penyelidikan_id" id="perintah_penyelidikan_id" class="form-control">
+                                        <select name="perintah_penyelidikan_id" id="perintah_penyelidikan_id"
+                                            class="form-control">
                                             @foreach($penyelidikan as $d)
-                                            <option value="{{$d->id}}" @if ($data->perintah_penyelidikan_id == $d->id) {{ 'selected' }} @endif>{{$d->no_penyelidikan}}</option>
+                                            <option value="{{$d->id}}" @if ($data->perintah_penyelidikan_id == $d->id)
+                                                {{ 'selected' }} @endif>{{$d->no_penyelidikan}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="no_pol">No.Pol</label>
-                                        <input type="text" name="no_pol" id="no_pol" class="form-control" placeholder="Masukkan No Penyelidikan" value="{{$data->no_pol}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lampiran">Lampiran</label>
-                                        <input type="text" name="lampiran" id="lampiran" class="form-control" placeholder="Masukkan Lampiran" value="{{$data->lampiran}}">
+                                        <input type="text" name="no_pol" id="no_pol" class="form-control"
+                                            placeholder="Masukkan No Penyelidikan" value="{{$data->no_pol}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="perihal">Perihal</label>
-                                        <input type="text" name="perihal" id="perihal" class="form-control" placeholder="Masukkan Perihal" value="{{$data->perihal}}">
+                                        <input type="text" name="perihal" id="perihal" class="form-control"
+                                            placeholder="Masukkan Perihal" value="{{$data->perihal}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="kepada">Kepada</label>
-                                        <input type="text" name="kepada" id="kepada" class="form-control" placeholder="Kepada..." value="{{$data->kepada}}">
+                                        <input type="text" name="kepada" id="kepada" class="form-control"
+                                            placeholder="Kepada..." value="{{$data->kepada}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="di_kota">Di Kota</label>
-                                        <textarea name="di_kota" id="di_kota" class="form-control" placeholder="Di Kota">{{$data->di_kota}}</textarea>
+                                        <textarea name="di_kota" id="di_kota" class="form-control"
+                                            placeholder="Di Kota">{{$data->di_kota}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="uraian">Uraian</label>
-                                        <textarea name="uraian" id="summernote1" class="form-control" placeholder="Uraian">{{$data->uraian}}</textarea>
+                                        <textarea name="uraian" id="summernote1" class="form-control"
+                                            placeholder="Uraian">{{$data->uraian}}</textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

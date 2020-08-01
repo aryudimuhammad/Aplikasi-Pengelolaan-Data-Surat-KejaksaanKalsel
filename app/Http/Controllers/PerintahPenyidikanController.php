@@ -29,6 +29,7 @@ class PerintahPenyidikanController extends Controller
             'hasil_penyelidikan_id' => 'required|unique:perintah_penyidikans',
             'pegawai_id' => 'required',
             'pertimbangan' => 'required',
+            'no_penyidikan' => 'required',
             'dasar' => 'required',
             'untuk' => 'required',
             'dikeluarkan_di' => 'required',
@@ -42,6 +43,7 @@ class PerintahPenyidikanController extends Controller
         $data->hasil_penyelidikan_id = $request->hasil_penyelidikan_id;
         $data->pegawai_id = $request->pegawai_id;
         $data->pertimbangan = $request->pertimbangan;
+        $data->no_penyidikan = $request->no_penyidikan;
         $data->dasar = $request->dasar;
         $data->untuk = $request->untuk;
         $data->dikeluarkan_di = $request->dikeluarkan_di;
@@ -67,6 +69,7 @@ class PerintahPenyidikanController extends Controller
         $validator = Validator::make($request->all(), [
             'hasil_penyelidikan_id' => 'required',
             'pegawai_id' => 'required',
+            'no_penyidikan' => 'required',
             'pertimbangan' => 'required',
             'dasar' => 'required',
             'untuk' => 'required',
@@ -81,6 +84,7 @@ class PerintahPenyidikanController extends Controller
         $data->hasil_penyelidikan_id = $request->hasil_penyelidikan_id;
         $data->pegawai_id = $request->pegawai_id;
         $data->pertimbangan = $request->pertimbangan;
+        $data->no_penyidikan = $request->no_penyidikan;
         $data->dasar = $request->dasar;
         $data->untuk = $request->untuk;
         $data->dikeluarkan_di = $request->dikeluarkan_di;

@@ -11,12 +11,24 @@
                 <div class="modal-body">
                     @csrf
                     <div class="form-group">
+                        <label for="nomor">Nomor Surat</label>
+                        <input type="text" name="nomor" id="nomor" class="form-control"
+                            placeholder="Masukkan Nomor Surat" value="{{old('nomor')}}">
+                    </div>
+                    <div class="form-group">
                         <label for="nama_pelapor">Nama Pelapor</label>
-                        <input type="text" name="nama_pelapor" id="nama_pelapor" class="form-control" placeholder="Masukkan Nama Pelapor" value="{{old('nama_pelapor')}}">
+                        <input type="text" name="nama_pelapor" id="nama_pelapor" class="form-control"
+                            placeholder="Masukkan Nama Pelapor" value="{{old('nama_pelapor')}}">
                     </div>
                     <div class="form-group">
                         <label for="tempat_lahir">Tempat Lahir</label>
-                        <textarea name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Masukkan Tempat Lahir">{{old('tempat_lahir')}}</textarea>
+                        <textarea name="tempat_lahir" id="tempat_lahir" class="form-control"
+                            placeholder="Masukkan Tempat Lahir">{{old('tempat_lahir')}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tgl_lahir">Tanggal Lahir</label>
+                        <input type="date" name="tgl_lahir" id="tgl_lahir" value="{{old('tgl_lahir')}}"
+                            class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="agama">Agama</label>
@@ -31,23 +43,28 @@
                     </div>
                     <div class="form-group">
                         <label for="kewarganegaraan">Kewarganegaraan</label>
-                        <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" placeholder="Masukkan Kewarganegaraan" value="{{old('kewarganegaraan')}}">
+                        <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control"
+                            placeholder="Masukkan Kewarganegaraan" value="{{old('kewarganegaraan')}}">
                     </div>
                     <div class="form-group">
                         <label for="pekerjaan">Pekerjaan</label>
-                        <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" placeholder="Masukkan Pekerjaan" value="{{old('pekerjaan')}}">
+                        <input type="text" name="pekerjaan" id="pekerjaan" class="form-control"
+                            placeholder="Masukkan Pekerjaan" value="{{old('pekerjaan')}}">
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <textarea name="alamat" id="alamat" class="form-control" placeholder="Masukkan Alamat">{{old('alamat')}}</textarea>
+                        <textarea name="alamat" id="alamat" class="form-control"
+                            placeholder="Masukkan Alamat">{{old('alamat')}}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="kontak">Kontak</label>
-                        <input type="text" name="kontak" id="kontak" class="form-control" placeholder="Masukkan Kontak" value="{{old('kontak')}}">
+                        <input type="text" name="kontak" id="kontak" class="form-control" placeholder="Masukkan Kontak"
+                            value="{{old('kontak')}}">
                     </div>
                     <div class="form-group">
                         <label for="uraian">Uraian</label>
-                        <textarea name="uraian" id="summernote1" class="form-control" placeholder="Masukkan Uraian">{{old('uraian')}}</textarea>
+                        <textarea name="uraian" id="summernote1" class="form-control"
+                            placeholder="Masukkan Uraian">{{old('uraian')}}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

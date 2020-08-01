@@ -26,7 +26,6 @@ class PermintaanKeteranganController extends Controller
         $validator = Validator::make($request->all(), [
             'perintah_penyelidikan_id' => 'required|unique:permintaan_keterangans',
             'no_pol' => 'required',
-            'lampiran' => 'required',
             'perihal' => 'required',
             'kepada' => 'required',
             'di_kota' => 'required',
@@ -40,7 +39,6 @@ class PermintaanKeteranganController extends Controller
         $data = new Permintaan_keterangan;
         $data->perintah_penyelidikan_id = $request->perintah_penyelidikan_id;
         $data->no_pol = $request->no_pol;
-        $data->lampiran = $request->lampiran;
         $data->perihal = $request->perihal;
         $data->kepada = $request->kepada;
         $data->di_kota = $request->di_kota;
@@ -65,7 +63,6 @@ class PermintaanKeteranganController extends Controller
         ];
         $validator = Validator::make($request->all(), [
             'no_pol' => 'required',
-            'lampiran' => 'required',
             'perihal' => 'required',
             'kepada' => 'required',
             'di_kota' => 'required',
@@ -79,7 +76,6 @@ class PermintaanKeteranganController extends Controller
         $data = Permintaan_keterangan::where('uuid', $id)->first();
         $data->perintah_penyelidikan_id = $request->perintah_penyelidikan_id;
         $data->no_pol = $request->no_pol;
-        $data->lampiran = $request->lampiran;
         $data->perihal = $request->perihal;
         $data->kepada = $request->kepada;
         $data->di_kota = $request->di_kota;

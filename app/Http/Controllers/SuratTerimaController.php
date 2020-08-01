@@ -22,13 +22,15 @@ class SuratTerimaController extends Controller
             'integer' => 'Nomor Telepon/Kontak Harus Berupa Angka.',
         ];
         $validator = Validator::make($request->all(), [
+            'nomor' => 'required',
             'nama_pelapor' => 'required',
             'tempat_lahir' => 'required',
+            'tgl_lahir' => 'required',
             'agama' => 'required',
             'kewarganegaraan' => 'required',
             'pekerjaan' => 'required',
             'alamat' => 'required',
-            'kontak' => 'required|integer',
+            // 'kontak' => 'required|integer',
             'uraian' => 'required',
         ], $messages);
 
@@ -37,14 +39,17 @@ class SuratTerimaController extends Controller
         }
 
         $data = new Surat_terima;
+        $data->nomor = $request->nomor;
         $data->nama_pelapor = $request->nama_pelapor;
         $data->tempat_lahir = $request->tempat_lahir;
+        $data->tgl_lahir = $request->tgl_lahir;
         $data->agama = $request->agama;
         $data->kewarganegaraan = $request->kewarganegaraan;
         $data->pekerjaan = $request->pekerjaan;
         $data->alamat = $request->alamat;
         $data->kontak = $request->kontak;
         $data->uraian = $request->uraian;
+        $data->status = 0;
         $data->save();
 
         return back()->with('success', 'Data Behasil Disimpan.');
@@ -64,13 +69,14 @@ class SuratTerimaController extends Controller
             'integer' => 'Nomor Telepon/Kontak Harus Berupa Angka.',
         ];
         $validator = Validator::make($request->all(), [
+            'nomor' => 'required',
             'nama_pelapor' => 'required',
             'tempat_lahir' => 'required',
             'agama' => 'required',
             'kewarganegaraan' => 'required',
             'pekerjaan' => 'required',
             'alamat' => 'required',
-            'kontak' => 'required|integer',
+            //'kontak' => 'required|integer',
             'uraian' => 'required',
         ], $messages);
 
@@ -79,10 +85,12 @@ class SuratTerimaController extends Controller
         }
 
         $data = Surat_terima::where('uuid', $id)->first();
+        $data->nomor = $request->nomor;
         $data->nama_pelapor = $request->nama_pelapor;
         $data->tempat_lahir = $request->tempat_lahir;
         $data->agama = $request->agama;
         $data->kewarganegaraan = $request->kewarganegaraan;
+        $data->tgl_lahir = $request->tgl_lahir;
         $data->pekerjaan = $request->pekerjaan;
         $data->alamat = $request->alamat;
         $data->kontak = $request->kontak;

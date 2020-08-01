@@ -20,7 +20,8 @@
                             <ul class="breadcome-menu">
                                 <li><a href="{{route('dashboard')}}">Home</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><a href="{{route('perintahpenyidikanIndex')}}">Perintah Penyelidikan</a> <span class="bread-slash">/</span>
+                                <li><a href="{{route('perintahpenyidikanIndex')}}">Perintah Penyelidikan</a> <span
+                                        class="bread-slash">/</span>
                                 </li>
                                 <li><span class="bread-blod">Ubah Perintah Penyelidikan</span>
                                 </li>
@@ -43,7 +44,8 @@
                         <div class=" main-sparkline13-hd">
                             <h1>Ubah Perintah Penyelidikan</h1>
                             <div class="sparkline13-outline-icon" style="margin-top: -6px;">
-                                <a href="{{route('perintahpenyidikanIndex')}}" class="btn btn-danger color-white"><span class="fa fa-arrow-left"> Kembali</span></a>
+                                <a href="{{route('perintahpenyidikanIndex')}}" class="btn btn-danger color-white"><span
+                                        class="fa fa-arrow-left"> Kembali</span></a>
                             </div>
                         </div>
                     </div>
@@ -54,9 +56,11 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="hasil_penyelidikan_id">No.Pol Penyelidikan</label>
-                                        <select name="hasil_penyelidikan_id" id="hasil_penyelidikan_id" class="form-control">
+                                        <select name="hasil_penyelidikan_id" id="hasil_penyelidikan_id"
+                                            class="form-control">
                                             @foreach($hasil as $d)
-                                            <option value="{{$d->id}}" @if ($data->hasil_penyelidikan_id == $d->id) {{ 'selected' }} @endif>{{$d->no_pol}}</option>
+                                            <option value="{{$d->id}}" @if ($data->hasil_penyelidikan_id == $d->id)
+                                                {{ 'selected' }} @endif>{{$d->no_pol}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -64,25 +68,35 @@
                                         <label for="pegawai_id">Kepada</label>
                                         <select name="pegawai_id" id="pegawai_id" class="form-control">
                                             @foreach($pegawai as $d)
-                                            <option value="{{$d->id}}" @if ($data->pegawai_id == $d->id) {{ 'selected' }} @endif>{{$d->nama}}</option>
+                                            <option value="{{$d->id}}" @if ($data->pegawai_id == $d->id)
+                                                {{ 'selected' }} @endif>{{$d->nama}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label for="no_penyidikan">Nomor Penyidikan</label>
+                                        <input name="no_penyidikan" id="no_penyidikan" class="form-control"
+                                            placeholder="Nomor Penyidikan" value="{{$data->no_penyidikan}}">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="pertimbangan">Pertimbangan</label>
-                                        <textarea name="pertimbangan" id="summernote1" class="form-control">{{$data->pertimbangan}}</textarea>
+                                        <textarea name="pertimbangan" id="summernote1"
+                                            class="form-control">{{$data->pertimbangan}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="dasar">Dasar</label>
-                                        <textarea name="dasar" id="summernote2" class="form-control">{{$data->dasar}}</textarea>
+                                        <textarea name="dasar" id="summernote2"
+                                            class="form-control">{{$data->dasar}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="untuk">Untuk</label>
-                                        <textarea name="untuk" id="summernote3" class="form-control">{{$data->untuk}}</textarea>
+                                        <textarea name="untuk" id="summernote3"
+                                            class="form-control">{{$data->untuk}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="dikeluarkan_di">Dikeluarkan di</label>
-                                        <input name="dikeluarkan_di" id="dikeluarkan_di" class="form-control" placeholder="Dikeluarkan di" value="{{$data->dikeluarkan_di}}">
+                                        <input name="dikeluarkan_di" id="dikeluarkan_di" class="form-control"
+                                            placeholder="Dikeluarkan di" value="{{$data->dikeluarkan_di}}">
                                     </div>
                                 </div>
                                 <div class="modal-footer">

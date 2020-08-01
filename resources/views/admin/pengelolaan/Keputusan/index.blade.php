@@ -42,8 +42,12 @@
                         <div class="main-sparkline13-hd">
                             <h1>Data Keputusan Pengadilan</h1>
                             <div class="sparkline13-outline-icon">
-                                <button type="button" class="btn btn-primary color-white" data-toggle="modal" data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
+                                <button type="button" class="btn btn-primary color-white" data-toggle="modal"
+                                    data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
                                 </button>
+                                <a type="button" target="_blank" href="{{ route('putusanpengadilan') }}"
+                                    class="btn btn-primary color-white"><span class="fa fa-print"> Cetak</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +56,12 @@
                             <div id="toolbar">
 
                             </div>
-                            <table id="table" class="table border-table nowrap" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="false" data-toolbar="#toolbar">
+                            <table id="table" class="table border-table nowrap" data-toggle="table"
+                                data-pagination="true" data-search="true" data-show-columns="true"
+                                data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true"
+                                data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="false"
+                                data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
@@ -72,9 +81,15 @@
                                         <td>{{$d->nomor}}</td>
                                         <td>{{$d->dikeluarkan_di}}</td>
                                         <td>
-                                            <a style="border-radius: 5px;" class="btn btn-info btn-xs" href="{{route('putusanShow',['id' => $d->uuid])}}"><i class="fa fa-search" style="color: white;"></i> Lihat</a>
-                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" href="{{route('putusanEdit',['id' => $d->uuid])}}"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
-                                            <a style="border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i> Delete</a>
+                                            <a style="border-radius: 5px;" class="btn btn-info btn-xs"
+                                                href="{{route('putusanShow',['id' => $d->uuid])}}"><i
+                                                    class="fa fa-search" style="color: white;"></i> Lihat</a>
+                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
+                                                href="{{route('putusanEdit',['id' => $d->uuid])}}"><i
+                                                    class="fa fa-pencil" style="color: white;"></i> Edit</a>
+                                            <a style="border-radius: 5px;" class="delete btn btn-danger btn-xs"
+                                                data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i>
+                                                Delete</a>
                                         </td>
                                         </td>
                                     </tr>

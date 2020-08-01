@@ -25,6 +25,7 @@ class PanggilanTersangkaController extends Controller
         ];
         $validator = Validator::make($request->all(), [
             'perintah_penyidikan_id' => 'required|unique:panggilan_tersangkas',
+            'no_panggilan' => 'required',
             'nama' => 'required',
             'kota' => 'required',
             'tgl_dipanggil' => 'required',
@@ -40,6 +41,7 @@ class PanggilanTersangkaController extends Controller
 
         $data = new Panggilan_tersangka;
         $data->perintah_penyidikan_id = $request->perintah_penyidikan_id;
+        $data->no_panggilan = $request->no_panggilan;
         $data->nama = $request->nama;
         $data->kota = $request->kota;
         $data->tgl_dipanggil = $request->tgl_dipanggil;
@@ -67,6 +69,7 @@ class PanggilanTersangkaController extends Controller
         ];
         $validator = Validator::make($request->all(), [
             'perintah_penyidikan_id' => 'required',
+            'no_panggilan' => 'required',
             'nama' => 'required',
             'kota' => 'required',
             'tgl_dipanggil' => 'required',
@@ -82,6 +85,7 @@ class PanggilanTersangkaController extends Controller
 
         $data = Panggilan_tersangka::where('uuid', $id)->first();
         $data->perintah_penyidikan_id = $request->perintah_penyidikan_id;
+        $data->no_panggilan = $request->no_panggilan;
         $data->nama = $request->nama;
         $data->kota = $request->kota;
         $data->tgl_dipanggil = $request->tgl_dipanggil;

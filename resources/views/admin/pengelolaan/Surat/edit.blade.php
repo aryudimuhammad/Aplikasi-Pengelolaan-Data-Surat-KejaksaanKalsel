@@ -20,7 +20,8 @@
                             <ul class="breadcome-menu">
                                 <li><a href="{{route('dashboard')}}">Home</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><a href="{{route('terimaIndex')}}">Surat Terima</a> <span class="bread-slash">/</span>
+                                <li><a href="{{route('terimaIndex')}}">Surat Terima</a> <span
+                                        class="bread-slash">/</span>
                                 </li>
                                 <li><span class="bread-blod">Ubah Surat Terima</span>
                                 </li>
@@ -43,7 +44,8 @@
                         <div class=" main-sparkline13-hd">
                             <h1>Ubah Surat Terima</h1>
                             <div class="sparkline13-outline-icon" style="margin-top: -6px;">
-                                <a href="{{route('terimaIndex')}}" class="btn btn-danger color-white"><span class="fa fa-arrow-left"> Kembali</span></a>
+                                <a href="{{route('terimaIndex')}}" class="btn btn-danger color-white"><span
+                                        class="fa fa-arrow-left"> Kembali</span></a>
                             </div>
                         </div>
                     </div>
@@ -52,18 +54,31 @@
                             <form method="post" action="{{route('terimaUpdate',['id' => $data->uuid])}}">
                                 @csrf
                                 <div class="form-group">
+                                    <label for="nomor">Nomor Surat</label>
+                                    <input type="text" name="nomor" id="nomor" class="form-control"
+                                        placeholder="Masukkan Nomor Surat" value="{{$data->nomor}}">
+                                </div>
+                                <div class="form-group">
                                     <label for="nama_pelapor">Nama Pelapor</label>
-                                    <input type="text" name="nama_pelapor" id="nama_pelapor" class="form-control" placeholder="Masukkan Nama Pelapor" value="{{$data->nama_pelapor}}">
+                                    <input type="text" name="nama_pelapor" id="nama_pelapor" class="form-control"
+                                        placeholder="Masukkan Nama Pelapor" value="{{$data->nama_pelapor}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="tempat_lahir">Tempat Lahir</label>
-                                    <textarea name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Masukkan Tempat Lahir">{{$data->tempat_lahir}}</textarea>
+                                    <textarea name="tempat_lahir" id="tempat_lahir" class="form-control"
+                                        placeholder="Masukkan Tempat Lahir">{{$data->tempat_lahir}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tgl_lahir">Tanggal Lahir</label>
+                                    <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control"
+                                        placeholder="Masukkan Tanggal Lahir" value="{{$data->tgl_lahir}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="agama">Agama</label>
                                     <select class="form-control" id="agama" name="agama">
                                         <option value="1" {{ $data->agama == 1 ? 'selected' : '' }}>Islam</option>
-                                        <option value="2" {{ $data->agama == 2 ? 'selected' : '' }}>Kristen Protestan</option>
+                                        <option value="2" {{ $data->agama == 2 ? 'selected' : '' }}>Kristen Protestan
+                                        </option>
                                         <option value="3" {{ $data->agama == 3 ? 'selected' : '' }}>Katolik</option>
                                         <option value="4" {{ $data->agama == 4 ? 'selected' : '' }}>Hindu</option>
                                         <option value="5" {{ $data->agama == 5 ? 'selected' : '' }}>Buddha</option>
@@ -72,24 +87,29 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="kewarganegaraan">Kewarganegaraan</label>
-                                    <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" placeholder="Masukkan Kewarganegaraan" value="{{$data->kewarganegaraan}}">
+                                    <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control"
+                                        placeholder="Masukkan Kewarganegaraan" value="{{$data->kewarganegaraan}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="pekerjaan">Pekerjaan</label>
-                                    <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" placeholder="Masukkan Pekerjaan" value="{{$data->pekerjaan}}">
+                                    <input type="text" name="pekerjaan" id="pekerjaan" class="form-control"
+                                        placeholder="Masukkan Pekerjaan" value="{{$data->pekerjaan}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
-                                    <textarea name="alamat" id="alamat" class="form-control" placeholder="Masukkan Alamat">{{$data->alamat}}</textarea>
+                                    <textarea name="alamat" id="alamat" class="form-control"
+                                        placeholder="Masukkan Alamat">{{$data->alamat}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="kontak">Kontak</label>
-                                    <input type="text" name="kontak" id="kontak" class="form-control" placeholder="Masukkan Kontak" value="{{$data->kontak}}">
+                                    <input type="text" name="kontak" id="kontak" class="form-control"
+                                        placeholder="Masukkan Kontak" value="{{$data->kontak}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="uraian">Uraian</label>
                                     <div class="tinymce-single shadow-reset nt-mg-b-30">
-                                        <textarea name="uraian" id="summernote2" class="form-control">{{$data->uraian}}</textarea>
+                                        <textarea name="uraian" id="summernote2"
+                                            class="form-control">{{$data->uraian}}</textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

@@ -13,7 +13,7 @@ class PerintahPenyelidikanController extends Controller
     public function Index()
     {
         $data = Perintah_penyelidikan::latest()->get();
-        $terima = Surat_terima::get();
+        $terima = Surat_terima::where('status', '0')->get();
         $pegawai = Pegawai::get();
 
         return view('admin.pengelolaan.penyelidikan.index', compact('data', 'terima', 'pegawai'));
@@ -46,6 +46,10 @@ class PerintahPenyelidikanController extends Controller
         $data->untuk = $request->untuk;
         $data->dikeluarkan_di = $request->dikeluarkan_di;
         $data->save();
+
+        $update = Surat_terima::findOrFail($data->surat_terima_id);
+        $update->status = 1;
+        $update->update();
 
         return back()->with('success', 'Data Behasil Disimpan.');
     }
@@ -93,6 +97,10 @@ class PerintahPenyelidikanController extends Controller
     {
         $data = Perintah_penyelidikan::where('uuid', $id)->first();
         $data->delete();
+
+        $update = Surat_terima::findOrFail($data->surat_terima_id);
+        $update->status = 0;
+        $update->update();
 
         return back();
     }
