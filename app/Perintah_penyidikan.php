@@ -25,4 +25,9 @@ class Perintah_penyidikan extends Model
     {
         return $this->belongsTo(Pegawai::class);
     }
+
+    public function Detail_penyidikan()
+    {
+        return $this->belongsTo(Detailpenyidikan::class);
+    }
 }

@@ -31,7 +31,6 @@ class PanggilanTersangkaController extends Controller
             'tgl_dipanggil' => 'required',
             'jam' => 'required',
             'tempat' => 'required',
-            'menghadap' => 'required',
             'keterangan' => 'required',
         ], $messages);
 
@@ -47,7 +46,6 @@ class PanggilanTersangkaController extends Controller
         $data->tgl_dipanggil = $request->tgl_dipanggil;
         $data->jam = $request->jam;
         $data->tempat = $request->tempat;
-        $data->menghadap = $request->menghadap;
         $data->keterangan = $request->keterangan;
         $data->save();
 
@@ -75,7 +73,6 @@ class PanggilanTersangkaController extends Controller
             'tgl_dipanggil' => 'required',
             'jam' => 'required',
             'tempat' => 'required',
-            'menghadap' => 'required',
             'keterangan' => 'required',
         ], $messages);
 
@@ -91,7 +88,6 @@ class PanggilanTersangkaController extends Controller
         $data->tgl_dipanggil = $request->tgl_dipanggil;
         $data->jam = $request->jam;
         $data->tempat = $request->tempat;
-        $data->menghadap = $request->menghadap;
         $data->keterangan = $request->keterangan;
         $data->update();
 

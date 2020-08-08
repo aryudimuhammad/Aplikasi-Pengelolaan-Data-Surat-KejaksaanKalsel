@@ -65,7 +65,6 @@
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="nama_pelapor">Nama Pelapor</th>
-                                        <th data-field="nama_pelapor">Nama Penerima</th>
                                         <th data-field="tempat_lahir">Tempat, Tanggal Lahir</th>
                                         <th data-field="agama">Agama</th>
                                         <th data-field="kewarganegaraan">Kewarganegaraan</th>

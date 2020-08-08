@@ -81,6 +81,10 @@
                                         <td>{{$d->pegawai->nama}}</td>
                                         <td>{{Carbon\carbon::parse($d->created_at)->format('d F Y')}}</td>
                                         <td>
+                                            <a style=" border-radius: 5px;" class="btn btn-primary btn-xs"
+                                                href="{{route('detailpenyelidikanIndex',['id' => $d->uuid])}}"><i
+                                                    class="fa fa-plus" style="color: white;"></i>
+                                                Penyelidik</a>
                                             <a style=" border-radius: 5px;" class="btn btn-info btn-xs"
                                                 href="{{route('penyelidikanShow',['id' => $d->uuid])}}"><i
                                                     class="fa fa-search" style="color: white;"></i> Lihat</a>

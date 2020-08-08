@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('title') Pengelolaan Panggilan Tersangka @endsection
+@section('title') Detail Panggilan Tersangka @endsection
 @section('head')
 <link rel="stylesheet" href="{{url('template/css/summernote.css')}}">
 @endsection
@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="breadcome-heading">
-                                <h1>Panggilan Tersangka</h1>
+                                <h1>Detail Panggilan Tersangka</h1>
                             </div>
                         </div>
                         <div class="col-lg-7">
@@ -22,6 +22,8 @@
                                 <li><a href="{{route('dashboard')}}">Home</a> <span class="bread-slash">/</span>
                                 </li>
                                 <li><span class="bread-blod">Panggilan Tersangka</span>
+                                </li>
+                                <li><span class="bread-blod">Detail Panggilan Tersangka</span>
                                 </li>
                             </ul>
                         </div>
@@ -40,19 +42,19 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Panggilan Tersangka</h1>
+                            <h1>Detail Panggilan Tersangka</h1>
                             <div class="sparkline13-outline-icon">
                                 <button type="button" class="btn btn-primary color-white" data-toggle="modal"
                                     data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
                                 </button>
-                                <a type="button" target="_blank" href="{{ route('panggilantersangka') }}"
-                                    class="btn btn-primary color-white"><span class="fa fa-print"> Cetak</span>
-                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
+                            <div id="toolbar">
+
+                            </div>
                             <table id="table" class="table border-table nowrap" data-toggle="table"
                                 data-pagination="true" data-search="true" data-show-columns="true"
                                 data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true"
@@ -62,11 +64,9 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="perintah_penyidikan_id">Nomor Perintah Pen yidikan</th>
-                                        <th data-field="nama">nama</th>
-                                        <th data-field="kota">Kota</th>
-                                        <th data-field="tanggal">Tanggal Dipanggil</th>
-                                        <th data-field="jam">Jam</th>
+                                        <th data-field="nama_pegawai">Nama Pegawai</th>
+                                        <th data-field="jabatan">Jabatan</th>
+                                        <th data-field="pangkat">Pangkat</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -74,23 +74,11 @@
                                     @foreach($data as $d)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$d->perintah_penyidikan->no_penyidikan}}</td>
-                                        <td>{{$d->nama}}</td>
-                                        <td>{{$d->kota}}</td>
-                                        <td>{{Carbon\carbon::parse($d->tanggal)->translatedformat('l, d F Y')}}</td>
-                                        <td>{{Carbon\carbon::parse($d->jam)->translatedformat('H:i')}}</td>
+                                        <td>{{$d->pegawai->nama}}</td>
+                                        <td>{{$d->pegawai->jabatan->jabatan}}</td>
+                                        <td>{{$d->pegawai->pangkat->pangkat}}</td>
                                         <td>
-                                            <a style=" border-radius: 5px;" class="btn btn-primary btn-xs"
-                                                href="{{route('detailpanggilanIndex',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-plus" style="color: white;"></i>
-                                                Jaksa</a>
-                                            <a style="border-radius: 5px;" class="btn btn-info btn-xs"
-                                                href="{{route('panggilanShow',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-search" style="color: white;"></i> Lihat</a>
-                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
-                                                href="{{route('panggilanEdit',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-pencil" style="color: white;"></i> Edit</a>
-                                            <a style="border-radius: 5px;" class="delete btn btn-danger btn-xs"
+                                            <a style=" border-radius: 5px;" class="delete btn btn-danger btn-xs"
                                                 data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i>
                                                 Delete</a>
                                         </td>
@@ -106,8 +94,9 @@
         </div>
     </div>
 </div>
-@include('admin.pengelolaan.panggilan.create')
+@include('admin.pengelolaan.panggilan.detail.create')
 @endsection
+
 @section('script')
 <script src="{{url('template/js/data-table/bootstrap-table.js')}}"></script>
 <script src="{{url('template/js/data-table/tableExport.js')}}"></script>
@@ -135,7 +124,7 @@
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "{{url('/panggilan/tersangka/delete')}}" + '/' + id,
+                    url: "{{url('/perintah/panggilan/detail/delete')}}" + '/' + id,
                     type: "POST",
                     data: {
                         '_method': 'DELETE',

@@ -115,6 +115,21 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::put('/admin/user', 'UserController@edit')->name('userEdit');
     Route::delete('/admin/user/delete/{id}', 'UserController@destroy')->name('userDelete');
 
+    //route detailpenyelidikan tambah penyelidik
+    Route::get('/perintah/penyelidikan/detai/{id}', 'DetailpenyelidikanController@index')->name('detailpenyelidikanIndex');
+    Route::post('/perintah/penyelidikan/detai/{id}', 'DetailpenyelidikanController@store')->name('detailpenyelidikanStore');
+    Route::delete('/perintah/penyelidikan/detail/delete/{id}', 'DetailpenyelidikanController@delete')->name('detailpenyelidikanStore');
+
+    //route detailpenyidikan tambah penyidik
+    Route::get('/perintah/penyidikan/detai/{id}', 'DetailpenyidikanController@index')->name('detailpenyidikanIndex');
+    Route::post('/perintah/penyidikan/detai/{id}', 'DetailpenyidikanController@store')->name('detailpenyidikanStore');
+    Route::delete('/perintah/penyidikan/detail/delete/{id}', 'DetailpenyidikanController@delete')->name('detailpenyidikanStore');
+
+    //route detailpanggilantersangka tambah jaksa
+    Route::get('/perintah/panggilan/detai/{id}', 'DetailpanggilanController@index')->name('detailpanggilanIndex');
+    Route::post('/perintah/panggilan/detai/{id}', 'DetailpanggilanController@store')->name('detailpanggilanStore');
+    Route::delete('/perintah/panggilan/detail/delete/{id}', 'DetailpanggilanController@delete')->name('detailpanggilanStore');
+
     //route laporan
     Route::get('/admin/report/suratterima', 'ReportController@suratterima')->name('suratterima');
     Route::get('/admin/report/perintahpenyelidikan', 'ReportController@perintahpenyelidikan')->name('perintahpenyelidikan');

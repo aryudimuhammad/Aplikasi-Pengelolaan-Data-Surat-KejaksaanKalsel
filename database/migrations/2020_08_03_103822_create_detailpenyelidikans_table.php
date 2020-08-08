@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePerintahPenyidikansTable extends Migration
+class CreateDetailpenyelidikansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,13 @@ class CreatePerintahPenyidikansTable extends Migration
      */
     public function up()
     {
-        Schema::create('perintah_penyidikans', function (Blueprint $table) {
+        Schema::create('detailpenyelidikans', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->length(36);
-            $table->unsignedBigInteger('hasil_penyelidikan_id');
+            $table->unsignedBigInteger('penyelidikan_id');
             $table->unsignedBigInteger('pegawai_id');
-            $table->string('no_penyidikan');
-            $table->text('pertimbangan');
-            $table->text('dasar');
-            $table->text('untuk');
-            $table->string('dikeluarkan_di');
             $table->timestamps();
-            $table->foreign('hasil_penyelidikan_id')->references('id')->on('hasil_penyelidikans')->onDelete('cascade');
+            $table->foreign('penyelidikan_id')->references('id')->on('perintah_penyelidikans')->onDelete('cascade');
             $table->foreign('pegawai_id')->references('id')->on('pegawais');
         });
     }
@@ -36,6 +31,6 @@ class CreatePerintahPenyidikansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perintah_penyidikans');
+        Schema::dropIfExists('detailpenyelidikans');
     }
 }

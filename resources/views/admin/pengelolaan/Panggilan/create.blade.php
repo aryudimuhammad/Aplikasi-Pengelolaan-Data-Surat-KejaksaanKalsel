@@ -49,11 +49,6 @@
                             value="{{old('tempat')}}">
                     </div>
                     <div class="form-group">
-                        <label for="menghadap">Menghadap</label>
-                        <textarea name="menghadap" id="summernote1" class="form-control"
-                            placeholder="Menghadap..">{{old('menghadap')}}</textarea>
-                    </div>
-                    <div class="form-group">
                         <label for="keterangan">Keterangan</label>
                         <textarea name="keterangan" id="summernote2" class="form-control"
                             placeholder="Keterangan..">{{old('keterangan')}}</textarea>
