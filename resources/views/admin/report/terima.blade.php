@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laporan Surat Terima</title>
+    <title>Surat Terima</title>
     <link rel="icon" type="image/png" href="{{url('images/logo.png')}}">
     <style>
         .logo {
@@ -101,10 +101,12 @@
             </p>
         </div>
         <hr>
+        <h4 style="float:right; margin-top:-0px;">P-1</h4>
     </div>
 
+
     <div class="container" style="margin-top:-40px;">
-        <h3 style="text-align:center;text-transform: uppercase;">Laporan Surat Terima (P-1)</h3>
+        <h3 style="text-align:center;text-transform: uppercase;">Laporan Surat Terima</h3>
 
         <table class='table table-bordered nowrap'>
             <thead>

@@ -62,8 +62,9 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="perintah_penyidikan_id">Nomor Perintah Pen yidikan</th>
-                                        <th data-field="nama">nama</th>
+                                        <th data-field="perintah_penyidikan_id">Nomor Perintah Penyidikan</th>
+                                        <th data-field="nama_warga">Tersangka</th>
+                                        <th data-field="nama">Menghadap</th>
                                         <th data-field="kota">Kota</th>
                                         <th data-field="tanggal">Tanggal Dipanggil</th>
                                         <th data-field="jam">Jam</th>
@@ -75,18 +76,23 @@
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$d->perintah_penyidikan->no_penyidikan}}</td>
-                                        <td>{{$d->nama}}</td>
+                                        <td>{{$d->warga->nama_warga}}</td>
+                                        <td>{{$d->pegawai->nama}}</td>
                                         <td>{{$d->kota}}</td>
                                         <td>{{Carbon\carbon::parse($d->tanggal)->translatedformat('l, d F Y')}}</td>
                                         <td>{{Carbon\carbon::parse($d->jam)->translatedformat('H:i')}}</td>
                                         <td>
+                                            {{-- <a style="border-radius: 5px;" target="_blank"
+                                                class="btn btn-primary btn-xs"
+                                                href="{{route('panggilantersangkaformat',['id' => $d->uuid])}}"><i
+                                                class="fa fa-print" style="color: white;"></i> Cetak Surat</a>
                                             <a style=" border-radius: 5px;" class="btn btn-primary btn-xs"
                                                 href="{{route('detailpanggilanIndex',['id' => $d->uuid])}}"><i
                                                     class="fa fa-plus" style="color: white;"></i>
                                                 Jaksa</a>
                                             <a style="border-radius: 5px;" class="btn btn-info btn-xs"
                                                 href="{{route('panggilanShow',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-search" style="color: white;"></i> Lihat</a>
+                                                    class="fa fa-search" style="color: white;"></i> Lihat</a> --}}
                                             <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
                                                 href="{{route('panggilanEdit',['id' => $d->uuid])}}"><i
                                                     class="fa fa-pencil" style="color: white;"></i> Edit</a>

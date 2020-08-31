@@ -16,11 +16,11 @@ class CreateDetailpenyidikansTable extends Migration
         Schema::create('detailpenyidikans', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->length(36);
-            $table->unsignedBigInteger('penyidikan_id');
+            $table->unsignedBigInteger('perintah_penyidikan_id');
             $table->unsignedBigInteger('pegawai_id');
             $table->timestamps();
-            $table->foreign('penyidikan_id')->references('id')->on('perintah_penyidikans')->onDelete('cascade');
-            $table->foreign('pegawai_id')->references('id')->on('pegawais');
+            $table->foreign('perintah_penyidikan_id')->references('id')->on('perintah_penyidikans')->onDelete('cascade');
+            $table->foreign('pegawai_id')->references('id')->on('pegawais')->onDelete('restrict');
         });
     }
 

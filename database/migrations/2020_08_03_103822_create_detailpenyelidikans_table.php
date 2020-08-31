@@ -20,7 +20,7 @@ class CreateDetailpenyelidikansTable extends Migration
             $table->unsignedBigInteger('pegawai_id');
             $table->timestamps();
             $table->foreign('penyelidikan_id')->references('id')->on('perintah_penyelidikans')->onDelete('cascade');
-            $table->foreign('pegawai_id')->references('id')->on('pegawais');
+            $table->foreign('pegawai_id')->references('id')->on('pegawais')->onDelete('restrict');
         });
     }
 

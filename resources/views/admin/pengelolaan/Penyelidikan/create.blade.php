@@ -15,7 +15,7 @@
                         <select name="surat_terima_id" id="surat_terima_id" class="form-control">
                             @foreach($terima as $d)
                             <option value="{{$d->id}}" @if (old('surat_terima_id')==$d->id) {{ 'selected' }}
-                                @endif>{{$d->nama_pelapor}}</option>
+                                @endif>{{$d->warga->nama}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -24,7 +24,7 @@
                         <select name="pegawai_id" id="pegawai_id" class="form-control">
                             @foreach($pegawai as $d)
                             <option value="{{$d->id}}" @if (old('pegawai_id')==$d->id) {{ 'selected' }}
-                                @endif>{{$d->nama}}</option>
+                                @endif>{{$d->nama_warga}}</option>
                             @endforeach
                         </select>
                     </div>

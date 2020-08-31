@@ -29,6 +29,18 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::put('/master/jabatan', 'JabatanController@edit')->name('jabatanEdit');
     Route::delete('/master/jabatan/{id}', 'JabatanController@delete')->name('jabatanDelete');
 
+    //route jenisaduan
+    Route::get('/master/jenisaduan', 'AduanController@index')->name('jenisaduanIndex');
+    Route::post('/master/jenisaduan', 'AduanController@create')->name('jenisaduanCreate');
+    Route::put('/master/jenisaduan', 'AduanController@edit')->name('jenisaduanEdit');
+    Route::delete('/master/jenisaduan/{id}', 'AduanController@delete')->name('jenisaduanDelete');
+
+    //route jenisaduan
+    Route::get('/master/warga', 'WargaController@index')->name('wargaIndex');
+    Route::post('/master/warga', 'WargaController@create')->name('wargaCreate');
+    Route::put('/master/warga', 'WargaController@edit')->name('wargaEdit');
+    Route::delete('/master/warga/{id}', 'WargaController@delete')->name('wargaDelete');
+
     //route Pangkat
     Route::get('/master/pangkat', 'PangkatController@index')->name('pangkatIndex');
     Route::post('/master/pangkat', 'PangkatController@create')->name('pangkatCreate');
@@ -139,4 +151,12 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::get('/admin/report/panggilantersangka', 'ReportController@panggilantersangka')->name('panggilantersangka');
     Route::get('/admin/report/hasilpenyidikan', 'ReportController@hasilpenyidikan')->name('hasilpenyidikan');
     Route::get('/admin/report/putusanpengadilan', 'ReportController@putusanpengadilan')->name('putusanpengadilan');
+    Route::get('/admin/report/suratterimaformat/{id}', 'ReportController@suratterimaformat')->name('suratterimaformat');
+    Route::get('/admin/report/perintahpenyelidikanformat/{id}', 'ReportController@perintahpenyelidikanformat')->name('perintahpenyelidikanformat');
+    Route::get('/admin/report/permintaanketeranganformat/{id}', 'ReportController@permintaanketeranganformat')->name('permintaanketeranganformat');
+    Route::get('/admin/report/hasilpenyelidikanformat/{id}', 'ReportController@hasilpenyelidikanformat')->name('hasilpenyelidikanformat');
+    Route::get('/admin/report/perintahpenyidikanformat/{id}', 'ReportController@perintahpenyidikanformat')->name('perintahpenyidikanformat');
+    Route::get('/admin/report/panggilantersangkaformat/{id}', 'ReportController@panggilantersangkaformat')->name('panggilantersangkaformat');
+    Route::get('/admin/report/hasilpenyidikanformat/{id}', 'ReportController@hasilpenyidikanformat')->name('hasilpenyidikanformat');
+    Route::get('/admin/report/putusanpengadilanformat/{id}', 'ReportController@putusanpengadilanformat')->name('putusanpengadilanformat');
 });

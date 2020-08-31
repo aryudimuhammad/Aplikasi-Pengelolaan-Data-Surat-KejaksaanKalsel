@@ -35,4 +35,9 @@ class Pegawai extends Model
     {
         return $this->hasOne(Putusan_pengadilan::class);
     }
+
+    public function panggilan_tersangka()
+    {
+        return $this->hasOne(Panggilan_tersangka::class);
+    }
 }

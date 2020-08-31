@@ -15,4 +15,14 @@ class Surat_terima extends Model
     {
         return $this->hasOne(Perintah_penyelidikan::class);
     }
+
+    public function Aduan()
+    {
+        return $this->belongsTo(Aduan::class);
+    }
+
+    public function Warga()
+    {
+        return $this->belongsTo(Warga::class);
+    }
 }

@@ -79,9 +79,13 @@
                                         <td>{{$d->no_pol}}</td>
                                         <td>{!!$d->isi_surat!!}</td>
                                         <td>
+                                            {{-- <a style="border-radius: 5px;" target="_blank"
+                                                class="btn btn-primary btn-xs"
+                                                href="{{route('hasilpenyelidikanformat',['id' => $d->uuid])}}"><i
+                                                class="fa fa-print" style="color: white;"></i> Cetak Surat</a>
                                             <a style="border-radius: 5px;" class="btn btn-info btn-xs"
                                                 href="{{route('hasilpenyelidikanShow',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-search" style="color: white;"></i> Lihat</a>
+                                                    class="fa fa-search" style="color: white;"></i> Lihat</a> --}}
                                             <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
                                                 href="{{route('hasilpenyelidikanEdit',['id' => $d->uuid])}}"><i
                                                     class="fa fa-pencil" style="color: white;"></i> Edit</a>

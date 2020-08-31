@@ -16,11 +16,11 @@ class CreateDetailpanggilansTable extends Migration
         Schema::create('detailpanggilans', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->length(36);
-            $table->unsignedBigInteger('panggilan_id');
+            $table->unsignedBigInteger('panggilan_tersangka_id');
             $table->unsignedBigInteger('pegawai_id');
             $table->timestamps();
-            $table->foreign('panggilan_id')->references('id')->on('panggilan_tersangkas')->onDelete('cascade');
-            $table->foreign('pegawai_id')->references('id')->on('pegawais');
+            $table->foreign('panggilan_tersangka_id')->references('id')->on('panggilan_tersangkas')->onDelete('cascade');
+            $table->foreign('pegawai_id')->references('id')->on('pegawais')->onDelete('restrict');
         });
     }
 

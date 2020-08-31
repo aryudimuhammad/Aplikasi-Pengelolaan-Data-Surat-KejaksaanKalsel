@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('title') Data Pegawai @endsection
+@section('title') Data Jenis Aduan @endsection
 
 @section('content')
 <!-- Breadcome start-->
@@ -12,14 +12,14 @@
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="breadcome-heading">
-                                <h1>Data Pegawai</h1>
+                                <h1>Data Jenis Aduan</h1>
                             </div>
                         </div>
                         <div class="col-lg-7">
                             <ul class="breadcome-menu">
                                 <li><a href="{{route('dashboard')}}">Home</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><span class="bread-blod">Data Pegawai</span>
+                                <li><span class="bread-blod">Data Jenis Aduan</span>
                                 </li>
                             </ul>
                         </div>
@@ -38,7 +38,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data Pegawai</h1>
+                            <h1>Data Jenis Aduan</h1>
                             <div class="sparkline13-outline-icon">
                                 <button type="button" class="btn btn-primary color-white" data-toggle="modal"
                                     data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
@@ -60,15 +60,8 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="nama">Nama</th>
-                                        <th data-field="nrp">NRP</th>
-                                        <th data-field="jabatan">Jabatan</th>
-                                        <th data-field="pangkat">Pangkat</th>
-                                        <th data-field="telp">Telepon</th>
-                                        <th data-field="tempat_lahir">Tempat Lahir</th>
-                                        <th data-field="tgl_lahir">Tanggal Lahir</th>
-                                        <th data-field="jk">Jenis Kelamin</th>
-                                        <th data-field="alamat">Alamat</th>
+                                        <th data-field="kode">Kode</th>
+                                        <th data-field="jenis">Jenis</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -76,23 +69,12 @@
                                     @foreach($data as $d)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$d->nama}}</td>
-                                        <td>{{$d->nrp}}</td>
-                                        <td>{{$d->jabatan->jabatan}}</td>
-                                        <td>{{$d->pangkat->pangkat}}</td>
-                                        <td>{{$d->telp}}</td>
-                                        <td>{{$d->tempat_lahir}}</td>
-                                        <td>{{Carbon\carbon::parse($d->tgl_lahir)->format('d F Y')}}</td>
-                                        <td>@if($d->jk == 1)Laki - Laki @elseif($d->jk ==2) Perempuan @endif</td>
-                                        <td>{{$d->alamat}}</td>
+                                        <td>{{$d->kode}}</td>
+                                        <td>{{$d->jenis}}</td>
                                         <td>
                                             <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
-                                                data-id="{{$d->id}}" data-nama="{{$d->nama}}" data-nrp="{{$d->nrp}}"
-                                                data-jabatan="{{$d->jabatan_id}}" data-pangkat="{{$d->pangkat_id}}"
-                                                data-telp="{{$d->telp}}" data-tempat_lahir="{{$d->tempat_lahir}}"
-                                                data-tgl_lahir="{{$d->tgl_lahir}}" data-jk="{{$d->jk}}"
-                                                data-alamat="{{$d->alamat}}" data-toggle="modal"
-                                                data-target="#modaledit"><i class="fa fa-pencil"
+                                                data-id="{{$d->id}}" data-kode="{{$d->kode}}" data-jenis="{{$d->jenis}}"
+                                                data-toggle="modal" data-target="#modaledit"><i class="fa fa-pencil"
                                                     style="color: white;"></i> Edit</a>
                                             <a style=" border-radius: 5px;" class="delete btn btn-danger btn-xs"
                                                 data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i>
@@ -111,8 +93,8 @@
     </div>
 </div>
 
-@include('admin.master.pegawai.create')
-@include('admin.master.pegawai.edit')
+@include('admin.master.jenisaduan.create')
+@include('admin.master.jenisaduan.edit')
 @endsection
 
 @section('script')
@@ -129,27 +111,13 @@
     $('#modaledit').on('show.bs.modal', function(event) {
         let button = $(event.relatedTarget)
         let id = button.data('id')
-        let nama = button.data('nama')
-        let nrp = button.data('nrp')
-        let jabatan = button.data('jabatan')
-        let pangkat = button.data('pangkat')
-        let telp = button.data('telp')
-        let tempat_lahir = button.data('tempat_lahir')
-        let tgl_lahir = button.data('tgl_lahir')
-        let jk = button.data('jk')
-        let alamat = button.data('alamat')
+        let kode = button.data('kode')
+        let jenis = button.data('jenis')
         let modal = $(this)
 
         modal.find('.modal-body #id').val(id)
-        modal.find('.modal-body #nama').val(nama);
-        modal.find('.modal-body #nrp').val(nrp);
-        modal.find('.modal-body #jabatan').val(jabatan);
-        modal.find('.modal-body #pangkat').val(pangkat);
-        modal.find('.modal-body #telp').val(telp);
-        modal.find('.modal-body #tempat_lahir').val(tempat_lahir);
-        modal.find('.modal-body #tgl_lahir').val(tgl_lahir);
-        modal.find('.modal-body #jk').val(jk);
-        modal.find('.modal-body #alamat').val(alamat);
+        modal.find('.modal-body #kode').val(kode);
+        modal.find('.modal-body #jenis').val(jenis);
     })
 </script>
 
@@ -168,7 +136,7 @@
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "{{url('/master/pegawai')}}" + '/' + id,
+                    url: "{{url('/master/jenisaduan')}}" + '/' + id,
                     type: "POST",
                     data: {
                         '_method': 'DELETE',

@@ -17,13 +17,14 @@ class CreatePermintaanKeterangansTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('perintah_penyelidikan_id');
+            $table->unsignedBigInteger('warga_id');
             $table->string('no_pol');
             $table->string('perihal');
-            $table->string('kepada');
             $table->string('di_kota');
             $table->text('uraian');
             $table->timestamps();
             $table->foreign('perintah_penyelidikan_id')->references('id')->on('perintah_penyelidikans')->onDelete('cascade');
+            $table->foreign('warga_id')->references('id')->on('wargas')->onDelete('cascade');
         });
     }
 

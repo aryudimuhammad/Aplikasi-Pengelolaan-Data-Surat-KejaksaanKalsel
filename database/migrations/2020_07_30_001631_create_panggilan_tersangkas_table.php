@@ -17,8 +17,9 @@ class CreatePanggilanTersangkasTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('perintah_penyidikan_id');
+            $table->unsignedBigInteger('warga_id');
+            $table->unsignedBigInteger('pegawai_id');
             $table->string('no_panggilan');
-            $table->string('nama');
             $table->string('kota');
             $table->date('tgl_dipanggil');
             $table->time('jam');
@@ -26,6 +27,8 @@ class CreatePanggilanTersangkasTable extends Migration
             $table->text('keterangan');
             $table->timestamps();
             $table->foreign('perintah_penyidikan_id')->references('id')->on('perintah_penyidikans')->onDelete('cascade');
+            $table->foreign('warga_id')->references('id')->on('wargas')->onDelete('cascade');
+            $table->foreign('pegawai_id')->references('id')->on('pegawais')->onDelete('restrict');
         });
     }
 

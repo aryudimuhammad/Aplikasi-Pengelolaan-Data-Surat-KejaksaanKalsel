@@ -65,7 +65,7 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="nama_pelapor">Nama Pelapor</th>
+                                        <th data-field="nama">Nama Pelapor</th>
                                         <th data-field="no_penyelidikan">Nomor Penyelidikan</th>
                                         <th data-field="pegawai_id">Kepada</th>
                                         <th data-field="created_at">Tanggal Dibuat</th>
@@ -76,18 +76,22 @@
                                     @foreach($data as $d)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$d->surat_terima->nama_pelapor}}</td>
+                                        <td>{{$d->surat_terima->warga->nama_warga}}</td>
                                         <td>{{$d->no_penyelidikan}}</td>
                                         <td>{{$d->pegawai->nama}}</td>
                                         <td>{{Carbon\carbon::parse($d->created_at)->format('d F Y')}}</td>
                                         <td>
-                                            <a style=" border-radius: 5px;" class="btn btn-primary btn-xs"
+                                            {{-- <a style="border-radius: 5px;" target="_blank"
+                                                class="btn btn-primary btn-xs"
+                                                href="{{route('perintahpenyelidikanformat',['id' => $d->uuid])}}"><i
+                                                class="fa fa-print" style="color: white;"></i> Cetak Surat</a> --}}
+                                            {{-- <a style=" border-radius: 5px;" class="btn btn-primary btn-xs"
                                                 href="{{route('detailpenyelidikanIndex',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-plus" style="color: white;"></i>
-                                                Penyelidik</a>
-                                            <a style=" border-radius: 5px;" class="btn btn-info btn-xs"
+                                                class="fa fa-plus" style="color: white;"></i>
+                                            Penyelidik</a> --}}
+                                            {{-- <a style=" border-radius: 5px;" class="btn btn-info btn-xs"
                                                 href="{{route('penyelidikanShow',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-search" style="color: white;"></i> Lihat</a>
+                                                class="fa fa-search" style="color: white;"></i> Lihat</a> --}}
                                             <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
                                                 href="{{route('penyelidikanEdit',['id' => $d->uuid])}}"><i
                                                     class="fa fa-pencil" style="color: white;"></i> Edit</a>

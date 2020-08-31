@@ -16,18 +16,14 @@ class CreateSuratTerimasTable extends Migration
         Schema::create('surat_terimas', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->length(36);
+            $table->unsignedBigInteger('warga_id');
+            $table->unsignedBigInteger('aduan_id');
             $table->string('nomor');
-            $table->string('nama_pelapor');
-            $table->string('tempat_lahir');
-            $table->enum('agama', ['1', '2', '3', '4', '5', '6']);
-            $table->string('kewarganegaraan');
-            $table->string('pekerjaan');
-            $table->date('tgl_lahir');
-            $table->text('alamat');
-            $table->string('kontak');
             $table->text('uraian');
             $table->tinyInteger('status');
             $table->timestamps();
+            $table->foreign('warga_id')->references('id')->on('wargas')->onDelete('cascade');
+            $table->foreign('aduan_id')->references('id')->on('aduans')->onDelete('restrict');
         });
     }
 

@@ -64,11 +64,14 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="nama_pelapor">Nama Pelapor</th>
+                                        <th data-field="aduan_id">Jenis Aduan</th>
+                                        <th data-field="nama">Nama Pelapor</th>
+                                        <th data-field="jenis_kelamin">Jenis Kelamin</th>
                                         <th data-field="tempat_lahir">Tempat, Tanggal Lahir</th>
                                         <th data-field="agama">Agama</th>
                                         <th data-field="kewarganegaraan">Kewarganegaraan</th>
                                         <th data-field="pekerjaan">Pekerjaan</th>
+                                        <th data-field="ortu">Orang Tua</th>
                                         <th data-field="alamat">Alamat</th>
                                         <th data-field="kontak">Kontak</th>
                                         <th data-field="uraian">Uraian</th>
@@ -79,19 +82,29 @@
                                     @foreach($data as $d)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$d->nama_pelapor}}</td>
-                                        <td>{{$d->tempat_lahir}},
+                                        <td>{{$d->aduan->jenis}}</td>
+                                        <td>{{$d->warga->nama_warga}}</td>
+                                        <td>@if($d->warga->jenis_kelamin == 1) Laki-laki
+                                            @elseif($d->warga->jenis_kelamin == 2) Perempuan @endif</td>
+                                        <td>{{$d->warga->tempat_lahir}},
                                             {{Carbon\Carbon::parse($d->tgl_lahir)->translatedFormat('d F Y')}}</td>
-                                        <td> @if($d->agama == 1) Islam @elseif($d->agama == 2) Kristen Protestan
-                                            @elseif($d->agama == 3) Katolik @elseif($d->agama == 4) Hindu
-                                            @elseif($d->agama == 5) Buddha @elseif($d->agama == 5) Kong Hu Cu @endif
+                                        <td> @if($d->warga->agama == 1) Islam @elseif($d->warga->agama == 2) Kristen
+                                            Protestan
+                                            @elseif($d->warga->agama == 3) Katolik @elseif($d->warga->agama == 4) Hindu
+                                            @elseif($d->warga->agama == 5) Buddha @elseif($d->warga->agama == 5) Kong Hu
+                                            Cu @endif
                                         </td>
-                                        <td>{{$d->kewarganegaraan}}</td>
-                                        <td>{{$d->pekerjaan}}</td>
-                                        <td>{{$d->alamat}}</td>
-                                        <td>{{$d->kontak}}</td>
+                                        <td>{{$d->warga->kewarganegaraan}}</td>
+                                        <td>{{$d->warga->pekerjaan}}</td>
+                                        <td>{{$d->warga->ortu}}</td>
+                                        <td>{{$d->warga->alamat}}</td>
+                                        <td>{{$d->warga->kontak}}</td>
                                         <td>{!!$d->uraian!!}</td>
                                         <td>
+                                            {{-- <a style="border-radius: 5px;" target="_blank"
+                                                class="btn btn-primary btn-xs"
+                                                href="{{route('suratterimaformat',['id' => $d->uuid])}}"><i
+                                                class="fa fa-print" style="color: white;"></i> Cetak Surat</a> --}}
                                             <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
                                                 href="{{route('terimaEdit',['id' => $d->uuid])}}"><i
                                                     class="fa fa-pencil" style="color: white;"></i> Edit</a>

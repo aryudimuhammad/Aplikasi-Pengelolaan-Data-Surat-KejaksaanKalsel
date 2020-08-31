@@ -16,6 +16,11 @@ class Permintaan_keterangan extends Model
         return $this->belongsTo(Perintah_penyelidikan::class);
     }
 
+    public function warga()
+    {
+        return $this->belongsTo(Warga::class);
+    }
+
     public function hasil_penyelidikan()
     {
         return $this->hasOne(Hasil_penyelidikan::class);

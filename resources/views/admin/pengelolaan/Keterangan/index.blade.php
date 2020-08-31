@@ -68,7 +68,7 @@
                                         <th data-field="nama_pelapor">No.Penyelidikan</th>
                                         <th data-field="nopol">No.Pol</th>
                                         <th data-field="perihal">Perihal</th>
-                                        <th data-field="kepada">Kepada</th>
+                                        <th data-field="nama">Kepada/warga</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -79,11 +79,15 @@
                                         <td>{{$d->perintah_penyelidikan->no_penyelidikan}}</td>
                                         <td>{{$d->no_pol}}</td>
                                         <td>{{$d->perihal}}</td>
-                                        <td>{{$d->kepada}}</td>
+                                        <td>{{$d->warga->nama_warga}}</td>
                                         <td>
+                                            {{-- <a style="border-radius: 5px;" target="_blank"
+                                                class="btn btn-primary btn-xs"
+                                                href="{{route('permintaanketeranganformat',['id' => $d->uuid])}}"><i
+                                                class="fa fa-print" style="color: white;"></i> Cetak Surat</a>
                                             <a style=" border-radius: 5px;" class="btn btn-info btn-xs"
                                                 href="{{route('keteranganShow',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-search" style="color: white;"></i> Detail</a>
+                                                    class="fa fa-search" style="color: white;"></i> Detail</a> --}}
                                             <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
                                                 href="{{route('keteranganEdit',['id' => $d->uuid])}}"><i
                                                     class="fa fa-pencil" style="color: white;"></i> Edit</a>

@@ -83,9 +83,13 @@
                                         <td>{{$d->perihal}}</td>
                                         <td>{{$d->kepada}}</td>
                                         <td>
+                                            {{-- <a style="border-radius: 5px;" target="_blank"
+                                                class="btn btn-primary btn-xs"
+                                                href="{{route('hasilpenyidikanformat',['id' => $d->uuid])}}"><i
+                                                class="fa fa-print" style="color: white;"></i> Cetak Surat</a>
                                             <a style="border-radius: 5px;" class="btn btn-info btn-xs"
                                                 href="{{route('hasilpenyidikanShow',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-search" style="color: white;"></i> Lihat</a>
+                                                    class="fa fa-search" style="color: white;"></i> Lihat</a> --}}
                                             <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
                                                 href="{{route('hasilpenyidikanEdit',['id' => $d->uuid])}}"><i
                                                     class="fa fa-pencil" style="color: white;"></i> Edit</a>

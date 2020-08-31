@@ -16,11 +16,11 @@ class CreateDetailputusanpengadilansTable extends Migration
         Schema::create('detailputusanpengadilans', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->length(36);
-            $table->unsignedBigInteger('putusan_id');
+            $table->unsignedBigInteger('putusan_pengadilan_id');
             $table->unsignedBigInteger('pegawai_id');
             $table->timestamps();
-            $table->foreign('putusan_id')->references('id')->on('putusan_pengadilans')->onDelete('cascade');
-            $table->foreign('pegawai_id')->references('id')->on('pegawais');
+            $table->foreign('putusan_pengadilan_id')->references('id')->on('putusan_pengadilans')->onDelete('cascade');
+            $table->foreign('pegawai_id')->references('id')->on('pegawais')->onDelete('restrict');
         });
     }
 

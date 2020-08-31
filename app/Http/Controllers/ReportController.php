@@ -98,4 +98,83 @@ class ReportController extends Controller
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('laporan-hasil_penyidikan-pdf');
     }
+    public function suratterimaformat($id)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $data = Surat_terima::all();
+
+        $pdf = PDF::loadview('admin/report/terima', compact('data', 'now'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('Surat_Terima-pdf');
+    }
+
+    public function perintahpenyidikanformat($id)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $data = Perintah_penyidikan::where('uuid', $id)->first();
+
+        $pdf = PDF::loadview('admin/report/suratperpenyidikan', compact('data', 'now'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('surat-Perintah_penyidikan-pdf');
+    }
+
+    public function perintahpenyelidikanformat($id)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $data = Perintah_penyelidikan::where('uuid', $id)->first();
+
+        $pdf = PDF::loadview('admin/report/suratperpenyelidikan', compact('data', 'now'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('surat-Perintah_penyelidikan-pdf');
+    }
+
+    public function permintaanketeranganformat($id)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $data = Permintaan_keterangan::where('uuid', $id)->first();
+
+        $pdf = PDF::loadview('admin/report/suratpermintaanket', compact('data', 'now'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('surat-permintaan_keterangan-pdf');
+    }
+
+    public function panggilantersangkaformat($id)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $data = Panggilan_tersangka::where('uuid', $id)->first();
+
+        $pdf = PDF::loadview('admin/report/suratpanggilanter', compact('data', 'now'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('surat-panggilan_tersangka-pdf');
+    }
+
+    public function putusanpengadilanformat($id)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $data = Putusan_pengadilan::where('uuid', $id)->first();
+
+        $pdf = PDF::loadview('admin/report/suratputusan', compact('data', 'now'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('surat-putusan_pengadilan-pdf');
+    }
+
+    public function hasilpenyelidikanformat($id)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $data = Hasil_penyelidikan::where('uuid', $id)->first();
+
+        $pdf = PDF::loadview('admin/report/surathaspenyelidikan', compact('data', 'now'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('surat-hasil_penyelidikan-pdf');
+    }
+
+    public function hasilpenyidikanformat($id)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $data = Hasil_penyidikan::where('uuid', $id)->first();
+
+        $pdf = PDF::loadview('admin/report/surathaspenyidikan', compact('data', 'now'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('surat-hasil_penyidikan-pdf');
+    }
 }

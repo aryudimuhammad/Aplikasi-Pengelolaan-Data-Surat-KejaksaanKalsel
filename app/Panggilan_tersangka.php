@@ -20,4 +20,13 @@ class Panggilan_tersangka extends Model
     {
         return $this->hasOne(Hasil_penyelidikan::class);
     }
+
+    public function warga()
+    {
+        return $this->belongsTo(Warga::class);
+    }
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class);
+    }
 }

@@ -20,7 +20,8 @@
                             <ul class="breadcome-menu">
                                 <li><a href="{{route('dashboard')}}">Home</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><a href="{{route('hasilpenyidikanIndex')}}">Hasil Penyidikan</a> <span class="bread-slash">/</span>
+                                <li><a href="{{route('hasilpenyidikanIndex')}}">Hasil Penyidikan</a> <span
+                                        class="bread-slash">/</span>
                                 </li>
                                 <li><span class="bread-blod">Ubah Hasil Penyidikan</span>
                                 </li>
@@ -43,7 +44,8 @@
                         <div class=" main-sparkline13-hd">
                             <h1>Ubah Hasil Penyidikan</h1>
                             <div class="sparkline13-outline-icon" style="margin-top: -6px;">
-                                <a href="{{route('hasilpenyidikanIndex')}}" class="btn btn-danger color-white"><span class="fa fa-arrow-left"> Kembali</span></a>
+                                <a href="{{route('hasilpenyidikanIndex')}}" class="btn btn-danger color-white"><span
+                                        class="fa fa-arrow-left"> Kembali</span></a>
                             </div>
                         </div>
                     </div>
@@ -55,35 +57,44 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="panggilan_tersangka_id">Nama Tersangka</label>
-                                        <select name="panggilan_tersangka_id" id="panggilan_tersangka_id" class="form-control">
+                                        <select name="panggilan_tersangka_id" id="panggilan_tersangka_id"
+                                            class="form-control">
                                             @foreach($panggilan as $d)
-                                            <option value="{{$d->id}}" @if ($data->panggilan_tersangka_id==$d->id) {{ 'selected' }} @endif>{{$d->nama}}</option>
+                                            <option value="{{$d->id}}" @if ($data->panggilan_tersangka_id==$d->id)
+                                                {{ 'selected' }} @endif>{{$d->warga->nama_warga}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="nomor_surat">Nomor Surat</label>
-                                        <input type="text" name="nomor_surat" id="nomor_surat" class="form-control" placeholder="Masukkan Nomor Surat" value="{{$data->nomor_surat}}">
+                                        <input type="text" name="nomor_surat" id="nomor_surat" class="form-control"
+                                            placeholder="Masukkan Nomor Surat" value="{{$data->nomor_surat}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="klasifikasi">Klasifikasi</label>
-                                        <input type="text" name="klasifikasi" id="klasifikasi" class="form-control" placeholder="Masukkan Klasifikasi" value="{{$data->klasifikasi}}">
+                                        <input type="text" name="klasifikasi" id="klasifikasi" class="form-control"
+                                            placeholder="Masukkan Klasifikasi" value="{{$data->klasifikasi}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="perihal">Perihal</label>
-                                        <input type="text" name="perihal" id="perihal" class="form-control" placeholder="Masukkan Perihal" value="{{$data->perihal}}">
+                                        <input type="text" name="perihal" id="perihal" class="form-control"
+                                            placeholder="Masukkan Perihal" value="{{$data->perihal}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="kepada">Kepada</label>
-                                        <input type="text" name="kepada" id="kepada" class="form-control" placeholder="Masukkan Kepada" value="{{$data->kepada}}">
+                                        <input type="text" name="kepada" id="kepada" class="form-control"
+                                            placeholder="Masukkan Kepada" value="{{$data->kepada}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="dikeluarkan_di">Dikeluarkan di</label>
-                                        <input type="text" name="dikeluarkan_di" id="dikeluarkan_di" class="form-control" placeholder="Masukkan Dikeluarkan di" value="{{$data->dikeluarkan_di}}">
+                                        <input type="text" name="dikeluarkan_di" id="dikeluarkan_di"
+                                            class="form-control" placeholder="Masukkan Dikeluarkan di"
+                                            value="{{$data->dikeluarkan_di}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="uraian">Uraian</label>
-                                        <textarea name="uraian" id="summernote1" class="form-control">{{$data->uraian}}</textarea>
+                                        <textarea name="uraian" id="summernote1"
+                                            class="form-control">{{$data->uraian}}</textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

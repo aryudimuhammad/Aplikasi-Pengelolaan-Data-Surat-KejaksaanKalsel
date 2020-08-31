@@ -16,9 +16,35 @@
                             placeholder="Masukkan Nomor Surat" value="{{old('nomor')}}">
                     </div>
                     <div class="form-group">
-                        <label for="nama_pelapor">Nama Pelapor</label>
-                        <input type="text" name="nama_pelapor" id="nama_pelapor" class="form-control"
-                            placeholder="Masukkan Nama Pelapor" value="{{old('nama_pelapor')}}">
+                        <label for="aduan_id">Aduan</label>
+                        <select name="aduan_id" id="aduan_id" class="form-control">
+                            @foreach($aduan as $d)
+                            <option value="{{$d->id}}" @if (old('aduan_id')==$d->id) {{ 'selected' }}
+                                @endif>{{$d->kode}} {{ $d->jenis }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nik">Nik</label>
+                        <input type="text" name="nik" id="nik" class="form-control" placeholder="Masukkan Nik"
+                            value="{{old('nik')}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="nama">Nama Pelapor</label>
+                        <input type="text" name="nama" id="nama" class="form-control"
+                            placeholder="Masukkan Nama Pelapor" value="{{old('nama')}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="alias">Alias</label>
+                        <input type="text" name="alias" id="alias" class="form-control"
+                            placeholder="Masukkan Nama Pelapor" value="{{old('alias')}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                            <option value="1">Laki-laki</option>
+                            <option value="2">Perempuan</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="tempat_lahir">Tempat Lahir</label>
@@ -50,6 +76,11 @@
                         <label for="pekerjaan">Pekerjaan</label>
                         <input type="text" name="pekerjaan" id="pekerjaan" class="form-control"
                             placeholder="Masukkan Pekerjaan" value="{{old('pekerjaan')}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="ortu">Orang Tua</label>
+                        <input type="text" name="ortu" id="ortu" class="form-control"
+                            placeholder="Masukkan Nama Orang Tua" value="{{old('ortu')}}">
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>

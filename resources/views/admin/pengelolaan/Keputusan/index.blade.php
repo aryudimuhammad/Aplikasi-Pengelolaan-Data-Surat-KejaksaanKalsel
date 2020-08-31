@@ -13,7 +13,7 @@
                 <div class="breadcome-list shadow-reset">
                     <div class="row">
                         <div class="col-lg-5">
-                            <div class="breadcome-heading">
+                            <div class="breadcome-heading">-
                                 <h1>Data Keputusan Pengadilan</h1>
                             </div>
                         </div>
@@ -81,9 +81,13 @@
                                         <td>{{$d->nomor}}</td>
                                         <td>{{$d->dikeluarkan_di}}</td>
                                         <td>
+                                            {{-- <a style="border-radius: 5px;" target="_blank"
+                                                class="btn btn-primary btn-xs"
+                                                href="{{route('putusanpengadilanformat',['id' => $d->uuid])}}"><i
+                                                class="fa fa-print" style="color: white;"></i> Cetak Surat</a>
                                             <a style="border-radius: 5px;" class="btn btn-info btn-xs"
                                                 href="{{route('putusanShow',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-search" style="color: white;"></i> Lihat</a>
+                                                    class="fa fa-search" style="color: white;"></i> Lihat</a> --}}
                                             <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
                                                 href="{{route('putusanEdit',['id' => $d->uuid])}}"><i
                                                     class="fa fa-pencil" style="color: white;"></i> Edit</a>
