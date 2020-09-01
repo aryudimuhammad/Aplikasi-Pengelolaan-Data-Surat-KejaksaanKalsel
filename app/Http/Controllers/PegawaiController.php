@@ -24,7 +24,6 @@ class PegawaiController extends Controller
         $messages = [
             'unique' => 'NRP Sudah Terdaftar.',
             'required' => ':attribute harus diisi.',
-            'integer' => ':Nomor Telepon Harus Berupa Angka.',
         ];
         $validator = Validator::make($request->all(), [
             'jabatan' => 'required',
@@ -62,7 +61,6 @@ class PegawaiController extends Controller
         $messages = [
             'unique' => 'NRP Sudah Terdaftar.',
             'required' => ':attribute harus diisi.',
-            'integer' => ':Nomor Telepon Harus Berupa Angka.',
         ];
         $validator = Validator::make($request->all(), [
             'jabatan' => 'required',

@@ -133,9 +133,9 @@
                     <th scope="col" class="text-center">NIK</th>
                     <th scope="col" class="text-center">Jenis Kelamin</th>
                     <th scope="col" class="text-center">Tempat, Tanggal Lahir</th>
-                    <th scope="col" class="text-center">Kontak</th>
                     <th scope="col" class="text-center">Agama</th>
                     <th scope="col" class="text-center">Pekerjaan</th>
+                    <th scope="col" class="text-center">Kontak</th>
                     <th scope="col" class="text-center">Kewarganegaraan</th>
                     <th scope="col" class="text-center">Keterangan</th>
                 </tr>
@@ -155,12 +155,12 @@
                         @elseif($d->warga->jenis_kelamin ==2 ) Perempuan @endif</td>
                     <td scope="col" class="text-center">{{ $d->warga->tempat_lahir }},
                         {{Carbon\Carbon::parse($d->warga->tgl_lahir)->translatedFormat('d F Y')}}</td>
-                    <td scope="col" class="text-center">{{ $d->warga->kontak }}</td>
                     <td scope="col" class="text-center">@if($d->warga->agama == 1) Islam @elseif($d->warga->agama == 2)
                         Kristen Protestan @elseif($d->warga->agama == 3) Katolik @elseif($d->warga->agama == 4) Hindu
                         @elseif($d->warga->agama == 5) Buddha @elseif($d->warga->agama == 5) Kong Hu
                         Cu @endif</td>
                     <td scope="col" class="text-center">{{ $d->warga->pekerjaan }}</td>
+                    <td scope="col" class="text-center">{{ $d->warga->kontak }}</td>
                     <td scope="col" class="text-center">{{ $d->warga->kewarganegaraan }}</td>
                     <td scope="col" class="text-center">{!! $d->uraian !!}</td>
                 </tr>

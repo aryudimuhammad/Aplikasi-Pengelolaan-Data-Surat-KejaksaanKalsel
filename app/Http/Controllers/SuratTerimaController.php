@@ -78,14 +78,13 @@ class SuratTerimaController extends Controller
         $data = Surat_terima::where('uuid', $id)->first();
         $aduan = Aduan::latest()->get();
 
-        return view('admin.pengelolaan.surat.edit', compact('data' , 'aduan'));
+        return view('admin.pengelolaan.surat.edit', compact('data', 'aduan'));
     }
 
     public function update(Request $request, $id)
     {
         $messages = [
             'required' => ':attribute Harus Diisi.',
-            'integer' => 'Nomor Telepon/Kontak Harus Berupa Angka.',
         ];
         $validator = Validator::make($request->all(), [
             'nomor' => 'required',
