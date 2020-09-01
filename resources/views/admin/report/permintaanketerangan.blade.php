@@ -27,6 +27,7 @@
             border: 1px solid;
             padding-left: 5px;
             text-align: center;
+            font-size: 10px;
         }
 
         .judul {
@@ -38,7 +39,7 @@
             margin-left: 0px;
             width: 75%;
             padding-left: 0px;
-            padding-right: 10%;
+            padding-right: 20%;
         }
 
         .ttd {
@@ -62,10 +63,11 @@
             margin-left: 0px;
             width: 75%;
             padding-left: 0px;
-            padding-right: 10%;
+            padding-right: 13%;
         }
 
         .header {
+            margin-top: -40px;
             margin-bottom: 0px;
             text-align: center;
             height: 150px;
@@ -95,12 +97,24 @@
             <img class="sizeimg" src="images/logo.png">
         </div>
         <div class="headtext">
-            <h4 style="margin:0px;">KEJAKSAAN REPUBLIK INDONESIA</h4>
-            <h3 style="margin:0px;">KEJAKSAAN TINGGI KALIMANTAN SELATAN</h3>
+            <h3 style="margin:0px;">KEJAKSAAN REPUBLIK INDONESIA</h3>
+            <h2 style="margin:0px;">KEJAKSAAN TINGGI KALIMANTAN SELATAN</h2>
             <p style="margin:0px;">Jl. D.I Panjalitan No.26, Banjarmasin
             </p>
         </div>
         <hr>
+        <div>
+            <h5><span style="float:left; margin-top:-20px;">Dicetak Oleh : {{ $user }}</span><br><br>
+                <span style="float:left; margin-top:5px;">Periode :
+                    {{Carbon\Carbon::parse($periode)->translatedFormat('F')}}/{{ $year }}</span>
+            </h5>
+
+            <h5><span style="float:right; margin-top:-30px;">Tanggal Cetak :
+                    {{Carbon\Carbon::parse($now)->translatedFormat('d F Y')}}</span><br><br>
+                {{-- <span style="float:right; margin-top:5px;">Halaman :</span> --}}
+            </h5>
+            <br>
+        </div>
     </div>
 
     <div class="container" style="margin-top:-40px;">
@@ -110,26 +124,37 @@
             <thead>
                 <tr>
                     <th scope="col" class="text-center">No</th>
-                    <th scope="col" class="text-center">Dari No.Penyelidikan</th>
-                    <th scope="col" class="text-center">No.Pol</th>
+                    <th scope="col" class="text-center">Tanggal Surat</th>
+                    <th scope="col" class="text-center">No Surat</th>
+                    <th scope="col" class="text-center">Kepada/warga</th>
+                    <th scope="col" class="text-center">Alias</th>
+                    <th scope="col" class="text-center">Orang Tua</th>
+                    <th scope="col" class="text-center">NIK</th>
+                    <th scope="col" class="text-center">Jenis Kelamin</th>
+                    <th scope="col" class="text-center">Kota</th>
                     <th scope="col" class="text-center">Perihal</th>
-                    <th scope="col" class="text-center">Kepada</th>
-                    <th scope="col" class="text-center">Di Kota</th>
-                    <th scope="col" class="text-center">Tanggal Dibuat</th>
+                    <th scope="col" class="text-center">Keterangan</th>
+                    <th scope="col" class="text-center">Dari Penyelidikan</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($data as $d)
                 <tr>
                     <td scope="col" class="text-center">{{ $loop->iteration }}</td>
-                    <td scope="col" class="text-center">{{ $d->perintah_penyelidikan->no_penyelidikan }}</td>
-                    <td scope="col" class="text-center">{{ $d->no_pol }}</td>
-                    <td scope="col" class="text-center">{{ $d->perihal }}</td>
-                    <td scope="col" class="text-center">{{ $d->kepada }}</td>
-                    <td scope="col" class="text-center">{{ $d->di_kota }}</td>
                     <td scope="col" class="text-center">
                         {{Carbon\Carbon::parse($d->created_at)->translatedFormat('d F Y')}}
                     </td>
+                    <td scope="col" class="text-center">{{ $d->no_pol }}</td>
+                    <td scope="col" class="text-center">{{ $d->warga->nama_warga }}</td>
+                    <td scope="col" class="text-center">{{ $d->warga->alias }}</td>
+                    <td scope="col" class="text-center">{{ $d->warga->ortu }}</td>
+                    <td scope="col" class="text-center">{{ $d->warga->nik }}</td>
+                    <td scope="col" class="text-center">@if($d->warga->jenis_kelamin == 1) Laki-laki
+                        @elseif($d->warga->jenis_kelamin == 2) Perempuan @endif</td>
+                    <td scope="col" class="text-center">{{ $d->di_kota }}</td>
+                    <td scope="col" class="text-center">{{ $d->perihal }}</td>
+                    <td scope="col" class="text-center">{!! $d->uraian !!}</td>
+                    <td scope="col" class="text-center">{{ $d->perintah_penyelidikan->no_penyelidikan }}</td>
                 </tr>
                 @endforeach
 

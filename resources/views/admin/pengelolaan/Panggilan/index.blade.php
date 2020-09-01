@@ -45,9 +45,9 @@
                                 <button type="button" class="btn btn-primary color-white" data-toggle="modal"
                                     data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
                                 </button>
-                                <a type="button" target="_blank" href="{{ route('panggilantersangka') }}"
+                                <button type="button" data-toggle="modal" data-target="#cetakbln"
                                     class="btn btn-primary color-white"><span class="fa fa-print"> Cetak</span>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -113,6 +113,7 @@
     </div>
 </div>
 @include('admin.pengelolaan.panggilan.create')
+@include('admin.pengelolaan.panggilan.cetaktgl')
 @endsection
 @section('script')
 <script src="{{url('template/js/data-table/bootstrap-table.js')}}"></script>
@@ -168,5 +169,12 @@
             }
         })
     });
+
+    $("#datepicker").datepicker( {
+    format: "mm-yyyy",
+    startView: "months",
+    minViewMode: "months"
+    });
+
 </script>
 @endsection

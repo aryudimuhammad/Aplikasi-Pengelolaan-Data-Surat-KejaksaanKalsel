@@ -44,9 +44,9 @@
                                 <button type="button" class="btn btn-primary color-white" data-toggle="modal"
                                     data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
                                 </button>
-                                <a type="button" target="_blank" href="{{ route('suratterima') }}"
+                                <button type="button" data-toggle="modal" data-target="#cetakbln"
                                     class="btn btn-primary color-white"><span class="fa fa-print"> Cetak</span>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -125,6 +125,7 @@
     </div>
 </div>
 @include('admin.pengelolaan.surat.create')
+@include('admin.pengelolaan.surat.cetaktgl')
 @endsection
 
 @section('script')
@@ -181,6 +182,18 @@
                 )
             }
         })
+    });
+
+    $("#datepicker").datepicker( {
+    format: "mm-yyyy",
+    startView: "months",
+    minViewMode: "months"
+    });
+
+    $("#datepicker1").datepicker( {
+    format: "yyyy",
+    startView: "years",
+    minViewMode: "years"
     });
 </script>
 @endsection

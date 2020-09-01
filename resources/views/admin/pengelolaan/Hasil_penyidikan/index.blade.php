@@ -45,9 +45,9 @@
                                 <button type="button" class="btn btn-primary color-white" data-toggle="modal"
                                     data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
                                 </button>
-                                <a type="button" target="_blank" href="{{ route('hasilpenyidikan') }}"
+                                <button type="button" data-toggle="modal" data-target="#cetakbln"
                                     class="btn btn-primary color-white"><span class="fa fa-print"> Cetak</span>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                                     @foreach($data as $d)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$d->panggilan_tersangka->nama}}</td>
+                                        <td>{{$d->panggilan_tersangka->warga->nama_warga}}</td>
                                         <td>{{$d->nomor_surat}}</td>
                                         <td>{{$d->klasifikasi}}</td>
                                         <td>{{$d->perihal}}</td>
@@ -111,6 +111,7 @@
 </div>
 
 @include('admin.pengelolaan.hasil_penyidikan.create')
+@include('admin.pengelolaan.hasil_penyidikan.cetaktgl')
 @endsection
 
 @section('script')
@@ -166,6 +167,12 @@
                 )
             }
         })
+    });
+
+    $("#datepicker").datepicker( {
+    format: "mm-yyyy",
+    startView: "months",
+    minViewMode: "months"
     });
 </script>
 @endsection
