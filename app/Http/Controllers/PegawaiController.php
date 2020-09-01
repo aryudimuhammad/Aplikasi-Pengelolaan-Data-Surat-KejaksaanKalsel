@@ -29,7 +29,7 @@ class PegawaiController extends Controller
             'jabatan' => 'required',
             'pangkat' => 'required',
             'nama' => 'required',
-            'telp' => 'required|integer',
+            'telp' => 'required',
             'tempat_lahir' => 'required',
             'tgl_lahir' => 'required',
             'jk' => 'required',
