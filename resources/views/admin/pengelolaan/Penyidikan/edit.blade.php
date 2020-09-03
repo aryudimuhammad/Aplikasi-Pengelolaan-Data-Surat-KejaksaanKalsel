@@ -55,7 +55,7 @@
                                 @csrf
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="hasil_penyelidikan_id">No.Pol Penyelidikan</label>
+                                        <label for="hasil_penyelidikan_id">No Hasil Penyelidikan</label>
                                         <select name="hasil_penyelidikan_id" id="hasil_penyelidikan_id"
                                             class="form-control">
                                             @foreach($hasil as $d)

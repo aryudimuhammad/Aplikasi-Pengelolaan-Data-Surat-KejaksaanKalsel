@@ -142,8 +142,10 @@
                     </td>
                     <td scope="col" class="text-center">{{ $d->no_penyidikan }}</td>
                     <td scope="col" class="text-center">{{ $d->pegawai->nama }}</td>
-                    <td scope="col" class="text-center">{{ $d->hasil_penyelidikan->permintaan_keterangan->no_pol }}</td>
-                    <td scope="col" class="text-center">{{ $d->hasil_penyelidikan->no_pol }}</td>
+                    <td scope="col" class="text-center">
+                        {{ $d->hasil_penyelidikan->permintaan_keterangan->no_pol }}</td>
+                    <td scope="col" class="text-center">
+                        {{ $d->hasil_penyelidikan->permintaan_keterangan->perintah_penyelidikan->no_penyelidikan}}</td>
                     <td scope="col" class="text-center">{!! $d->pertimbangan !!}</td>
                     <td scope="col" class="text-center">{!! $d->dasar !!}</td>
                 </tr>

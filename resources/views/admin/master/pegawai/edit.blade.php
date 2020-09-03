@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nrp">NRP</label>
-                        <input type="text" name="nrp" id="nrp" class="form-control" placeholder="Masukkan NRP"
+                        <input type="number" name="nrp" id="nrp" class="form-control" placeholder="Masukkan NRP"
                             value="{{old('nrp')}}">
                     </div>
                     <div class="form-group">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="telp">Telepon</label>
-                        <input type="text" name="telp" id="telp" class="form-control" placeholder="Masukkan Telepon"
+                        <input type="number" name="telp" id="telp" class="form-control" placeholder="Masukkan Telepon"
                             value="{{old('telp')}}">
                     </div>
                     <div class="form-group">
