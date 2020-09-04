@@ -62,7 +62,7 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="hasil_penyelidikan_id">No.Pol Hasil Penyelidikan</th>
+                                        <th data-field="hasil_penyelidikan_id">No Hasil Penyelidikan</th>
                                         <th data-field="no_penyidikan">No. Penyidikan</th>
                                         <th data-field="kepada">Kepada</th>
                                         <th data-field="dikeluar_di">Dikeluar di</th>

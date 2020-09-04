@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Ubah Data Jabatan</h3>
+                <h3 class="modal-title">Ubah Data Pegawai</h3>
                 <div class="modal-close-area modal-close-df">
                     <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
                 </div>
