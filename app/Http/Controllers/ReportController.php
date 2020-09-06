@@ -26,6 +26,7 @@ class ReportController extends Controller
     {
         $now = Carbon::now()->format('d-m-Y');
         $user = Auth::user()->name;
+        $role = Auth::user()->keterangan;
         $date = explode("-", $request->month);
         $month = $date[0];
         $year = $date[1];
@@ -34,7 +35,7 @@ class ReportController extends Controller
         $periode = Carbon::createFromFormat('m', $month);
 
 
-        $pdf = PDF::loadview('admin/report/suratterima', compact('data', 'now', 'user', 'month', 'year','periode'));
+        $pdf = PDF::loadview('admin/report/suratterima', compact('data', 'now', 'user', 'month', 'year','periode','role'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-SuratTerima-pdf');
     }
@@ -43,13 +44,14 @@ class ReportController extends Controller
     {
         $now = Carbon::now()->format('d-m-Y');
         $user = Auth::user()->name;
+        $role = Auth::user()->keterangan;
         $date = explode("-", $request->month);
         $month = $date[0];
         $year = $date[1];
         $data = Perintah_penyidikan::whereYear('created_at','=', $year)->whereMonth('created_at','=', $month)->get();
         $periode = Carbon::createFromFormat('m', $month);
 
-        $pdf = PDF::loadview('admin/report/perintahpenyidikan', compact('data', 'now', 'user', 'month', 'year','periode'));
+        $pdf = PDF::loadview('admin/report/perintahpenyidikan', compact('data', 'now', 'user', 'month', 'year','periode','role'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-Perintah_penyidikan-pdf');
     }
@@ -58,13 +60,14 @@ class ReportController extends Controller
     {
         $now = Carbon::now()->format('d-m-Y');
         $user = Auth::user()->name;
+        $role = Auth::user()->keterangan;
         $date = explode("-", $request->month);
         $month = $date[0];
         $year = $date[1];
         $data = Perintah_penyelidikan::whereYear('created_at','=', $year)->whereMonth('created_at','=', $month)->get();
         $periode = Carbon::createFromFormat('m', $month);
 
-        $pdf = PDF::loadview('admin/report/perintahpenyelidikan', compact('data', 'now', 'user', 'month', 'year','periode'));
+        $pdf = PDF::loadview('admin/report/perintahpenyelidikan', compact('data', 'now', 'user', 'month', 'year','periode','role'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-Perintah_penyelidikan-pdf');
     }
@@ -73,13 +76,14 @@ class ReportController extends Controller
     {
         $now = Carbon::now()->format('d-m-Y');
         $user = Auth::user()->name;
+        $role = Auth::user()->keterangan;
         $date = explode("-", $request->month);
         $month = $date[0];
         $year = $date[1];
         $data = Permintaan_keterangan::whereYear('created_at','=', $year)->whereMonth('created_at','=', $month)->get();
         $periode = Carbon::createFromFormat('m', $month);
 
-        $pdf = PDF::loadview('admin/report/permintaanketerangan', compact('data', 'now', 'user', 'month', 'year','periode'));
+        $pdf = PDF::loadview('admin/report/permintaanketerangan', compact('data', 'now', 'user', 'month', 'year','periode','role'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-permintaan_keterangan-pdf');
     }
@@ -88,13 +92,14 @@ class ReportController extends Controller
     {
         $now = Carbon::now()->format('d-m-Y');
         $user = Auth::user()->name;
+        $role = Auth::user()->keterangan;
         $date = explode("-", $request->month);
         $month = $date[0];
         $year = $date[1];
         $data = Panggilan_tersangka::whereYear('created_at','=', $year)->whereMonth('created_at','=', $month)->get();
         $periode = Carbon::createFromFormat('m', $month);
 
-        $pdf = PDF::loadview('admin/report/panggilantersangka', compact('data', 'now', 'user', 'month', 'year','periode'));
+        $pdf = PDF::loadview('admin/report/panggilantersangka', compact('data', 'now', 'user', 'month', 'year','periode','role'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-panggilan_tersangka-pdf');
     }
@@ -103,13 +108,14 @@ class ReportController extends Controller
     {
         $now = Carbon::now()->format('d-m-Y');
         $user = Auth::user()->name;
+        $role = Auth::user()->keterangan;
         $date = explode("-", $request->month);
         $month = $date[0];
         $year = $date[1];
         $data = Putusan_pengadilan::whereYear('created_at','=', $year)->whereMonth('created_at','=', $month)->get();
         $periode = Carbon::createFromFormat('m', $month);
 
-        $pdf = PDF::loadview('admin/report/putusanpengadilan', compact('data', 'now', 'user', 'month', 'year','periode'));
+        $pdf = PDF::loadview('admin/report/putusanpengadilan', compact('data', 'now', 'user', 'month', 'year','periode','role'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-putusan_pengadilan-pdf');
     }
@@ -118,13 +124,14 @@ class ReportController extends Controller
     {
         $now = Carbon::now()->format('d-m-Y');
         $user = Auth::user()->name;
+        $role = Auth::user()->keterangan;
         $date = explode("-", $request->month);
         $month = $date[0];
         $year = $date[1];
         $data = Hasil_penyelidikan::whereYear('created_at','=', $year)->whereMonth('created_at','=', $month)->get();
         $periode = Carbon::createFromFormat('m', $month);
 
-        $pdf = PDF::loadview('admin/report/hasilpenyelidikan', compact('data', 'now', 'user', 'month', 'year','periode'));
+        $pdf = PDF::loadview('admin/report/hasilpenyelidikan', compact('data', 'now', 'user', 'month', 'year','periode','role'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-hasil_penyelidikan-pdf');
     }
@@ -133,13 +140,14 @@ class ReportController extends Controller
     {
         $now = Carbon::now()->format('d-m-Y');
         $user = Auth::user()->name;
+        $role = Auth::user()->keterangan;
         $date = explode("-", $request->month);
         $month = $date[0];
         $year = $date[1];
         $data = Hasil_penyidikan::whereYear('created_at','=', $year)->whereMonth('created_at','=', $month)->get();
         $periode = Carbon::createFromFormat('m', $month);
 
-        $pdf = PDF::loadview('admin/report/hasilpenyidikan', compact('data', 'now', 'user', 'month', 'year','periode'));
+        $pdf = PDF::loadview('admin/report/hasilpenyidikan', compact('data', 'now', 'user', 'month', 'year','periode','role'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-hasil_penyidikan-pdf');
     }
