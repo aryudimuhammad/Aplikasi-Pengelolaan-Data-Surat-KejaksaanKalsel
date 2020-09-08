@@ -206,8 +206,7 @@
                                                         <div class="form-group">
                                                             <label for="keterangan">Role Pengguna</label>
                                                             <input type="text" name="keterangan" id="keterangan"
-                                                                class="form-control"
-                                                                placeholder="Masukkan Nomor Telepon"
+                                                                class="form-control" placeholder="Masukkan Role"
                                                                 value="{{ Auth::user()->keterangan }}">
                                                         </div>
                                                         <div class="form-group">
