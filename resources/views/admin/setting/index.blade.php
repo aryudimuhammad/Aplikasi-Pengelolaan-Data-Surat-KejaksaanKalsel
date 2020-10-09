@@ -78,7 +78,8 @@
                     <div class="row">
                         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                             <div class="project-details-title">
-                                <h2 style="margin-left:4%;"><span class="profile-details-name-nn">Profile</span> {{ Auth::user()->name }}</h2>
+                                <h2 style="margin-left:4%;"><span class="profile-details-name-nn">Profile</span>
+                                    {{ Auth::user()->name }}</h2>
                             </div>
                         </div>
                     </div>
@@ -88,7 +89,9 @@
                             <div class="project-details-mg">
                                 <div class="row">
                                     <div>
-                                        <img src="{{ url('images/profile/'. Auth::user()->gambar )}}" alt="Gambar Tidak Ada" id="gambar" style="width: 75%; height:75%; display: block; margin: auto;">
+                                        <img src="{{ url('images/profile/'. Auth::user()->gambar )}}"
+                                            alt="Gambar Tidak Ada" id="gambar"
+                                            style="width: 75%; height:75%; display: block; margin: auto;">
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +99,9 @@
                             <div class="project-details-mg">
                                 <div class="row">
                                     <div>
-                                        <img src="/images/nopict.png" alt="Gambar Tidak Ada" id="imgView" class="card-img-top img-fluid" style="width: 75%; height:75%; display: block; margin: auto;">
+                                        <img src="/images/nopict.png" alt="Gambar Tidak Ada" id="imgView"
+                                            class="card-img-top img-fluid"
+                                            style="width: 75%; height:75%; display: block; margin: auto;">
                                     </div>
                                 </div>
                             </div>
@@ -181,29 +186,48 @@
                                                         <br>
                                                         <div class="form-group">
                                                             <label for="name">Nama Lengkap</label>
-                                                            <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan Nama Lengkap" value="{{ Auth::user()->name }}">
+                                                            <input type="text" name="name" id="name"
+                                                                class="form-control" placeholder="Masukkan Nama Lengkap"
+                                                                value="{{ Auth::user()->name }}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="email">E-Mail</label>
-                                                            <input type="email" name="email" id="email" class="form-control" placeholder="Masukkan Email" value="{{ Auth::user()->email }}">
+                                                            <input type="email" name="email" id="email"
+                                                                class="form-control" placeholder="Masukkan Email"
+                                                                value="{{ Auth::user()->email }}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="telp">Nomor Telepon</label>
-                                                            <input type="number" name="telp" id="telp" class="form-control" placeholder="Masukkan Nomor Telepon" value="{{ Auth::user()->telp }}">
+                                                            <input type="number" name="telp" id="telp"
+                                                                class="form-control"
+                                                                placeholder="Masukkan Nomor Telepon"
+                                                                value="{{ Auth::user()->telp }}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="keterangan">Role Pengguna</label>
+                                                            <input type="text" name="keterangan" id="keterangan"
+                                                                class="form-control" placeholder="Masukkan Role"
+                                                                value="{{ Auth::user()->keterangan }}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="alamat">Alamat</label>
-                                                            <textarea name="alamat" id="alamat" class="form-control" placeholder="Masukkan Alamat">{{ Auth::user()->alamat }}</textarea>
+                                                            <textarea name="alamat" id="alamat" class="form-control"
+                                                                placeholder="Masukkan Alamat">{{ Auth::user()->alamat }}</textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="gambar">Gambar</label>
-                                                            <input type="file" name="pict" id="pict" class="form-control" onchange="document.getElementById('pict').value = this.value;" aria-describedby="pict" value="{{old('pict')}}">
+                                                            <input type="file" name="pict" id="pict"
+                                                                class="form-control"
+                                                                onchange="document.getElementById('pict').value = this.value;"
+                                                                aria-describedby="pict" value="{{old('pict')}}">
                                                             <p>Note : Masukkan Gambar jika ingin mengubah Gambar</p>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
-                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                        <button type="reset" class="btn btn-danger"
+                                                            data-dismiss="modal">Reset</button>
+                                                        <button type="submit" class="btn btn-primary">Save
+                                                            changes</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -219,21 +243,26 @@
                                                 @csrf
                                                 <div class="form-group">
                                                     <label for="password_lama">Password Lama</label>
-                                                    <input type="password" name="password_lama" id="password_lama" class="form-control" placeholder="Masukkan Password Lama">
+                                                    <input type="password" name="password_lama" id="password_lama"
+                                                        class="form-control" placeholder="Masukkan Password Lama">
                                                     <p>Note : Masukkan Password jika ingin mengubah Password</p>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="password_baru">Password Baru</label>
-                                                    <input type="password" name="password_baru" id="password_baru" class="form-control" placeholder="Masukkan Password Baru">
+                                                    <input type="password" name="password_baru" id="password_baru"
+                                                        class="form-control" placeholder="Masukkan Password Baru">
                                                     <p>Note : Masukkan Password jika ingin mengubah Password</p>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="konfirmasi_password">Konfirmasi Password</label>
-                                                    <input type="password" name="konfirmasi_password" id="konfirmasi_password" class="form-control" placeholder="Konfirmasi Password">
+                                                    <input type="password" name="konfirmasi_password"
+                                                        id="konfirmasi_password" class="form-control"
+                                                        placeholder="Konfirmasi Password">
                                                 </div>
                                                 <br>
                                                 <div class="modal-footer">
-                                                    <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
+                                                    <button type="reset" class="btn btn-danger"
+                                                        data-dismiss="modal">Reset</button>
                                                     <button type="submit" class="btn btn-primary">Save changes</button>
                                                 </div>
                                             </form>

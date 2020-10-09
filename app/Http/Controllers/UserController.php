@@ -85,6 +85,7 @@ class UserController extends Controller
         $data->email = $request->email;
         $data->telp = $request->telp;
         $data->alamat = $request->alamat;
+        $data->keterangan = $request->keterangan;
         if ($request->gambar) {
             $request->file('gambar')->move('images/profile/', $request->file('gambar')->getClientOriginalName());
             $data->gambar = $request->file('gambar')->getClientOriginalName();
@@ -166,6 +167,7 @@ class UserController extends Controller
         $data->email = $request->email;
         $data->telp = $request->telp;
         $data->alamat = $request->alamat;
+        $data->keterangan = $request->keterangan;
         if ($request->pict) {
             $request->file('pict')->move('images/profile/', $request->file('pict')->getClientOriginalName());
             $data->gambar = $request->file('pict')->getClientOriginalName();

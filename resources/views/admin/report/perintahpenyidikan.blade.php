@@ -12,7 +12,7 @@
             margin-top: 15px;
             float: left;
             margin-right: -5px;
-            width: 15%;
+            width: 6%;
             padding: 0px;
             text-align: right;
         }
@@ -104,7 +104,7 @@
         </div>
         <hr>
         <div>
-            <h5><span style="float:left; margin-top:-20px;">Dicetak Oleh : {{ $user }}</span><br><br>
+            <h5><span style="float:left; margin-top:-20px;">Dicetak Oleh : {{ $user }}/{{ $role }}</span><br><br>
                 <span style="float:left; margin-top:5px;">Periode :
                     {{Carbon\Carbon::parse($periode)->translatedFormat('F')}}/{{ $year }}</span>
             </h5>
@@ -142,8 +142,10 @@
                     </td>
                     <td scope="col" class="text-center">{{ $d->no_penyidikan }}</td>
                     <td scope="col" class="text-center">{{ $d->pegawai->nama }}</td>
-                    <td scope="col" class="text-center">{{ $d->hasil_penyelidikan->permintaan_keterangan->no_pol }}</td>
-                    <td scope="col" class="text-center">{{ $d->hasil_penyelidikan->no_pol }}</td>
+                    <td scope="col" class="text-center">
+                        {{ $d->hasil_penyelidikan->permintaan_keterangan->no_pol }}</td>
+                    <td scope="col" class="text-center">
+                        {{ $d->hasil_penyelidikan->permintaan_keterangan->perintah_penyelidikan->no_penyelidikan}}</td>
                     <td scope="col" class="text-center">{!! $d->pertimbangan !!}</td>
                     <td scope="col" class="text-center">{!! $d->dasar !!}</td>
                 </tr>

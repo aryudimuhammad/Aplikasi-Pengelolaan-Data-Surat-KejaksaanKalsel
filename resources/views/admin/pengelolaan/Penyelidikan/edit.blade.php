@@ -72,7 +72,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="no_penyelidikan">No Penyelidikan</label>
+<<<<<<< HEAD
                                         <input type="number" name="no_penyelidikan" id="no_penyelidikan" class="form-control" placeholder="Masukkan No Penyelidikan" value="{{$data->no_penyelidikan}}">
+=======
+                                        <input type="text" name="no_penyelidikan" id="no_penyelidikan"
+                                            class="form-control" placeholder="Masukkan No Penyelidikan"
+                                            value="{{$data->no_penyelidikan}}">
+>>>>>>> 5f67fec4171c731d910574371feaca7d4016fb7b
                                     </div>
                                     <div class="form-group">
                                         <label for="pertimbangan">Pertimbangan</label>

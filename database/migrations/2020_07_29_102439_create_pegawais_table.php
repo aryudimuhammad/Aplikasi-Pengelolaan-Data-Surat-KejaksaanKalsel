@@ -19,8 +19,8 @@ class CreatePegawaisTable extends Migration
             $table->unsignedBigInteger('jabatan_id');
             $table->unsignedBigInteger('pangkat_id');
             $table->string('nama');
-            $table->integer('nrp');
-            $table->integer('telp');
+            $table->string('nrp');
+            $table->string('telp');
             $table->string('tempat_lahir');
             $table->date('tgl_lahir');
             $table->enum('jk',  ['1', '2']);

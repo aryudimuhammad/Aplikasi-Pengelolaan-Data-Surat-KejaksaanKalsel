@@ -24,7 +24,11 @@
                         <select name="pegawai_id" id="pegawai_id" class="form-control">
                             @foreach($pegawai as $d)
                             <option value="{{$d->id}}" @if (old('pegawai_id')==$d->id) {{ 'selected' }}
+<<<<<<< HEAD
                                 @endif>{{$d->nama}}</option>
+=======
+                                @endif>{{$d->nama}} - {{ $d->jabatan->jabatan }}</option>
+>>>>>>> 5f67fec4171c731d910574371feaca7d4016fb7b
                             @endforeach
                         </select>
                     </div>

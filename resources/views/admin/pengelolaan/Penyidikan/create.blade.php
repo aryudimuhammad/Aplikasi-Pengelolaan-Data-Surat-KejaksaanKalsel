@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label for="hasil_penyelidikan_id">No.Pol Penyelidikan</label>
+                        <label for="hasil_penyelidikan_id">No Hasil Penyelidikan</label>
                         <select name="hasil_penyelidikan_id" id="hasil_penyelidikan_id" class="form-control">
                             @foreach($hasil as $d)
                             <option value="{{$d->id}}" @if (old('hasil_penyelidikan_id')==$d->id) {{ 'selected' }}
@@ -24,7 +24,7 @@
                         <select name="pegawai_id" id="pegawai_id" class="form-control">
                             @foreach($pegawai as $d)
                             <option value="{{$d->id}}" @if (old('pegawai_id')==$d->id) {{ 'selected' }}
-                                @endif>{{$d->nama}}</option>
+                                @endif>{{$d->nama}} - {{ $d->jabatan->jabatan }}</option>
                             @endforeach
                         </select>
                     </div>

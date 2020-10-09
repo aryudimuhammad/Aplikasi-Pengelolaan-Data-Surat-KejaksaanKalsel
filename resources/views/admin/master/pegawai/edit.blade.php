@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Ubah Data Jabatan</h3>
+                <h3 class="modal-title">Ubah Data Pegawai</h3>
                 <div class="modal-close-area modal-close-df">
                     <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
                 </div>
@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nrp">NRP</label>
-                        <input type="text" name="nrp" id="nrp" class="form-control" placeholder="Masukkan NRP"
+                        <input type="number" name="nrp" id="nrp" class="form-control" placeholder="Masukkan NRP"
                             value="{{old('nrp')}}">
                     </div>
                     <div class="form-group">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="telp">Telepon</label>
-                        <input type="text" name="telp" id="telp" class="form-control" placeholder="Masukkan Telepon"
+                        <input type="number" name="telp" id="telp" class="form-control" placeholder="Masukkan Telepon"
                             value="{{old('telp')}}">
                     </div>
                     <div class="form-group">
