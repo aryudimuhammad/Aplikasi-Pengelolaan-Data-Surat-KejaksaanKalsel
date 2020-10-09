@@ -42,23 +42,16 @@
                         <div class="main-sparkline13-hd">
                             <h1>Perintah Penyidikan</h1>
                             <div class="sparkline13-outline-icon">
-                                <button type="button" class="btn btn-primary color-white" data-toggle="modal"
-                                    data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
+                                <button type="button" class="btn btn-primary color-white" data-toggle="modal" data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
                                 </button>
-                                <button type="button" data-toggle="modal" data-target="#cetakbln"
-                                    class="btn btn-primary color-white"><span class="fa fa-print"> Cetak</span>
+                                <button type="button" data-toggle="modal" data-target="#cetakbln" class="btn btn-primary color-white"><span class="fa fa-print"> Cetak</span>
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
-                            <table id="table" class="table border-table nowrap" data-toggle="table"
-                                data-pagination="true" data-search="true" data-show-columns="true"
-                                data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true"
-                                data-show-toggle="true" data-resizable="true" data-cookie="true"
-                                data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="false"
-                                data-toolbar="#toolbar">
+                            <table id="table" class="table border-table nowrap" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="false" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
@@ -80,22 +73,12 @@
                                         <td>{{$d->dikeluarkan_di}}</td>
                                         <td>{{Carbon\carbon::parse($d->created_at)->format('d F Y')}}</td>
                                         <td>
-                                            {{-- <a style="border-radius: 5px;" target="_blank"
-                                                class="btn btn-primary btn-xs"
-                                                href="{{route('perintahpenyidikanformat',['id' => $d->uuid])}}"><i
-                                                class="fa fa-print" style="color: white;"></i> Cetak Surat</a>
-                                            <a style=" border-radius: 5px;" class="btn btn-primary btn-xs"
-                                                href="{{route('detailpenyidikanIndex',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-plus" style="color: white;"></i>
-                                                Penyidik</a>
-                                            <a style="border-radius: 5px;" class="btn btn-info btn-xs"
-                                                href="{{route('perintahpenyidikanShow',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-search" style="color: white;"></i> Lihat</a> --}}
-                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs"
-                                                href="{{route('perintahpenyidikanEdit',['id' => $d->uuid])}}"><i
-                                                    class="fa fa-pencil" style="color: white;"></i> Edit</a>
-                                            <a style="border-radius: 5px;" class="delete btn btn-danger btn-xs"
-                                                data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i>
+                                            <a style="border-radius: 5px;" target="_blank" class="btn btn-primary btn-xs" href="{{route('perintahpenyidikanformat',['id' => $d->uuid])}}"><i class="fa fa-print" style="color: white;"></i> Cetak Surat</a>
+                                            <!-- <a style=" border-radius: 5px;" class="btn btn-primary btn-xs" href="{{route('detailpenyidikanIndex',['id' => $d->uuid])}}"><i class="fa fa-plus" style="color: white;"></i>
+                                                Penyidik</a> -->
+                                            <!-- <a style="border-radius: 5px;" class="btn btn-info btn-xs" href="{{route('perintahpenyidikanShow',['id' => $d->uuid])}}"><i class="fa fa-search" style="color: white;"></i> Lihat</a> -->
+                                            <a style="border-radius: 5px;" class="btn btn-warning btn-xs" href="{{route('perintahpenyidikanEdit',['id' => $d->uuid])}}"><i class="fa fa-pencil" style="color: white;"></i> Edit</a>
+                                            <a style="border-radius: 5px;" class="delete btn btn-danger btn-xs" data-id="{{$d->uuid}}"><i class="fa fa-trash" style="color: white;"></i>
                                                 Delete</a>
                                         </td>
                                         </td>
@@ -168,11 +151,10 @@
         })
     });
 
-    $("#datepicker").datepicker( {
-    format: "mm-yyyy",
-    startView: "months",
-    minViewMode: "months"
+    $("#datepicker").datepicker({
+        format: "mm-yyyy",
+        startView: "months",
+        minViewMode: "months"
     });
-
 </script>
 @endsection

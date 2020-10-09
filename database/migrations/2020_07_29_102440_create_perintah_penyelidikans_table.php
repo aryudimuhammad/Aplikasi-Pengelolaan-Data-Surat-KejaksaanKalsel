@@ -22,6 +22,7 @@ class CreatePerintahPenyelidikansTable extends Migration
             $table->string('pertimbangan');
             $table->text('dasar');
             $table->text('untuk');
+            $table->text('sasaran');
             $table->string('dikeluarkan_di');
             $table->timestamps();
             $table->foreign('surat_terima_id')->references('id')->on('surat_terimas')->onDelete('cascade');

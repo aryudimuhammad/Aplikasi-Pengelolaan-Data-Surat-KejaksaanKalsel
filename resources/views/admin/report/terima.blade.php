@@ -24,9 +24,8 @@
 
         td,
         th {
-            border: 1px solid;
-            padding-left: 5px;
-            text-align: center;
+            border: 0px solid;
+            font-size: 14px;
         }
 
         .judul {
@@ -83,7 +82,7 @@
         }
 
         h5 {
-            line-height: 0.3;
+            line-height: 0.1;
         }
     </style>
 </head>
@@ -107,51 +106,81 @@
 
     <div class="container" style="margin-top:-40px;">
         <h3 style="text-align:center;text-transform: uppercase;">Laporan Surat Terima</h3>
+        <br>
+        <p> -------- Yang Bertanda tangan dibawah ini saya : --------------------------------------------------</p>
+        <p style="text-align: center;"> --------------: INDAH LAILA, S.H, M.M :--------------</p>
+        <p style="text-align: justify;">Jaksa Utama Pratama NIP. 197205241997032003 Jabatan Kepala Kejaksaan Tinggi Kalimantan Selatan pada kantor tersebut diatas menerangkan dengan sebenernya bahwa pada hari ini tanggal {{$now}} Pukul {{$time}} Waktu Setempat, telah datang ke SPKT seorang @if($data->jenis_kelamin == 1) laki-laki @else perempuan @endif mengaku : </p>
 
-        <table class='table table-bordered nowrap'>
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center">No</th>
-                    <th scope="col" class="text-center">Nama Pelapor</th>
-                    <th scope="col" class="text-center">Nomor</th>
-                    <th scope="col" class="text-center">Tanggal Lapor</th>
-                    <th scope="col" class="text-center">Kontak</th>
-                    <th scope="col" class="text-center">Keterangan</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{-- @foreach($data as $d)
-                <tr>
-                    <td scope="col" class="text-center">{{ $loop->iteration }}</td>
-                <td scope="col" class="text-center">{{ $d->nama_pelapor }}</td>
-                <td scope="col" class="text-center">{{ $d->nomor }}</td>
-                <td scope="col" class="text-center">
-                    {{Carbon\Carbon::parse($d->created_at)->translatedFormat('d F Y')}}
-                </td>
-                <td scope="col" class="text-center">{{ $d->kontak }}</td>
-                <td scope="col" class="text-center">{!! $d->uraian !!}</td>
-                </tr>
-                @endforeach --}}
-
-            </tbody>
+        <table style="padding-bottom: 3px;">
+            <tr>
+                <td class="text-left" style="padding-left: 60px; width:160px;">1. Nama Lengkap</td>
+                <td style="width:18px;">:</td>
+                <td class="text-left">{{$data->nama_warga}}</td>
+            </tr>
+            <tr>
+                <td class="text-left" style="padding-left: 60px;">2. Tempat, Tanggal Lahir</td>
+                <td>:</td>
+                <td class="text-left">{{$data->tempat_lahir}}, {{$data->tgl_lahir}}</td>
+            </tr>
+            <tr>
+                <td class="text-left" style="padding-left: 60px;">3. Agama</td>
+                <td>:</td>
+                <td class="text-left"> @if($data->agama == 1) Islam @elseif($data->agama == 2) Kristen Protestan @elseif($data->agama == 3) Katolik @elseif($data->agama == 4) Hindu @elseif($data->agama == 5) Buddha @else Kong Hu Cu @endif</td>
+            </tr>
+            <tr>
+                <td class="text-left" style="padding-left: 60px;">4. Kewarganegaraan</td>
+                <td>:</td>
+                <td class="text-left">{{$data->kewarganegaraan}}</td>
+            </tr>
+            <tr>
+                <td class="text-left" style="padding-left: 60px;">5. Pekerjaan</td>
+                <td>:</td>
+                <td class="text-left">{{$data->pekerjaan}}</td>
+            </tr>
+            <tr>
+                <td class="text-left" style="padding-left: 60px;">6. Alamat</td>
+                <td>:</td>
+                <td class="text-left">{{$data->alamat}}</td>
+            </tr>
+            </tr>
+            <tr>
+                <td class="text-left" style="padding-left: 60px;">7. Kontak</td>
+                <td>:</td>
+                <td class="text-left">{{$data->kontak}}</td>
+            </tr>
         </table>
-        <br>
-        <br>
-        <div class="ttd">
-            <h5>
-                Banjarmasin, {{Carbon\Carbon::parse($now)->translatedFormat('d F Y')}}
-            </h5>
-            <h5>a.n KEPALA KEJAKSAAN TINGGI KALIMANTAN SELATAN</h5>
-            <h5>ASISTEN TINDAK PIDANA UMUM</h5>
-            <h5>SELAKU PENUNTUT UMUM</h5>
-            <br>
-            <br>
-            <h5 style="text-decoration:underline;">INDAH LAILA, S.H, M.M</h5>
 
-            <h5>Jaksa Utama Pratama NIP. 197205241997032003</h5>
-        </div>
+        <p style="text-align: justify;">{!!$surat->uraian!!}</p>
+        <p>Demikian Surat Tanda Penerimaan Laporan ini dibuat untuk dapat digunakan seperlunya.</p>
+        <br>
+        <br>
+
+        <table>
+            <tr>
+                <td style="width: 50%; text-align: center;">
+                    <br>
+                    <br>
+                    <br>
+                    <h5>Pelapor</h5>
+                    <br>
+                    <br>
+                    <h5 style="text-decoration:underline;">{{$data->nama_warga}}</h5>
+                </td>
+                <td style="width: 50%; text-align: center;">
+                    <h5>Banjarmasin, {{Carbon\Carbon::parse($now)->translatedFormat('d F Y')}}</h5>
+                    <h5>a.n KEPALA KEJAKSAAN TINGGI KALIMANTAN SELATAN</h5>
+                    <h5>ASISTEN TINDAK PIDANA UMUM</h5>
+                    <h5>SELAKU PENUNTUT UMUM</h5>
+                    <br>
+                    <br>
+                    <h5 style="text-decoration:underline;">INDAH LAILA, S.H, M.M</h5>
+                    <h5>Jaksa Utama Pratama NIP. 197205241997032003</h5>
+                </td>
+            </tr>
+        </table>
 
     </div>
+
 </body>
 
 </html>

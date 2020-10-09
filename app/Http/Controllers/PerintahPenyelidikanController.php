@@ -30,6 +30,7 @@ class PerintahPenyelidikanController extends Controller
             'pertimbangan' => 'required',
             'dasar' => 'required',
             'untuk' => 'required',
+            'sasaran' => 'required',
             'dikeluarkan_di' => 'required',
         ], $messages);
 
@@ -42,6 +43,7 @@ class PerintahPenyelidikanController extends Controller
         $data->pegawai_id = $request->pegawai_id;
         $data->no_penyelidikan = $request->no_penyelidikan;
         $data->pertimbangan = $request->pertimbangan;
+        $data->sasaran = $request->sasaran;
         $data->dasar = $request->dasar;
         $data->untuk = $request->untuk;
         $data->dikeluarkan_di = $request->dikeluarkan_di;
@@ -73,6 +75,7 @@ class PerintahPenyelidikanController extends Controller
             'pertimbangan' => 'required',
             'dasar' => 'required',
             'untuk' => 'required',
+            'sasaran' => 'required',
             'dikeluarkan_di' => 'required',
         ], $messages);
 
@@ -86,6 +89,7 @@ class PerintahPenyelidikanController extends Controller
         $data->no_penyelidikan = $request->no_penyelidikan;
         $data->pertimbangan = $request->pertimbangan;
         $data->dasar = $request->dasar;
+        $data->sasaran = $request->sasaran;
         $data->untuk = $request->untuk;
         $data->dikeluarkan_di = $request->dikeluarkan_di;
         $data->update();
