@@ -40,6 +40,19 @@ class ReportController extends Controller
         return $pdf->stream('laporan-SuratTerima-pdf');
     }
 
+    public function suratterimakeseluruhan(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+
+        $data = Surat_terima::all();
+
+
+        $pdf = PDF::loadview('admin/report/suratterimakeseluruhan', compact('data', 'now', 'user'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-SuratTerima-pdf');
+    }
+
     public function perintahpenyidikan(Request $request)
     {
         $now = Carbon::now()->format('d-m-Y');
@@ -52,6 +65,17 @@ class ReportController extends Controller
         $periode = Carbon::createFromFormat('m', $month);
 
         $pdf = PDF::loadview('admin/report/perintahpenyidikan', compact('data', 'now', 'user', 'month', 'year', 'periode', 'role'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-Perintah_penyidikan-pdf');
+    }
+
+    public function perintahpenyidikankeseluruhan(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $data = Perintah_penyidikan::all();
+
+        $pdf = PDF::loadview('admin/report/perintahpenyidikankeseluruhan', compact('data', 'now', 'user'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-Perintah_penyidikan-pdf');
     }
@@ -72,6 +96,17 @@ class ReportController extends Controller
         return $pdf->stream('laporan-Perintah_penyelidikan-pdf');
     }
 
+    public function perintahpenyelidikankeseluruhan(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $data = Perintah_penyelidikan::all();
+
+        $pdf = PDF::loadview('admin/report/perintahpenyelidikankeseluruhan', compact('data', 'now', 'user'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-Perintah_penyelidikan-pdf');
+    }
+
     public function permintaanketerangan(Request $request)
     {
         $now = Carbon::now()->format('d-m-Y');
@@ -84,6 +119,18 @@ class ReportController extends Controller
         $periode = Carbon::createFromFormat('m', $month);
 
         $pdf = PDF::loadview('admin/report/permintaanketerangan', compact('data', 'now', 'user', 'month', 'year', 'periode', 'role'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-permintaan_keterangan-pdf');
+    }
+
+
+    public function permintaanketerangankeseluruhan(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $data = Permintaan_keterangan::all();
+
+        $pdf = PDF::loadview('admin/report/permintaanketerangankeseluruhan', compact('data', 'now', 'user'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-permintaan_keterangan-pdf');
     }
@@ -104,6 +151,17 @@ class ReportController extends Controller
         return $pdf->stream('laporan-panggilan_tersangka-pdf');
     }
 
+    public function panggilantersangkakeseluruhan(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $data = Panggilan_tersangka::all();
+
+        $pdf = PDF::loadview('admin/report/panggilantersangkakeseluruhan', compact('data', 'now', 'user'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-panggilan_tersangka-pdf');
+    }
+
     public function putusanpengadilan(Request $request)
     {
         $now = Carbon::now()->format('d-m-Y');
@@ -116,6 +174,17 @@ class ReportController extends Controller
         $periode = Carbon::createFromFormat('m', $month);
 
         $pdf = PDF::loadview('admin/report/putusanpengadilan', compact('data', 'now', 'user', 'month', 'year', 'periode', 'role'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-putusan_pengadilan-pdf');
+    }
+
+    public function putusanpengadilankeseluruhan(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $data = Putusan_pengadilan::all();
+
+        $pdf = PDF::loadview('admin/report/putusanpengadilankeseluruhan', compact('data', 'now', 'user'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-putusan_pengadilan-pdf');
     }
@@ -136,6 +205,17 @@ class ReportController extends Controller
         return $pdf->stream('laporan-hasil_penyelidikan-pdf');
     }
 
+    public function hasilpenyelidikankeseluruhan(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $data = Hasil_penyelidikan::all();
+
+        $pdf = PDF::loadview('admin/report/hasilpenyelidikankeseluruhan', compact('data', 'now', 'user'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-hasil_penyelidikan-pdf');
+    }
+
     public function hasilpenyidikan(Request $request)
     {
         $now = Carbon::now()->format('d-m-Y');
@@ -151,6 +231,18 @@ class ReportController extends Controller
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-hasil_penyidikan-pdf');
     }
+
+    public function hasilpenyidikankeseluruhan(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $data = Hasil_penyidikan::all();
+
+        $pdf = PDF::loadview('admin/report/hasilpenyidikankeseluruhan', compact('data', 'now', 'user'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-hasil_penyidikan-pdf');
+    }
+
     public function suratterimaformat($id)
     {
         $now = Carbon::now()->format('d F Y');

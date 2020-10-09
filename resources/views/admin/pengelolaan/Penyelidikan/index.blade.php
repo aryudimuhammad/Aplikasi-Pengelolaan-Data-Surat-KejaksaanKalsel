@@ -44,8 +44,10 @@
                             <div class="sparkline13-outline-icon">
                                 <button type="button" class="btn btn-primary color-white" data-toggle="modal" data-target="#modaltambah"><span class="fa fa-plus"> Tambah Data</span>
                                 </button>
-                                <button type="button" data-toggle="modal" data-target="#cetakbln" class="btn btn-primary color-white"><span class="fa fa-print"> Cetak</span>
+                                <button type="button" data-toggle="modal" data-target="#cetakbln" class="btn btn-primary color-white"><span class="fa fa-print"> Cetak Berdasarkan Bulan</span>
                                 </button>
+                                <a class="btn btn-primary color-white" href="{{ route('perintahpenyelidikankeseluruhan') }}" target="_blank"><span class="fa fa-print"> Cetak Keseluruhan</span>
+                                </a>
                             </div>
                         </div>
                     </div>

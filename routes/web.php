@@ -159,4 +159,14 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::get('/admin/report/panggilantersangkaformat/{id}', 'ReportController@panggilantersangkaformat')->name('panggilantersangkaformat');
     Route::get('/admin/report/hasilpenyidikanformat/{id}', 'ReportController@hasilpenyidikanformat')->name('hasilpenyidikanformat');
     Route::get('/admin/report/putusanpengadilanformat/{id}', 'ReportController@putusanpengadilanformat')->name('putusanpengadilanformat');
+
+    //cetak keseluruhan
+    Route::get('/admin/report/suratterima/keseluruhan', 'ReportController@suratterimakeseluruhan')->name('suratterimakeseluruhan');
+    Route::get('/admin/report/perintahpenyelidikan/keseluruhan', 'ReportController@perintahpenyelidikankeseluruhan')->name('perintahpenyelidikankeseluruhan');
+    Route::get('/admin/report/permintaanketerangan/keseluruhan', 'ReportController@permintaanketerangankeseluruhan')->name('permintaanketerangankeseluruhan');
+    Route::get('/admin/report/hasilpenyelidikan/keseluruhan', 'ReportController@hasilpenyelidikankeseluruhan')->name('hasilpenyelidikankeseluruhan');
+    Route::get('/admin/report/perintahpenyidikan/keseluruhan', 'ReportController@perintahpenyidikankeseluruhan')->name('perintahpenyidikankeseluruhan');
+    Route::get('/admin/report/panggilantersang/kakeseluruhan', 'ReportController@panggilantersangkakeseluruhan')->name('panggilantersangkakeseluruhan');
+    Route::get('/admin/report/hasilpenyidikan/keseluruhan', 'ReportController@hasilpenyidikankeseluruhan')->name('hasilpenyidikankeseluruhan');
+    Route::get('/admin/report/putusanpengadilan/keseluruhan', 'ReportController@putusanpengadilankeseluruhan')->name('putusanpengadilankeseluruhan');
 });
