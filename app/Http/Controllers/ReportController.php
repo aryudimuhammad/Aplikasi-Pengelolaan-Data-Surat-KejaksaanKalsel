@@ -11,13 +11,13 @@ use App\Jabatan;
 use App\Panggilan_tersangka;
 use App\Pangkat;
 use App\Pegawai;
+use App\PenetapanTersangka;
 use App\Perintah_penyelidikan;
 use App\Perintah_penyidikan;
 use App\Permintaan_keterangan;
 use App\Putusan_pengadilan;
 use App\Surat_terima;
 use App\Warga;
-use App\Aduan;
 use Auth;
 
 class ReportController extends Controller
@@ -151,6 +151,22 @@ class ReportController extends Controller
         return $pdf->stream('laporan-panggilan_tersangka-pdf');
     }
 
+    public function penetapantersangka(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $role = Auth::user()->keterangan;
+        $date = explode("-", $request->month);
+        $month = $date[0];
+        $year = $date[1];
+        $data = PenetapanTersangka::whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->get();
+        $periode = Carbon::createFromFormat('m', $month);
+
+        $pdf = PDF::loadview('admin/report/penetapantersangkatanggal', compact('data', 'now', 'user', 'month', 'year', 'periode', 'role'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-panggilan_tersangka-pdf');
+    }
+
     public function panggilantersangkakeseluruhan(Request $request)
     {
         $now = Carbon::now()->format('d-m-Y');
@@ -160,6 +176,17 @@ class ReportController extends Controller
         $pdf = PDF::loadview('admin/report/panggilantersangkakeseluruhan', compact('data', 'now', 'user'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-panggilan_tersangka-pdf');
+    }
+
+    public function penetapantersangkakeseluruhan1(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $data = PenetapanTersangka::all();
+
+        $pdf = PDF::loadview('admin/report/penetapantersangkakeseluruhan1', compact('data', 'now', 'user'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-penetapan_tersangka-pdf');
     }
 
     public function putusanpengadilan(Request $request)
@@ -329,5 +356,28 @@ class ReportController extends Controller
         $pdf = PDF::loadview('admin/report/surathaspenyidikan', compact('data', 'now'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('surat-hasil_penyidikan-pdf');
+    }
+
+    public function penetapantersangkaformat($id)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $data = PenetapanTersangka::where('uuid', $id)->first();
+
+        $pdf = PDF::loadview('admin/report/penetapantersangka', compact('data', 'now', 'user'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('surat-hasil_penyidikan-pdf');
+    }
+
+
+    public function penetapantersangkakeseluruhan(Request $request)
+    {
+        $now = Carbon::now()->format('d-m-Y');
+        $user = Auth::user()->name;
+        $data = PenetapanTersangka::all();
+
+        $pdf = PDF::loadview('admin/report/penetapantersangkakeseluruhan', compact('data', 'now', 'user'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('laporan-hasil_penyidikan-pdf');
     }
 }

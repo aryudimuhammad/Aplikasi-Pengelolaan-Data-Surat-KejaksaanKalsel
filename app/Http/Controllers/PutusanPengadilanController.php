@@ -26,7 +26,7 @@ class PutusanPengadilanController extends Controller
             'unique' => 'Nomor Surat Hasil Penyidikan Sudah ada.',
         ];
         $validator = Validator::make($request->all(), [
-            'hasil_penyidikan_id' => 'required|unique:putusan_pengadilans',
+            // 'hasil_penyidikan_id' => 'required|unique:putusan_pengadilans',
             'pegawai_id' => 'required',
             'nomor' => 'required',
             'dasar' => 'required',

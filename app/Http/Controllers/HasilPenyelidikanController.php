@@ -24,7 +24,7 @@ class HasilPenyelidikanController extends Controller
             'unique' => 'Data Perihal Sudah ada.'
         ];
         $validator = Validator::make($request->all(), [
-            'permintaan_keterangan_id' => 'required|unique:hasil_penyelidikans',
+            // 'permintaan_keterangan_id' => 'required|unique:hasil_penyelidikans',
             'no_pol' => 'required',
             'isi_surat' => 'required',
         ], $messages);

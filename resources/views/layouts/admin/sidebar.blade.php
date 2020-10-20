@@ -29,6 +29,7 @@
                         <a href="{{route('hasilpenyelidikanIndex')}}" class="dropdown-item">Hasil Penyelidikan</a>
                         <a href="{{route('perintahpenyidikanIndex')}}" class="dropdown-item">Perintah Penyidikan</a>
                         <a href="{{route('panggilanIndex')}}" class="dropdown-item">Panggilan Tersangka</a>
+                        <a href="{{route('penetapanIndex')}}" class="dropdown-item">Penetapan Tersangka</a>
                         <a href="{{route('hasilpenyidikanIndex')}}" class="dropdown-item">Hasil Penyidikan</a>
                         <a href="{{route('putusanIndex')}}" class="dropdown-item">Keputusan Pengadilan</a>
                     </div>

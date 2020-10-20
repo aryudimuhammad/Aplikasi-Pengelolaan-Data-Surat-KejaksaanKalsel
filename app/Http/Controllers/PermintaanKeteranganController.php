@@ -25,7 +25,7 @@ class PermintaanKeteranganController extends Controller
             'unique' => 'Nomor Penyelidikan Sudah ada.'
         ];
         $validator = Validator::make($request->all(), [
-            'perintah_penyelidikan_id' => 'required|unique:permintaan_keterangans',
+            // 'perintah_penyelidikan_id' => 'required|unique:permintaan_keterangans',
             'no_pol' => 'required',
             'perihal' => 'required',
             'nama' => 'required',

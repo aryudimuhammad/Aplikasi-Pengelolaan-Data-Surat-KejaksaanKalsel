@@ -100,6 +100,14 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::post('/panggilan/tersangka/{id}', 'PanggilanTersangkaController@update')->name('panggilanUpdate');
     Route::delete('/panggilan/tersangka/delete/{id}', 'PanggilanTersangkaController@delete')->name('hasilpanggilanDelete');
 
+    //route Penetapan Tersangka
+    Route::get('/penetapan/tersangka', 'PenetapanTersangkaController@index')->name('penetapanIndex');
+    Route::post('/penetapan/tersangka', 'PenetapanTersangkaController@create')->name('penetapanCreate');
+    Route::get('/penetapan/tersangka/show/{id}', 'PenetapanTersangkaController@show')->name('penetapanShow');
+    Route::get('/penetapan/tersangka/{id}', 'PenetapanTersangkaController@edit')->name('penetapanEdit');
+    Route::post('/penetapan/tersangka/{id}', 'PenetapanTersangkaController@update')->name('penetapanUpdate');
+    Route::delete('/penetapan/tersangka/delete/{id}', 'PenetapanTersangkaController@delete')->name('hasilpenetapanDelete');
+
     //route Hasil Penyidikan
     Route::get('/hasil/penyidikan', 'HasilPenyidikanController@index')->name('hasilpenyidikanIndex');
     Route::post('/hasil/penyidikan', 'HasilPenyidikanController@create')->name('hasilpenyidikanCreate');
@@ -149,6 +157,7 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::get('/admin/report/hasilpenyelidikan', 'ReportController@hasilpenyelidikan')->name('hasilpenyelidikan');
     Route::get('/admin/report/perintahpenyidikan', 'ReportController@perintahpenyidikan')->name('perintahpenyidikan');
     Route::get('/admin/report/panggilantersangka', 'ReportController@panggilantersangka')->name('panggilantersangka');
+    Route::get('/admin/report/penetapantersangka', 'ReportController@penetapantersangka')->name('penetapantersangka');
     Route::get('/admin/report/hasilpenyidikan', 'ReportController@hasilpenyidikan')->name('hasilpenyidikan');
     Route::get('/admin/report/putusanpengadilan', 'ReportController@putusanpengadilan')->name('putusanpengadilan');
     Route::get('/admin/report/suratterimaformat/{id}', 'ReportController@suratterimaformat')->name('suratterimaformat');
@@ -159,6 +168,7 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::get('/admin/report/panggilantersangkaformat/{id}', 'ReportController@panggilantersangkaformat')->name('panggilantersangkaformat');
     Route::get('/admin/report/hasilpenyidikanformat/{id}', 'ReportController@hasilpenyidikanformat')->name('hasilpenyidikanformat');
     Route::get('/admin/report/putusanpengadilanformat/{id}', 'ReportController@putusanpengadilanformat')->name('putusanpengadilanformat');
+    Route::get('/admin/report/penetapantersangkaformat/{id}', 'ReportController@penetapantersangkaformat')->name('penetapantersangkaformat');
 
     //cetak keseluruhan
     Route::get('/admin/report/suratterima/keseluruhan', 'ReportController@suratterimakeseluruhan')->name('suratterimakeseluruhan');
@@ -167,6 +177,8 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::get('/admin/report/hasilpenyelidikan/keseluruhan', 'ReportController@hasilpenyelidikankeseluruhan')->name('hasilpenyelidikankeseluruhan');
     Route::get('/admin/report/perintahpenyidikan/keseluruhan', 'ReportController@perintahpenyidikankeseluruhan')->name('perintahpenyidikankeseluruhan');
     Route::get('/admin/report/panggilantersang/kakeseluruhan', 'ReportController@panggilantersangkakeseluruhan')->name('panggilantersangkakeseluruhan');
+    Route::get('/admin/report/panggilantersang/kakeseluruhan', 'ReportController@penetapantersangkakeseluruhan1')->name('penetapantersangkakeseluruhan1');
     Route::get('/admin/report/hasilpenyidikan/keseluruhan', 'ReportController@hasilpenyidikankeseluruhan')->name('hasilpenyidikankeseluruhan');
     Route::get('/admin/report/putusanpengadilan/keseluruhan', 'ReportController@putusanpengadilankeseluruhan')->name('putusanpengadilankeseluruhan');
+    Route::get('/admin/report/penetapantersangka/keseluruhan', 'ReportController@penetapantersangkakeseluruhan')->name('penetapantersangkakeseluruhan');
 });

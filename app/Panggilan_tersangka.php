@@ -29,4 +29,8 @@ class Panggilan_tersangka extends Model
     {
         return $this->belongsTo(Pegawai::class);
     }
+    public function PenetapanTersangka()
+    {
+        return $this->belongsTo(PenetapanTersangka::class);
+    }
 }

@@ -27,7 +27,7 @@ class PanggilanTersangkaController extends Controller
             'unique' => 'Data Perintah Penyidikan Sudah ada.'
         ];
         $validator = Validator::make($request->all(), [
-            'perintah_penyidikan_id' => 'required|unique:panggilan_tersangkas',
+            // 'perintah_penyidikan_id' => 'required|unique:panggilan_tersangkas',
             'no_panggilan' => 'required',
             'nama' => 'required',
             'kota' => 'required',
