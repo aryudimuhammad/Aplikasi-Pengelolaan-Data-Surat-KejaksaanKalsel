@@ -19,41 +19,41 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="nomor_surat">Nomor Surat</label>
                         <input type="text" name="nomor_surat" id="nomor_surat" class="form-control"
                             placeholder="Masukkan Nomor Surat" value="{{old('nomor_surat')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="klasifikasi">Klasifikasi</label>
-                        <input type="text" name="klasifikasi" id="klasifikasi" class="form-control"
-                            placeholder="Masukkan Klasifikasi" value="{{old('klasifikasi')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="perihal">Perihal</label>
-                        <input type="text" name="perihal" id="perihal" class="form-control"
-                            placeholder="Masukkan Perihal" value="{{old('perihal')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="kepada">Kepada</label>
-                        <input type="text" name="kepada" id="kepada" class="form-control" placeholder="Masukkan Kepada"
-                            value="{{old('kepada')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="dikeluarkan_di">Dikeluarkan di</label>
-                        <input type="text" name="dikeluarkan_di" id="dikeluarkan_di" class="form-control"
-                            placeholder="Masukkan Dikeluarkan di" value="{{old('dikeluarkan_di')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="uraian">Uraian</label>
-                        <textarea name="uraian" id="summernote1" class="form-control">{{old('uraian')}}</textarea>
-                    </div>
+                </div> --}}
+                <div class="form-group">
+                    <label for="klasifikasi">Klasifikasi</label>
+                    <input type="text" name="klasifikasi" id="klasifikasi" class="form-control"
+                        placeholder="Masukkan Klasifikasi" value="{{old('klasifikasi')}}">
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                <div class="form-group">
+                    <label for="perihal">Perihal</label>
+                    <input type="text" name="perihal" id="perihal" class="form-control" placeholder="Masukkan Perihal"
+                        value="{{old('perihal')}}">
                 </div>
-            </form>
+                <div class="form-group">
+                    <label for="kepada">Kepada</label>
+                    <input type="text" name="kepada" id="kepada" class="form-control" placeholder="Masukkan Kepada"
+                        value="{{old('kepada')}}">
+                </div>
+                <div class="form-group">
+                    <label for="dikeluarkan_di">Dikeluarkan di</label>
+                    <input type="text" name="dikeluarkan_di" id="dikeluarkan_di" class="form-control"
+                        placeholder="Masukkan Dikeluarkan di" value="{{old('dikeluarkan_di')}}">
+                </div>
+                <div class="form-group">
+                    <label for="uraian">Uraian</label>
+                    <textarea name="uraian" id="summernote1" class="form-control">{{old('uraian')}}</textarea>
+                </div>
         </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+        </form>
     </div>
+</div>
 </div>

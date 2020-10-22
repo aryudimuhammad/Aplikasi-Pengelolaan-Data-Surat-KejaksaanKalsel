@@ -14,24 +14,25 @@
                         <label for="permintaan_keterangan_id">Perihal</label>
                         <select name="permintaan_keterangan_id" id="permintaan_keterangan_id" class="form-control">
                             @foreach($keterangan as $d)
-                            <option value="{{$d->id}}" @if (old('permintaan_keterangan_id')==$d->id) {{ 'selected' }} @endif>{{$d->perihal}}</option>
+                            <option value="{{$d->id}}" @if (old('permintaan_keterangan_id')==$d->id) {{ 'selected' }}
+                                @endif>{{$d->perihal}}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="no_pol">No.Pol</label>
                         <input type="text" name="no_pol" id="no_pol" class="form-control" placeholder="Masukkan No.Pol" value="{{old('no_pol')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="isi_surat">Isi Surat</label>
-                        <textarea name="isi_surat" id="summernote1" class="form-control">{{old('isi_surat')}}</textarea>
-                    </div>
+                </div> --}}
+                <div class="form-group">
+                    <label for="isi_surat">Isi Surat</label>
+                    <textarea name="isi_surat" id="summernote1" class="form-control">{{old('isi_surat')}}</textarea>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
         </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+        </form>
     </div>
+</div>
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Panggilan_tersangka;
 use App\PenetapanTersangka;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -26,18 +27,26 @@ class PenetapanTersangkaController extends Controller
         $validator = Validator::make($request->all(), [
             // 'panggilan_tersangka_id' => 'required|unique:penetapan_tersangkas',
             'keterangan' => 'required',
-            'nomor_surat' => 'required',
+            // 'nomor_surat' => 'required',
         ], $messages);
 
         if ($validator->fails()) {
             return back()->with('warning', $validator->errors()->all()[0])->withInput();
         }
 
+        //tanggal
+        $d = Carbon::now()->translatedFormat('d');
+        $m = Carbon::now()->translatedFormat('m');
+        $y = Carbon::now()->translatedFormat('Y');
+
         $data = new PenetapanTersangka;
         $data->panggilan_tersangka_id = $request->panggilan_tersangka_id;
         $data->keterangan = $request->keterangan;
         $data->nomor_surat = $request->nomor_surat;
         $data->save();
+
+        $data->nomor_surat = "SP/$data->id/P.9/$d/$m/$y";
+        $data->update();
 
         return back()->with('success', 'Data Behasil Disimpan.');
     }

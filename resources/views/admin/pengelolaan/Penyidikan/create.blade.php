@@ -28,35 +28,35 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="no_penyidikan">No. Penyidikan</label>
                         <input type="text" name="no_penyidikan" id="no_penyidikan" class="form-control"
                             placeholder="Masukkan Nomor Penyidikan" value="{{old('no_penyidikan')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="pertimbangan">Pertimbangan</label>
-                        <textarea name="pertimbangan" id="summernote1"
-                            class="form-control">{{old('pertimbangan')}}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="dasar">Dasar</label>
-                        <textarea name="dasar" id="summernote2" class="form-control">{{old('dasar')}}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="untuk">Untuk</label>
-                        <textarea name="untuk" id="summernote3" class="form-control">{{old('untuk')}}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="dikeluarkan_di">Dikeluarkan di</label>
-                        <input name="dikeluarkan_di" id="dikeluarkan_di" class="form-control"
-                            placeholder="Dikeluarkan di" value="{{old('dikeluarkan_di')}}">
-                    </div>
+                </div> --}}
+                <div class="form-group">
+                    <label for="pertimbangan">Pertimbangan</label>
+                    <textarea name="pertimbangan" id="summernote1"
+                        class="form-control">{{old('pertimbangan')}}</textarea>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                <div class="form-group">
+                    <label for="dasar">Dasar</label>
+                    <textarea name="dasar" id="summernote2" class="form-control">{{old('dasar')}}</textarea>
                 </div>
-            </form>
+                <div class="form-group">
+                    <label for="untuk">Untuk</label>
+                    <textarea name="untuk" id="summernote3" class="form-control">{{old('untuk')}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="dikeluarkan_di">Dikeluarkan di</label>
+                    <input name="dikeluarkan_di" id="dikeluarkan_di" class="form-control" placeholder="Dikeluarkan di"
+                        value="{{old('dikeluarkan_di')}}">
+                </div>
         </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+        </form>
     </div>
+</div>
 </div>

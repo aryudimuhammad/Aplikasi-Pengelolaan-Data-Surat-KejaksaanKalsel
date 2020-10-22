@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Hasil_penyelidikan;
 use App\Pegawai;
 use App\Perintah_penyidikan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,7 +30,7 @@ class PerintahPenyidikanController extends Controller
             // 'hasil_penyelidikan_id' => 'required|unique:perintah_penyidikans',
             'pegawai_id' => 'required',
             'pertimbangan' => 'required',
-            'no_penyidikan' => 'required',
+            // 'no_penyidikan' => 'required',
             'dasar' => 'required',
             'untuk' => 'required',
             'dikeluarkan_di' => 'required',
@@ -39,15 +40,23 @@ class PerintahPenyidikanController extends Controller
             return back()->with('warning', $validator->errors()->all()[0])->withInput();
         }
 
+        //tanggal
+        $d = Carbon::now()->translatedFormat('d');
+        $m = Carbon::now()->translatedFormat('m');
+        $y = Carbon::now()->translatedFormat('Y');
+
         $data = new Perintah_penyidikan;
         $data->hasil_penyelidikan_id = $request->hasil_penyelidikan_id;
         $data->pegawai_id = $request->pegawai_id;
         $data->pertimbangan = $request->pertimbangan;
-        $data->no_penyidikan = $request->no_penyidikan;
+        $data->no_penyidikan = 0;
         $data->dasar = $request->dasar;
         $data->untuk = $request->untuk;
         $data->dikeluarkan_di = $request->dikeluarkan_di;
         $data->save();
+
+        $data->no_penyidikan = "SP/$data->id/P.8/$d/$m/$y";
+        $data->update();
 
         return back()->with('success', 'Data Behasil Disimpan.');
     }
