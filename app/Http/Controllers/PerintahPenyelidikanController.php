@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pegawai;
 use App\Perintah_penyelidikan;
 use App\Surat_terima;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -26,7 +27,7 @@ class PerintahPenyelidikanController extends Controller
             'unique' => 'Nomor Penyelidikan Sudah ada.'
         ];
         $validator = Validator::make($request->all(), [
-            'no_penyelidikan' => 'required|unique:perintah_penyelidikans',
+            // 'no_penyelidikan' => 'required',
             'pertimbangan' => 'required',
             'dasar' => 'required',
             'untuk' => 'required',
@@ -38,16 +39,24 @@ class PerintahPenyelidikanController extends Controller
             return back()->with('warning', $validator->errors()->all()[0])->withInput();
         }
 
+        //tanggal
+        $d = Carbon::now()->translatedFormat('d');
+        $m = Carbon::now()->translatedFormat('m');
+        $y = Carbon::now()->translatedFormat('Y');
+
         $data = new Perintah_penyelidikan;
         $data->surat_terima_id = $request->surat_terima_id;
         $data->pegawai_id = $request->pegawai_id;
-        $data->no_penyelidikan = $request->no_penyelidikan;
+        $data->no_penyelidikan = 0;
         $data->pertimbangan = $request->pertimbangan;
         $data->sasaran = $request->sasaran;
         $data->dasar = $request->dasar;
         $data->untuk = $request->untuk;
         $data->dikeluarkan_di = $request->dikeluarkan_di;
         $data->save();
+
+        $data->no_penyelidikan = "SP/$data->id/P.2/$d/$m/$y";
+        $data->update();
 
         $update = Surat_terima::findOrFail($data->surat_terima_id);
         $update->status = 1;

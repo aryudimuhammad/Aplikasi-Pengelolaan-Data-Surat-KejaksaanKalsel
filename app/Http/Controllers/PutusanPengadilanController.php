@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Hasil_penyidikan;
 use App\Pegawai;
 use App\Putusan_pengadilan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -28,7 +29,7 @@ class PutusanPengadilanController extends Controller
         $validator = Validator::make($request->all(), [
             // 'hasil_penyidikan_id' => 'required|unique:putusan_pengadilans',
             'pegawai_id' => 'required',
-            'nomor' => 'required',
+            // 'nomor' => 'required',
             'dasar' => 'required',
             'pertimbangan' => 'required',
             'untuk' => 'required',
@@ -39,15 +40,23 @@ class PutusanPengadilanController extends Controller
             return back()->with('warning', $validator->errors()->all()[0])->withInput();
         }
 
+        //tanggal
+        $d = Carbon::now()->translatedFormat('d');
+        $m = Carbon::now()->translatedFormat('m');
+        $y = Carbon::now()->translatedFormat('Y');
+
         $data = new Putusan_pengadilan;
         $data->hasil_penyidikan_id = $request->hasil_penyidikan_id;
         $data->pegawai_id = $request->pegawai_id;
-        $data->nomor = $request->nomor;
+        $data->nomor = 0;
         $data->dasar = $request->dasar;
         $data->pertimbangan = $request->pertimbangan;
         $data->untuk = $request->untuk;
         $data->dikeluarkan_di = $request->dikeluarkan_di;
         $data->save();
+
+        $data->nomor = "SP/$data->id/P.48/$d/$m/$y";
+        $data->update();
 
         return back()->with('success', 'Data Behasil Disimpan.');
     }

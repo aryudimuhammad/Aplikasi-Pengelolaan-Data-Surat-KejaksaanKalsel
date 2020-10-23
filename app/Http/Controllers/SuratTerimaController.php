@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Aduan;
 use App\Surat_terima;
 use App\Warga;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class SuratTerimaController extends Controller
             'number' => 'Nomor Telepon/Kontak Harus Berupa Angka.',
         ];
         $validator = Validator::make($request->all(), [
-            'nomor' => 'required',
+            // 'nomor' => 'required',
             'alias' => 'required',
             'ortu' => 'required',
             'ortu' => 'required',
@@ -60,14 +61,23 @@ class SuratTerimaController extends Controller
         $warga->kontak = $request->kontak;
         $warga->save();
 
+        //tanggal
+        $d = Carbon::now()->translatedFormat('d');
+        $m = Carbon::now()->translatedFormat('m');
+        $y = Carbon::now()->translatedFormat('Y');
+
         //surat terima
         $data = new Surat_terima;
         $data->warga_id = $warga->id;
         $data->aduan_id = $request->aduan_id;
-        $data->nomor = $request->nomor;
+        //$data->nomor = $request->nomor;
+        $data->nomor = 0;
         $data->uraian = $request->uraian;
         $data->status = 0;
         $data->save();
+
+        $data->nomor = "SP/$data->id/P.1/$d/$m/$y";
+        $data->update();
 
 
         return back()->with('success', 'Data Behasil Disimpan.');

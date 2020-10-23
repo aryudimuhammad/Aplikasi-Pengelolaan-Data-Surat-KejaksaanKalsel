@@ -36,7 +36,9 @@
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="login-input-area">
-                                        <input type="email" id="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        <input type="email" id="email" class="@error('email') is-invalid @enderror"
+                                            name="email" value="{{ old('email') }}" required autocomplete="email"
+                                            autofocus>
                                         <i class="fa fa-envelope login-user" aria-hidden="true"></i>
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -54,7 +56,9 @@
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="login-input-area">
-                                        <input type="password" id="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                        <input type="password" id="password"
+                                            class="@error('password') is-invalid @enderror" name="password" required
+                                            autocomplete="current-password">
                                         <i class=" fa fa-lock login-user"></i>
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -64,16 +68,11 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="forgot-password">
-                                                <a href="{{ route('password.request') }}">Forgot password?</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
                                             <div class="login-keep-me">
                                                 <label class="checkbox" for="remember">
-                                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} checked><i></i>Keep me logged in
+                                                    <input class="form-check-input" type="checkbox" name="remember"
+                                                        id="remember" {{ old('remember') ? 'checked' : '' }}
+                                                        checked><i></i>Keep me logged in
                                                 </label>
                                             </div>
                                         </div>
@@ -86,7 +85,8 @@
                                 <div class="col-lg-8">
                                     <div class="login-button-pro">
                                         <!-- <a href="{{ route('register') }}" class="login-button login-button-rg">Register</a> -->
-                                        <button type="submit" class="login-button login-button-lg" style="width: 93%;">Log in</button>
+                                        <button type="submit" class="login-button login-button-lg"
+                                            style="width: 93%;">Log in</button>
                                     </div>
                                 </div>
                             </div>

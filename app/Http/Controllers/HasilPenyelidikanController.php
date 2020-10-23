@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Hasil_penyelidikan;
 use App\Permintaan_keterangan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,7 +26,7 @@ class HasilPenyelidikanController extends Controller
         ];
         $validator = Validator::make($request->all(), [
             // 'permintaan_keterangan_id' => 'required|unique:hasil_penyelidikans',
-            'no_pol' => 'required',
+            // 'no_pol' => 'required',
             'isi_surat' => 'required',
         ], $messages);
 
@@ -33,11 +34,18 @@ class HasilPenyelidikanController extends Controller
             return back()->with('warning', $validator->errors()->all()[0])->withInput();
         }
 
+        //tanggal
+        $d = Carbon::now()->translatedFormat('d');
+        $m = Carbon::now()->translatedFormat('m');
+        $y = Carbon::now()->translatedFormat('Y');
+
         $data = new Hasil_penyelidikan;
         $data->permintaan_keterangan_id = $request->permintaan_keterangan_id;
-        $data->no_pol = $request->no_pol;
+        $data->no_pol = 0;
         $data->isi_surat = $request->isi_surat;
         $data->save();
+        $data->no_pol = "SP/$data->id/P.5/$d/$m/$y";
+        $data->update();
 
         return back()->with('success', 'Data Behasil Disimpan.');
     }

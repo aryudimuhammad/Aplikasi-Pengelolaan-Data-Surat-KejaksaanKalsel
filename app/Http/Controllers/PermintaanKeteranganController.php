@@ -6,6 +6,7 @@ use App\Perintah_penyelidikan;
 use App\Warga;
 use App\Permintaan_keterangan;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 class PermintaanKeteranganController extends Controller
@@ -26,7 +27,7 @@ class PermintaanKeteranganController extends Controller
         ];
         $validator = Validator::make($request->all(), [
             // 'perintah_penyelidikan_id' => 'required|unique:permintaan_keterangans',
-            'no_pol' => 'required',
+            // 'no_pol' => 'required',
             'perihal' => 'required',
             'nama' => 'required',
             'di_kota' => 'required',
@@ -62,14 +63,22 @@ class PermintaanKeteranganController extends Controller
         $warga->kontak = $request->kontak;
         $warga->save();
 
+        //tanggal
+        $d = Carbon::now()->translatedFormat('d');
+        $m = Carbon::now()->translatedFormat('m');
+        $y = Carbon::now()->translatedFormat('Y');
+
         $data = new Permintaan_keterangan;
         $data->perintah_penyelidikan_id = $request->perintah_penyelidikan_id;
         $data->warga_id = $warga->id;
-        $data->no_pol = $request->no_pol;
+        $data->no_pol = 0;
         $data->perihal = $request->perihal;
         $data->di_kota = $request->di_kota;
         $data->uraian = $request->uraian;
         $data->save();
+
+        $data->no_pol = "SP/$data->id/P.4/$d/$m/$y";
+        $data->update();
 
 
 
