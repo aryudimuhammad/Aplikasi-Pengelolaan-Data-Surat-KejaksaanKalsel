@@ -19,10 +19,10 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="nomor_surat">Nomor Surat</label>
                         <input type="text" name="nomor_surat" class="form-control" placeholder="Nomor Surat.." value="{{old('nomor_surat')}}">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="keterangan">Keterangan</label>
                         <textarea name="keterangan" id="summernote2" class="form-control" placeholder="Keterangan..">{{old('keterangan')}}</textarea>

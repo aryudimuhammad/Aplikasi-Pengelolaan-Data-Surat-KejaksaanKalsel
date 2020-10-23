@@ -42,7 +42,7 @@ class PenetapanTersangkaController extends Controller
         $data = new PenetapanTersangka;
         $data->panggilan_tersangka_id = $request->panggilan_tersangka_id;
         $data->keterangan = $request->keterangan;
-        $data->nomor_surat = $request->nomor_surat;
+        $data->nomor_surat = 0;
         $data->save();
 
         $data->nomor_surat = "SP/$data->id/P.9/$d/$m/$y";
