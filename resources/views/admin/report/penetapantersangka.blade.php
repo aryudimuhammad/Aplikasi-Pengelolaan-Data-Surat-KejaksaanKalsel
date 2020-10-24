@@ -106,7 +106,7 @@
 
     <div class="container" style="margin-top:-40px;">
         <h3 style="text-align:center;text-transform: uppercase;">Surat Penetapan Tersangka</h3>
-        <p style="text-align: center;">No. Penyelidikan : {{$data->no_penyelidikan}}</p>
+        <p style="text-align: center;">No. Surat : {{$data->nomor_surat}}</p>
         <table>
             <tr>
                 <td style="width: 85px; padding-left: 60px;">Menimbang</td>
