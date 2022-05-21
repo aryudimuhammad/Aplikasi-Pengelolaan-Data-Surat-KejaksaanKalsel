@@ -16,7 +16,25 @@ class SuratTerimaController extends Controller
         $data = Surat_terima::latest()->get();
         $aduan = Aduan::latest()->get();
 
-        return view('admin.pengelolaan.surat.index', compact('data', 'aduan'));
+        //tanggal
+        $d = Carbon::now()->translatedFormat('d');
+        $m = Carbon::now()->translatedFormat('m');
+        $y = Carbon::now()->translatedFormat('Y');
+
+        //nomor
+        $check = Surat_terima::count();
+
+        if ($check == 0) {
+            $urut = 1;
+            $nomor = "SP/$urut/P.1/$d/$m/$y";
+
+        } else {
+            $take = Surat_terima::all()->last();
+            $urut = (int)substr($take->id, -1) +1;
+            $nomor = "SP/$urut/P.1/$d/$m/$y";
+        }
+
+        return view('admin.pengelolaan.surat.index', compact('data', 'aduan', 'nomor'));
     }
 
     public function create(Request $request)
@@ -74,10 +92,11 @@ class SuratTerimaController extends Controller
         $data->nomor = 0;
         $data->uraian = $request->uraian;
         $data->status = 0;
+        $data->nomor = $request->nomor;
         $data->save();
 
-        $data->nomor = "SP/$data->id/P.1/$d/$m/$y";
-        $data->update();
+        // $data->nomor = "SP/$data->id/P.1/$d/$m/$y";
+        // $data->update();
 
 
         return back()->with('success', 'Data Behasil Disimpan.');

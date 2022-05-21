@@ -25,6 +25,11 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="nomor">Nomor Surat</label>
+                    <input type="text" name="nomor" id="nomor" class="form-control" placeholder="" readonly
+                        value="{{$nomor}}">
+                </div>
+                <div class="form-group">
                     <label for="nik">Nik</label>
                     <input type="text" name="nik" id="nik" class="form-control" placeholder="Masukkan Nik"
                         value="{{old('nik')}}">
